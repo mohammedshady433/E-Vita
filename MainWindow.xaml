@@ -38,7 +38,7 @@
             <!-- Login Button -->
             <Button Content="Login" Width="200" Height="60" FontSize="30" Background="#0F4C75" BorderThickness="1" Click="Button_Click" Foreground="White" Margin="20"/>
             <!-- Reset_Password Button -->
-            <Button Content="Reset Password" Width="250" Height="60" FontSize="30" Background="#0F4C75" BorderThickness="1" Click="Button_Click" Foreground="White"/>
+            <Button Content="Reset Password" Width="250" Height="60" FontSize="30" Background="#0F4C75" BorderThickness="1" Click="Reset_Pass" Foreground="White"/>
         </StackPanel>
 <!-- Mergetest -->
     </Grid>

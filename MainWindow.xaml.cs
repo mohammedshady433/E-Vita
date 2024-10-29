@@ -58,5 +58,10 @@ namespace E_Vita
         {
 
         }
+
+        private void Reset_Pass(object sender, RoutedEventArgs e)
+        {
+            this.Content = new resetPass();
+        }
     }
 }
