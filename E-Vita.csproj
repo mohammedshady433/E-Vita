@@ -9,4 +9,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="E-Vita logo-01.png" />
+    <None Remove="E-Vita-01.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="E-Vita logo-01.png" />
+    <Resource Include="E-Vita-01.png" />
+  </ItemGroup>
+
 </Project>
