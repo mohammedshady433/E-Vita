@@ -5,9 +5,51 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:E_Vita"
       mc:Ignorable="d" 
-      Title="Dashboard" d:DesignHeight="1080" d:DesignWidth="1920">
+      Title="Nurse Dashboard" Height="auto" Width="auto"
+      d:DesignHeight="1080" d:DesignWidth="1920">
 
-    <Grid Background="Aqua">
-        
+    <Grid Background="#FFBBE1FA">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="1" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,10">
+            <Label Content="&#xD;&#xA;Nurse Dashboard"
+               Height="204" Width="614" FontSize="55" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FF180C47" Background="#BBE1FA"/>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="3" Grid.RowSpan="4" Grid.ColumnSpan="3">
+            <Button  Height="250" Width="450" Click="Button_Click"
+                     Foreground="#0F4C75" FontFamily="Cooper Black" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="C:\Users\workstation\Documents\mohammedshady433\E-Vita\5588-removebg-preview.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" >
+            <Button  Height="250" Width="450"
+                      Foreground="#0F4C75" FontFamily="Cooper Black" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/11443159-removebg-preview.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="400" >
+            <Image Source="C:\Users\workstation\Documents\mohammedshady433\E-Vita\E-Vita logo-01.png"  Grid.Column="4" HorizontalAlignment="Left" Height="400" Margin="-80" Grid.Row="2" VerticalAlignment="Top" Width="400" />
+        </StackPanel>
     </Grid>
 </Page>
