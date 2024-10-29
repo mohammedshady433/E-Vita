@@ -10,11 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="11443159-removebg-preview.png" />
     <None Remove="E-Vita logo-01.png" />
     <None Remove="E-Vita-01.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="11443159-removebg-preview.png" />
     <Resource Include="E-Vita logo-01.png" />
     <Resource Include="E-Vita-01.png" />
   </ItemGroup>
