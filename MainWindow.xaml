@@ -4,57 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" WindowStyle="ThreeDBorderWindow"
-        Title="MainWindow" WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
+        Title="Login" WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/E-Vita-01.png" Stretch="UniformToFill"/>
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="1320"/>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="355.013"/>
-            <RowDefinition Height="519.02"/>
-            <RowDefinition Height="190.007"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                    Height="555" Width="1300">
+        <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" >
             <!-- Username Label -->
-            <Label FontSize="40" FontFamily="Montserrat" FontWeight="Bold"
-                   HorizontalAlignment="Left" VerticalAlignment="Top" 
-                   Background="Transparent" Margin="150,40,0,0">
-                <Label.Content>Username:</Label.Content>
-            </Label>
-
+            <Label FontSize="40" Content="Username:" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Margin="0,20,0,20"/>
             <!-- Username TextBox -->
-            <TextBox Name="user_txt" Height="40" Width="350" Background="White"
-                     BorderBrush="Transparent" Margin="-150,-50,0,0"/>
-
+            <TextBox Name="user_txt" Height="40" Width="350" Background="White" BorderBrush="Transparent"/>
             <!-- Password Label -->
-            <Label FontSize="40" FontFamily="Montserrat" FontWeight="Bold"
-                   HorizontalAlignment="Left" VerticalAlignment="Top" 
-                   Background="Transparent" Margin="150,40,0,0">
-                <Label.Content>Password:</Label.Content>
-            </Label>
-
+            <Label FontSize="40" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Content="Password:" Margin="0,20,0,20"/>
             <!-- Password TextBox -->
-            <PasswordBox Name="pass_txt" Height="40" Width="350" Background="White"
-                         BorderBrush="Transparent" Margin="-150,-40,0,0" />
+            <PasswordBox Name="pass_txt" Height="40" Width="350" Background="White" BorderBrush="Transparent" />
 
             <!-- Login Button -->
-            <Button Content="Login" Width="200" Height="60" FontSize="30" 
-                    Background="#0F4C75" BorderThickness="1" Margin="-500,70,0,0" 
-                    Click="Button_Click" Foreground="White">
-            </Button>
+            <Button Content="Login" Width="200" Height="60" FontSize="30" Background="#0F4C75" BorderThickness="1" Click="Button_Click" Foreground="White" Margin="20"/>
             <!-- Reset_Password Button -->
-            <Button Content="Reset Password" Width="250" Height="60" FontSize="30" 
-                Background="#0F4C75" BorderThickness="1" Margin="500,-50,0,0" 
-                Click="Button_Click" Foreground="White">
-                </Button>
+            <Button Content="Reset Password" Width="250" Height="60" FontSize="30" Background="#0F4C75" BorderThickness="1" Click="Button_Click" Foreground="White"/>
         </StackPanel>
 <!-- Mergetest -->
     </Grid>
