@@ -7,60 +7,55 @@
         Title="MainWindow" WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="0.122"/>
-                <GradientStop Color="#FF0DD7F9" Offset="0.718"/>
-            </LinearGradientBrush>
+            <ImageBrush ImageSource="/E-Vita-01.png" Stretch="UniformToFill"/>
         </Grid.Background>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="1320"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="355.013"/>
+            <RowDefinition Height="519.02"/>
+            <RowDefinition Height="190.007"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    Height="555" Width="1300">
             <!-- Username Label -->
-            <Label FontSize="24" HorizontalAlignment="Center" Background="Transparent">
-                <Label.Foreground>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0.712"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Label.Foreground>
+            <Label FontSize="40" FontFamily="Montserrat" FontWeight="Bold"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Background="Transparent" Margin="150,40,0,0">
                 <Label.Content>Username:</Label.Content>
             </Label>
 
             <!-- Username TextBox -->
-            <TextBox Name="user_txt" Height="33" Width="348" Background="#BBE1FA" BorderBrush="Black"/>
+            <TextBox Name="user_txt" Height="40" Width="350" Background="White"
+                     BorderBrush="Transparent" Margin="-150,-50,0,0"/>
 
             <!-- Password Label -->
-            <Label FontSize="24" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <Label.Foreground>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0.712"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Label.Foreground>
+            <Label FontSize="40" FontFamily="Montserrat" FontWeight="Bold"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Background="Transparent" Margin="150,40,0,0">
                 <Label.Content>Password:</Label.Content>
             </Label>
 
             <!-- Password TextBox -->
-            <PasswordBox Name="pass_txt" Height="33" Width="348" Background="#BBE1FA" BorderBrush="Black" />
+            <PasswordBox Name="pass_txt" Height="40" Width="350" Background="White"
+                         BorderBrush="Transparent" Margin="-150,-40,0,0" />
 
             <!-- Login Button -->
-            <Button Content="Login" Width="200" Height="60" FontSize="24" Background="Transparent" BorderThickness="1" Margin="0,20,0,0" Click="Button_Click" Foreground="White">
-                <Button.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.BorderBrush>
+            <Button Content="Login" Width="200" Height="60" FontSize="30" 
+                    Background="#0F4C75" BorderThickness="1" Margin="-500,70,0,0" 
+                    Click="Button_Click" Foreground="White">
             </Button>
+            <!-- Reset_Password Button -->
+            <Button Content="Reset Password" Width="250" Height="60" FontSize="30" 
+                Background="#0F4C75" BorderThickness="1" Margin="500,-50,0,0" 
+                Click="Button_Click" Foreground="White">
+                </Button>
         </StackPanel>
     </Grid>
 </Window>
+
