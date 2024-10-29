@@ -24,13 +24,15 @@
             <RowDefinition Height="1*"/>
 
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" RenderTransformOrigin="0.5,0.5">
-            <Label Grid.Column="2" Content="Reset the password" Grid.ColumnSpan="2" HorizontalAlignment="Right" Height="180" VerticalAlignment="Center" Width="536" FontSize="48" Margin="20,49.7,20,0"/>
+        <StackPanel Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center">
+            <Label Grid.Column="2" Content="Reset the password" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="450" FontSize="48" Margin="20,49.7,20,0"/>
         </StackPanel>
-        <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
-            <Label Content="New Password:" FontSize="50" FontWeight="Regular"/>
+        <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+            <Label Content="New Password:" FontSize="40" FontWeight="Regular"/>
             <TextBox Height="35" Width="500"/>
-            <Button Width="100" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="40" Content="Submit" FontSize="30" Background="Transparent" BorderBrush="#A1D5F7" BorderThickness="2"/>
+            <Label Content="Your ID:" FontSize="40" FontWeight="Regular"/>
+            <TextBox Height="35" Width="500"/>
+            <Button Width="100" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="60" Content="Submit" FontSize="30" Background="#0F4c75" Foreground="White" BorderBrush="#A1D5F7" BorderThickness="2" Click="Button_Click"/>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
             <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\E-Vita logo-01.png" Height="400" Width="400" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-90" />
