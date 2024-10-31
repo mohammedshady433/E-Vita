@@ -34,7 +34,7 @@
             <Button  Height="250" Width="450" Click="Button_Click"
                      Foreground="#0F4C75" FontFamily="Cooper Black" BorderThickness="0">
                 <Button.Background>
-                    <ImageBrush ImageSource="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\5588-removebg-preview.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="C:\Users\workstation\Documents\mohammedshady433\E-Vita\5588-removebg-preview.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
         </StackPanel>
@@ -49,7 +49,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="400" >
-            <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\E-Vita logo-01.png"  Grid.Column="4" HorizontalAlignment="Left" Height="400" Margin="-80" Grid.Row="2" VerticalAlignment="Top" Width="400" />
+            <Image Source="C:\Users\workstation\Documents\mohammedshady433\E-Vita\E-Vita logo-01.png"  Grid.Column="4" HorizontalAlignment="Left" Height="400" Margin="-80" Grid.Row="2" VerticalAlignment="Top" Width="400" />
         </StackPanel>
     </Grid>
 </Page>
