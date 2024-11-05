@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" WindowStyle="ThreeDBorderWindow"
         Title="Login" WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/E-Vita-01.png" Stretch="UniformToFill"/>
-        </Grid.Background>
+    <Grid Background="#A1D5F7">
+        <Grid>
 
-        <Grid.ColumnDefinitions>
+
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -40,7 +39,11 @@
             <!-- Reset_Password Button -->
             <Button Content="Reset Password" Width="250" Height="60" FontSize="30" Background="#0F4C75" BorderThickness="1" Click="Reset_Pass" Foreground="White"/>
         </StackPanel>
-<!-- Mergetest -->
+        <StackPanel Grid.Row="0"  Grid.Column="2" Grid.ColumnSpan="2">
+                <Image Source="E-Vita logo-01.png" Margin="0,-120,0,0"/>
+        </StackPanel>
+        </Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Visible" Grid.Column="0" Grid.ColumnSpan="6" />
     </Grid>
 </Window>
 

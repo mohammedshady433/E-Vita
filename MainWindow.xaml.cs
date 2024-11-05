@@ -35,7 +35,7 @@ namespace E_Vita
                 if (passowrd == pass && name == user_txt.Text)
                 {
                     MessageBox.Show("Verified user", "Welcome❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Content = new Dashboard();
+                    MainFrame.Navigate(new Dashboard());
                 }
                 else
                 {
@@ -61,7 +61,7 @@ namespace E_Vita
 
         private void Reset_Pass(object sender, RoutedEventArgs e)
         {
-            this.Content = new resetPass();
+            MainFrame.Navigate(new Reset_Password());
         }
     }
 }
