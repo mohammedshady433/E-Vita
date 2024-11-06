@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace E_Vita
 {
     /// <summary>
-    /// Interaction logic for resetPass.xaml
+    /// Interaction logic for Reset_Password.xaml
     /// </summary>
-    public partial class resetPass : Page
+    public partial class Reset_Password : Page
     {
-        public resetPass()
+        public Reset_Password()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

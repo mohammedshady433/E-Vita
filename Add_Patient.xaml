@@ -1,0 +1,51 @@
+﻿<Page x:Class="E_Vita.Add_Patient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:E_Vita"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Add_Patient">
+    <Grid Background="#BBE1FA">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+    <StackPanel Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" >
+        <Label Grid.Column="2" Content="New Patient Regestration" FontSize="48" />
+    </StackPanel>
+    <StackPanel Grid.Column="3" Grid.Row="5">
+        <Button Width="200" Height="74" HorizontalAlignment="Center" Margin="60" Content="Submit" FontSize="30" Background="#0F4c75" Foreground="White" BorderBrush="#A1D5F7" BorderThickness="2" />
+    </StackPanel>
+    <StackPanel Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" >
+        <Label Content="Name:" FontSize="30"/>
+        <TextBox Height="30" Width="400" HorizontalAlignment="Left" Margin="130,0,0,0"/>
+        <Label Content="ID:" FontSize="30" FontWeight="Regular"/>
+        <TextBox Height="30" Width="400" HorizontalAlignment="Left" Margin="130,0,0,0"/>
+        <Label Content="Nationality:" FontSize="30" FontWeight="Regular"/>
+        <TextBox Height="30" Width="400" HorizontalAlignment="Left" Margin="130,0,0,0"/>
+        <Label Content="Reason of visiting:" FontSize="30" FontWeight="Regular"/>
+    <TextBox Height="50" Width="800" HorizontalAlignment="Left" Margin="130,0,0,0" FontSize="20"/>
+    <Label Content="Date:" FontSize="30" FontWeight="Regular"/>
+    <DatePicker Height="50" Width="200" Margin="-300,0,0,0"/>
+    </StackPanel>
+    <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="400" >
+        <Image Source="E-Vita logo-01.png"  Grid.Column="4" HorizontalAlignment="Left" Height="400" Margin="-80" Grid.Row="2" VerticalAlignment="Top" Width="400" />
+    </StackPanel>
+
+    </Grid>
+
+</Page>
