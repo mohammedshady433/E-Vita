@@ -27,7 +27,7 @@ namespace E_Vita
 
         private void add_Patient(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new Add_Patient());
+            this.NavigationService.Navigate(new Doctor_Dashboard());
         }
     }
 }

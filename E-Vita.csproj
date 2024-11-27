@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+    <PackageReference Include="Syncfusion.SfSchedule.WPF" Version="18.3.0.53" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="11443159-removebg-preview.png" />
     <Resource Include="check.png" />
     <Resource Include="E-Vita logo-01.png" />
