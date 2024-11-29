@@ -1,0 +1,66 @@
+﻿<Page x:Class="E_Vita.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:E_Vita"
+      mc:Ignorable="d" 
+      d:DesignHeight="2500" d:DesignWidth="1532"
+      Title="Page1">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#1B262C" Offset="0.0"/>
+                <GradientStop Color="#0F4C75" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250"  Panel.ZIndex="1">
+            <Image Source="C:\Users\workstation\Desktop\E-Vita\View\E-Vita bright logo-01-croped.png" HorizontalAlignment="Left" Height="250" Margin="0" Width="250"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="nurse Dashboard" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FFBBE1FA" Background="Transparent" Margin="5" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="7" Orientation="Horizontal" Panel.ZIndex="1" >
+            <Button Content="Appointments" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Patient Data" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Photography" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Lab" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Planning" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Descriptions" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Finance" FontSize="20" FontFamily="Cooper Black" BorderThickness="0" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+        </StackPanel>
+        <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="298" Grid.Row="0" VerticalAlignment="Top" Width="1532" Fill="#FF180C47" Grid.RowSpan="2"  />
+        <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="115" Grid.Row="1" VerticalAlignment="Center" Width="1532" Fill="#FF180C47" />
+
+        
+
+    </Grid>
+</Page>
