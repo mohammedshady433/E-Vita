@@ -24,5 +24,16 @@ namespace E_Vita
         {
             InitializeComponent();
         }
+        private void AddMedicationButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Create a new TextBox for entering medication
+            TextBox medicationTextBox = new TextBox();
+            medicationTextBox.Margin = new Thickness(0, 5, 0, 5);
+            medicationTextBox.Width = 200;
+            medicationTextBox.Height = 30;
+
+            // Add the new TextBox to the StackPanel
+            MedicationStackPanel.Children.Add(medicationTextBox);
+        }
     }
 }

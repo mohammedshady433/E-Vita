@@ -66,7 +66,8 @@
             <!-- Upcoming Appointments -->
             <StackPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="3">
                 <TextBlock Text="Upcoming Appointments" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" Foreground="White"/>
-                <ListView Width="1000" HorizontalAlignment="Center" Height="500" SelectionChanged="ListView_SelectionChanged">
+                <ListView Width="1000" HorizontalAlignment="Center" Height="500" >
+                    <!--   this code was written in the listview tag      SelectionChanged="ListView_SelectionChanged"-->
                     <ListView.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#1B262C" Offset="1"/>
@@ -178,7 +179,7 @@
                             </LinearGradientBrush>
                         </StackPanel.Background>
                         <TextBox Name="MedicationTextBox" Width="400" Height="40" Background="#FFBBE1FA" Foreground="#FFBBE1FA" BorderBrush="#BBDEFB" Margin="0,5"/>
-                        <Button Content="+" Width="40" Height="40" Background="#FFBBE1FA" Foreground="#1B262C" FontSize="24" FontWeight="Bold" Margin="5,0,0,0" Click="AddMedicationTextbox"/>
+                        <Button Content="+" Width="40" Height="40" Background="#FFBBE1FA" Foreground="#1B262C" FontSize="24" FontWeight="Bold" Margin="5,0,0,0" Click="AddMedicationButton_Click"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

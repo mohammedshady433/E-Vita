@@ -50,7 +50,7 @@
                                 </Button>
                                 <Button Width="50" Height="30"  Foreground="Transparent" BorderBrush="Transparent" Margin="5">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="C:\Users\workstation\Documents\mohammedshady433\E-Vita\cross.png" Stretch="Uniform"/>
+                                        <ImageBrush ImageSource="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\cross.png" Stretch="Uniform"/>
                                     </Button.Background>
                                 </Button>
                             </StackPanel>
@@ -70,7 +70,7 @@
                                 </Button>
                                 <Button Width="50" Height="30"  Foreground="Transparent" BorderBrush="Transparent" Margin="5">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="C:\Users\workstation\Documents\mohammedshady433\E-Vita\cross.png" Stretch="Uniform"/>
+                                        <ImageBrush ImageSource="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\cross.png" Stretch="Uniform"/>
                                     </Button.Background>
                                 </Button>
                             </StackPanel>
