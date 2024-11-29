@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:E_Vita"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="NavigationButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Cooper Black" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
     </Application.Resources>
 </Application>

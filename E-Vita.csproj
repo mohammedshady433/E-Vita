@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Syncfusion.Blazor.Calendars" Version="27.2.4" />
+    <PackageReference Include="Syncfusion.Licensing" Version="27.2.4" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="27.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="11443159-removebg-preview.png" />
     <Resource Include="check.png" />
     <Resource Include="E-Vita logo-01.png" />

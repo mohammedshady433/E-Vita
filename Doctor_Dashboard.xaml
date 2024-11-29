@@ -1,0 +1,211 @@
+﻿<Page x:Class="E_Vita.Doctor_Dashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="2500" d:DesignWidth="1532"
+      Title="Doctor_Dashboard">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid Background="#FFBBE1FA">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <!-- logo -->
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250"  Panel.ZIndex="1">
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\E-Vita bright logo-01-croped.png" HorizontalAlignment="Left" Height="250" Margin="0" Width="250"/>
+            </StackPanel>
+
+            <!-- HEAD-->
+            <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="Doctor Dashboard" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FFBBE1FA" Background="Transparent" Margin="5" />
+            </StackPanel>
+
+            <!-- Navigation Buttons -->
+            <StackPanel Grid.Row="1"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="7" Orientation="Horizontal" Panel.ZIndex="1" >
+                <Button Content="Appointments" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+                <Button Content="Patient Data" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+                <Button Content="Photography" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+                <Button Content="Lab" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+                <Button Content="Planning" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+                <Button Content="Descriptions" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+                <Button Content="Finance" FontSize="20" FontFamily="Cooper Black" BorderThickness="0" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            </StackPanel>
+            <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="298" Grid.Row="0" VerticalAlignment="Top" Width="1532" Fill="#FF180C47" Grid.RowSpan="2"  />
+            <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="115" Grid.Row="1" VerticalAlignment="Center" Width="1532" Fill="#FF180C47" />
+
+            <!-- Upcoming Appointments -->
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="3">
+                <TextBlock Text="Upcoming Appointments" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <ListView Width="1000" HorizontalAlignment="Center" Height="500" Background="#1B262C">
+                    <ListView.Items>
+                        <Border Background="#FFBBE1FA" CornerRadius="5" Margin="80,5,5,5" Padding="10" Width="800">
+                            <StackPanel>
+                                <TextBlock Text="October 15, 2024" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <TextBlock Text="10:00 AM" FontWeight="Bold" Foreground="DarkBlue" />
+                                <TextBlock Text="Patient: John Doe" Margin="0,5,0,0"/>
+                                <TextBlock Text="Doctor: Dr. Mohammed" FontStyle="Italic"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Show Patient info" VerticalAlignment="Center" Width="770" Margin="5" Background="#1B262C" Foreground="#FFBBE1FA" Height="34"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </ListView.Items>
+                </ListView>
+            </StackPanel>
+
+            <!-- Patient Information Section -->
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="6" Margin="10">
+                <TextBlock Text="Patient Information" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <Grid Background="#1B262C">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Patient Details -->
+                    <TextBlock Text="Patient Name:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="400" Margin="5"/>
+                    <TextBlock Text="Patient ID:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="0" Grid.Column="2" Margin="5"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" Width="400" Margin="5"/>
+
+                    <TextBlock Text="Nationality:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="1" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Width="400" Margin="5"/>
+                    <TextBlock Text="Reason for Visit:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="1" Grid.Column="2" Margin="5"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Width="400" Margin="5"/>
+
+                    <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Orientation="Vertical" Margin="10">
+                        <!-- Subjective Section -->
+                        <TextBlock Text="Subjective (S):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
+                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+
+                        <!-- Objective Section -->
+                        <TextBlock Text="Objective (O):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
+                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+
+                        <!-- Assessment Section -->
+                        <TextBlock Text="Assessment (A):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
+                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+
+                        <!-- Plan Section -->
+                        <TextBlock Text="Plan (P):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
+                        <TextBox Width="Auto" Height="100" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Family History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="3" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Width="900" Height="80" AcceptsReturn="True" Margin="5"/>
+
+                    <TextBlock Text="Past History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="4" Grid.Column="0" Margin="5"/>
+                    <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="200" Width="1280" VerticalScrollBarVisibility="Auto" Margin="5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Last Plans" Binding="{Binding Plan}" Width="*"/>
+                            <DataGridTextColumn Header="Surgery" Binding="{Binding Surgery}" Width="*"/>
+                            <DataGridTextColumn Header="Medication" Binding="{Binding Medication}" Width="*"/>
+                            <DataGridTextColumn Header="Medical Diseases" Binding="{Binding MedicalDiseases}" Width="*"/>
+                            <DataGridTextColumn Header="Family History" Binding="{Binding Family_History}" Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </StackPanel>
+
+
+            <!--medications-->
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="7" Margin="10" Orientation="Vertical">
+                <TextBlock Text="Medications" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+
+                <!-- StackPanel to hold medication textboxes -->
+                <StackPanel Name="MedicationStackPanel" Background="#1B262C" Margin="10" Orientation="Vertical">
+                    <!-- Medication Entry Template -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBox Name="MedicationTextBox" Width="400" Height="40" Background="#1B262C" Foreground="#FFBBE1FA" BorderBrush="#BBDEFB" Margin="0,5"/>
+                        <Button Content="+" Width="40" Height="40" Background="#FFBBE1FA" Foreground="#1B262C" FontSize="24" FontWeight="Bold" Margin="5,0,0,0" Click="AddMedicationTextbox"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+
+
+            <!-- Lab Test Section -->
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="8" Margin="10">
+                <TextBlock Text="Lab Test Information" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <!-- Radiology Section -->
+                    <StackPanel Orientation="Vertical" Background="#1B262C" Width="300">
+                        <TextBlock Text="Radiology Tests" Foreground="#FFBBE1FA" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
+                        <CheckBox Content="X-Ray" Foreground="#FFBBE1FA" Margin="3"/>
+                        <CheckBox Content="U/S" Foreground="#FFBBE1FA" Margin="3"/>
+                        <CheckBox Content="CI" Foreground="#FFBBE1FA" Margin="3"/>
+                        <CheckBox Content="MRI" Foreground="#FFBBE1FA" Margin="3"/>
+                        <CheckBox Content="Others" Foreground="#FFBBE1FA" Margin="3"/>
+                        <TextBox Name="RadiologyTextBox" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB"/>
+                    </StackPanel>
+
+                    <!-- Blood Test Section -->
+                    <StackPanel  Background="#1B262C" Width="300">
+                        <TextBlock Text="Blood Tests" Foreground="#FFBBE1FA" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal">
+                            <!-- First Column of Blood Tests -->
+                            <StackPanel Width="140" Margin="5">
+                                <CheckBox Content="CBC" Foreground="#FFBBE1FA" Margin="3"/>
+                                <CheckBox Content="Proth-Time and Content" Foreground="#FFBBE1FA" Margin="3"/>
+                                <CheckBox Content="Blood Urea and Creatine" Foreground="#FFBBE1FA" Margin="3"/>
+                                <CheckBox Content="SGPT and SGOT" Foreground="#FFBBE1FA" Margin="3"/>
+                            </StackPanel>
+                            <!-- Second Column of Blood Tests -->
+                            <StackPanel Width="140" Margin="5">
+                                <CheckBox Content="Hepatitis B, C" Foreground="#FFBBE1FA" Margin="3"/>
+                                <CheckBox Content="Fasting and PP Blood Sugar" Foreground="#FFBBE1FA" Margin="3"/>
+                                <CheckBox Content="Glycodytit Hb" Foreground="#FFBBE1FA" Margin="3"/>
+                                <CheckBox Content="Others" Foreground="#FFBBE1FA" Margin="3"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBox Name="BloodTestTextBox" Width="250" Height="50" Margin="12" Foreground="#1B262C" BorderBrush="#BBDEFB"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="9" Grid.RowSpan="1"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Width="200" Height="40" Margin="90,20,0,0"  Background="#222831" BorderThickness="1" Foreground="White" Content="Save" FontSize="30" FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="10" Grid.RowSpan="1"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Width="300" Height="40" Margin="90,20,0,0"  Background="#222831" BorderThickness="1" Foreground="White" Content="Save and print" FontSize="30" FontWeight="Bold" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
