@@ -3,12 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
       xmlns:local="clr-namespace:E_Vita"
       mc:Ignorable="d" 
       Title="Nurse Dashboard" Height="auto" Width="auto"
       d:DesignHeight="1080" d:DesignWidth="1920">
-
 
     <Grid Background="#FFBBE1FA">
         <Grid.ColumnDefinitions>
@@ -32,8 +30,8 @@
             <Label Content="&#xD;&#xA;Nurse Dashboard" Height="204" Width="614" FontSize="55" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FF180C47" Background="#BBE1FA"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="3">
-            <!-- when you apply the DB you sould ass this line and see the you whatsapp on 6 november"AppointmentCalendar_SelectedDateChanged" -->
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="4">
+            <Calendar x:Name="AppointmentCalender"  HorizontalAlignment="Left" Margin="140,0,0,0"/>                    <!-- when you apply the DB you sould ass this line and see the you whatsapp on 6 november"AppointmentCalendar_SelectedDateChanged" -->
             <TextBlock Text="Upcoming Appointments" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
             <ListView Width="1000" HorizontalAlignment="Center" Height="500" Background="#1B262C">
                 <ListView.Items>
@@ -52,7 +50,7 @@
                                 </Button>
                                 <Button Width="50" Height="30"  Foreground="Transparent" BorderBrush="Transparent" Margin="5">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\cross.png" Stretch="Uniform"/>
+                                        <ImageBrush ImageSource="C:\Users\workstation\Documents\mohammedshady433\E-Vita\cross.png" Stretch="Uniform"/>
                                     </Button.Background>
                                 </Button>
                             </StackPanel>
@@ -72,7 +70,7 @@
                                 </Button>
                                 <Button Width="50" Height="30"  Foreground="Transparent" BorderBrush="Transparent" Margin="5">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\cross.png" Stretch="Uniform"/>
+                                        <ImageBrush ImageSource="C:\Users\workstation\Documents\mohammedshady433\E-Vita\cross.png" Stretch="Uniform"/>
                                     </Button.Background>
                                 </Button>
                             </StackPanel>
@@ -82,17 +80,17 @@
                 </ListView.Items>
             </ListView>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" >
-            <Button  Height="170" Width="300" Foreground="#0F4C75" FontFamily="Cooper Black" BorderThickness="0" Click="add_Patient" HorizontalAlignment="Right" Margin="5">
+        <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" >
+            <Button  Height="170" Width="300" Foreground="#0F4C75" FontFamily="Cooper Black" BorderThickness="0" Click="add_Patient" HorizontalAlignment="Center">
                 <Button.Background>
                     <ImageBrush ImageSource="/11443159-removebg-preview.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
-            
+
         </StackPanel>
-<syncfusion:SfSchedule Grid.Row="2" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+           
         <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="400" >
-            <Image Source="E-Vita logo-01.png" Height="400" Width="400" Margin="-80,-80,0,0"/>
+            <Image Source="E-Vita logo-01.png" Height="400" Width="400" />
         </StackPanel>
     </Grid>
 </Page>
