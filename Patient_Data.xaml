@@ -5,10 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:E_Vita"
       mc:Ignorable="d" 
-      d:DesignHeight="2200" d:DesignWidth="1532"
-      Title="Patient_Data">
+      Title="Patient_Data"
+              Background="#1B262C"
+        d:DesignHeight="2500" d:DesignWidth="1532">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <Grid Background="#FFBBE1FA">
+        <Grid>
+            <!-- Main Background -->
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#1B262C" Offset="0.0"/>
+                    <GradientStop Color="#0F4C75" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -58,21 +66,16 @@
             <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="115" Grid.Row="1" VerticalAlignment="Center" Width="1532" Fill="#FF180C47" />
             <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBox Width="300" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <Button Content="Search" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="#FF180C47" Background="Transparent" BorderThickness="0"/>
+                <Button Content="Search" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White" Background="Transparent" BorderThickness="0"/>
             </StackPanel>
 
 
             <!-- calender :( -->
             <StackPanel x:Name="Calender" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="5" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <syncfusion:CalendarEdit Width="600" Height="600" 
-                                          Background="#BBE1FA" BorderBrush="#0F4C75" 
-                                          BorderThickness="2" Padding="10"
-                                          FontFamily="Segoe UI" FontSize="16"
-                                          Foreground="#1B262C" HeaderBackground="#FF180C47" 
-                                          HeaderForeground="#FFBBE1FA"/>
+                <syncfusion:CalendarEdit Background="#0F4C75" Foreground="White" HeaderBackground="#FF5696D6" Height="700" Width="700" FontSize="18"/>
             </StackPanel>
             <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="5" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="600" Width="1500" VerticalScrollBarVisibility="Auto" Margin="5">
+                <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="600" Width="1500" VerticalScrollBarVisibility="Auto" Margin="5" Background="#FF0F4C75">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Last Plans" Binding="{Binding Plan}" Width="*"/>
                         <DataGridTextColumn Header="Surgery" Binding="{Binding Surgery}" Width="*"/>
@@ -85,4 +88,10 @@
             </StackPanel>
         </Grid>
     </ScrollViewer>
-</Page>
+</Page>                
+    <!--syncfusion:CalendarEdit Width="600" Height="600" 
+                                          Background="#BBE1FA" BorderBrush="#0F4C75" 
+                                          BorderThickness="2" Padding="10"
+                                          FontFamily="Segoe UI" FontSize="16"
+                                          Foreground="#1B262C" HeaderBackground="#FF180C47" 
+                                          HeaderForeground="#FFBBE1FA"/>-->

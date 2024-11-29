@@ -7,7 +7,14 @@
       d:DesignHeight="2500" d:DesignWidth="1532"
       Title="Doctor_Dashboard">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <Grid Background="#FFBBE1FA">
+        <Grid>
+            <!-- Main Background -->
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#1B262C" Offset="0.0"/>
+                    <GradientStop Color="#0F4C75" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -58,8 +65,14 @@
 
             <!-- Upcoming Appointments -->
             <StackPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="3">
-                <TextBlock Text="Upcoming Appointments" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
-                <ListView Width="1000" HorizontalAlignment="Center" Height="500" Background="#1B262C">
+                <TextBlock Text="Upcoming Appointments" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" Foreground="White"/>
+                <ListView Width="1000" HorizontalAlignment="Center" Height="500" SelectionChanged="ListView_SelectionChanged">
+                    <ListView.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#1B262C" Offset="1"/>
+                            <GradientStop Color="#0F4C75" Offset="0"/>
+                        </LinearGradientBrush>
+                    </ListView.Background>
                     <ListView.Items>
                         <Border Background="#FFBBE1FA" CornerRadius="5" Margin="80,5,5,5" Padding="10" Width="800">
                             <StackPanel>
@@ -78,8 +91,14 @@
 
             <!-- Patient Information Section -->
             <StackPanel Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="6" Margin="10">
-                <TextBlock Text="Patient Information" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
-                <Grid Background="#1B262C">
+                <TextBlock Text="Patient Information" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" Foreground="White"/>
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#1B262C" Offset="1"/>
+                            <GradientStop Color="#0F4C75" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
@@ -99,38 +118,38 @@
 
                     <!-- Patient Details -->
                     <TextBlock Text="Patient Name:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="0" Grid.Column="0" Margin="5"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Width="400" Margin="5"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="400" Margin="5" Background="#FFBBE1FA"/>
                     <TextBlock Text="Patient ID:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="0" Grid.Column="2" Margin="5"/>
-                    <TextBox Grid.Row="0" Grid.Column="3" Width="400" Margin="5"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" Width="400" Margin="5" Background="#FFBBE1FA"/>
 
                     <TextBlock Text="Nationality:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="1" Grid.Column="0" Margin="5"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Width="400" Margin="5"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Width="400" Margin="5" Background="#FFBBE1FA"/>
                     <TextBlock Text="Reason for Visit:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="1" Grid.Column="2" Margin="5"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Width="400" Margin="5"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Width="400" Margin="5" Background="#FFBBE1FA"/>
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Orientation="Vertical" Margin="10">
                         <!-- Subjective Section -->
                         <TextBlock Text="Subjective (S):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
-                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
 
                         <!-- Objective Section -->
                         <TextBlock Text="Objective (O):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
-                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
 
                         <!-- Assessment Section -->
                         <TextBlock Text="Assessment (A):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
-                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
 
                         <!-- Plan Section -->
                         <TextBlock Text="Plan (P):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
-                        <TextBox Width="Auto" Height="100" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                        <TextBox Width="Auto" Height="100" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
                     </StackPanel>
 
                     <TextBlock Text="Family History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="3" Grid.Column="0" Margin="5"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Width="900" Height="80" AcceptsReturn="True" Margin="5"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Width="900" Height="80" AcceptsReturn="True" Margin="5" Background="#FFBBE1FA"/>
 
                     <TextBlock Text="Past History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="4" Grid.Column="0" Margin="5"/>
-                    <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="200" Width="1280" VerticalScrollBarVisibility="Auto" Margin="5">
+                    <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="200" Width="1280" VerticalScrollBarVisibility="Auto" Margin="5" Background="#FFBBE1FA">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Last Plans" Binding="{Binding Plan}" Width="*"/>
                             <DataGridTextColumn Header="Surgery" Binding="{Binding Surgery}" Width="*"/>
@@ -152,7 +171,13 @@
                 <StackPanel Name="MedicationStackPanel" Background="#1B262C" Margin="10" Orientation="Vertical">
                     <!-- Medication Entry Template -->
                     <StackPanel Orientation="Horizontal" Margin="5">
-                        <TextBox Name="MedicationTextBox" Width="400" Height="40" Background="#1B262C" Foreground="#FFBBE1FA" BorderBrush="#BBDEFB" Margin="0,5"/>
+                        <StackPanel.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#1B262C" Offset="1"/>
+                                <GradientStop Color="#0F4C75" Offset="0"/>
+                            </LinearGradientBrush>
+                        </StackPanel.Background>
+                        <TextBox Name="MedicationTextBox" Width="400" Height="40" Background="#FFBBE1FA" Foreground="#FFBBE1FA" BorderBrush="#BBDEFB" Margin="0,5"/>
                         <Button Content="+" Width="40" Height="40" Background="#FFBBE1FA" Foreground="#1B262C" FontSize="24" FontWeight="Bold" Margin="5,0,0,0" Click="AddMedicationTextbox"/>
                     </StackPanel>
                 </StackPanel>
@@ -167,18 +192,30 @@
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <!-- Radiology Section -->
-                    <StackPanel Orientation="Vertical" Background="#1B262C" Width="300">
+                    <StackPanel Orientation="Vertical" Width="300">
+                        <StackPanel.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#1B262C" Offset="1"/>
+                                    <GradientStop Color="#0F4C75" Offset="0"/>
+                                </LinearGradientBrush>
+                        </StackPanel.Background>
                         <TextBlock Text="Radiology Tests" Foreground="#FFBBE1FA" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
                         <CheckBox Content="X-Ray" Foreground="#FFBBE1FA" Margin="3"/>
                         <CheckBox Content="U/S" Foreground="#FFBBE1FA" Margin="3"/>
                         <CheckBox Content="CI" Foreground="#FFBBE1FA" Margin="3"/>
                         <CheckBox Content="MRI" Foreground="#FFBBE1FA" Margin="3"/>
                         <CheckBox Content="Others" Foreground="#FFBBE1FA" Margin="3"/>
-                        <TextBox Name="RadiologyTextBox" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB"/>
+                        <TextBox Name="RadiologyTextBox" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
                     </StackPanel>
 
                     <!-- Blood Test Section -->
-                    <StackPanel  Background="#1B262C" Width="300">
+                    <StackPanel Width="300">
+                        <StackPanel.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#1B262C" Offset="1"/>
+                                <GradientStop Color="#0F4C75" Offset="0"/>
+                            </LinearGradientBrush>
+                        </StackPanel.Background>
                         <TextBlock Text="Blood Tests" Foreground="#FFBBE1FA" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
                         <StackPanel Orientation="Horizontal">
                             <!-- First Column of Blood Tests -->
@@ -196,7 +233,7 @@
                                 <CheckBox Content="Others" Foreground="#FFBBE1FA" Margin="3"/>
                             </StackPanel>
                         </StackPanel>
-                        <TextBox Name="BloodTestTextBox" Width="250" Height="50" Margin="12" Foreground="#1B262C" BorderBrush="#BBDEFB"/>
+                        <TextBox Name="BloodTestTextBox" Width="250" Height="50" Margin="12" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
