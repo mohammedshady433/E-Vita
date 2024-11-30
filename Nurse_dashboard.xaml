@@ -66,7 +66,7 @@
                 <Button Content=" Add New Patient"   BorderThickness="0" FontSize="40"  FontFamily="Cooper Black" Background="#FFBBE1FA" Foreground="#FF180C47" Height="60" Margin="200,0,50,50" />
 
             </StackPanel>
-            
+
             <Rectangle Grid.ColumnSpan="19" HorizontalAlignment="Left" Height="350" Grid.Row="0" VerticalAlignment="Top" Width="1532" Fill="#FF180C47" Grid.RowSpan="4"  />
 
             <!--days-->
@@ -122,14 +122,29 @@
             <Border Width="5" Grid.Row="2" Grid.RowSpan="8" Grid.Column="13" Background="white" HorizontalAlignment="Left"  VerticalAlignment="Stretch"   />
 
 
-
-
-
             <Border x:Name="Span_SUNDAY" BorderThickness="0" BorderBrush="Transparent" Background="YellowGreen" Grid.Row="3"  Grid.ColumnSpan="2"  Grid.Column="1"  Margin="17,0,17,65" CornerRadius="12"  />
             <Border x:Name="Span_MONDAY" BorderThickness="0" BorderBrush="Transparent" Background="Yellow" Grid.Row="4"  Grid.ColumnSpan="3"  Grid.Column="1"  Margin="17,0,17,65" CornerRadius="12"  />
 
 
 
+
+            <Border Background="#0F4C99" CornerRadius="20" Padding="30" Margin="50" Effect="{DynamicResource DropShadowEffect}" Grid.Row="10" Grid.RowSpan="15" Grid.Column="6" Grid.ColumnSpan="14">
+
+                <StackPanel  Grid.Row="10"   Grid.RowSpan="14" Grid.Column="6" Grid.ColumnSpan="14">
+
+                    <TextBlock Text="Book Appointment" Foreground="#FF180C47" FontSize="50" Width="500" HorizontalAlignment="Center" Margin="0,5,0,0"  FontWeight="Bold"/>
+
+                    <TextBlock Text="Patient Name:" Foreground="#FFBBE1FA" FontSize="40" Width="250" HorizontalAlignment="Left" Margin="0,60,0,0"/>
+                    <TextBox   Height="40" Width="350" Margin="82,5,5,21" Background="#FFBBE1FA" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Patient ID:" Foreground="#FFBBE1FA" FontSize="40" />
+                    <TextBox   Height="40" Width="350" Margin="82,5,5,21" Background="#FFBBE1FA" HorizontalAlignment="Center" />
+
+                    <DatePicker  FontSize="35"   Height="66" Width="592"  Margin="0,60,0,0" BorderBrush="#FF180C40" BorderThickness="5" />
+
+                    <Button Width="300" Height="70"  Background="#FF180C40" BorderThickness="1" Foreground="White" Content="Book" FontSize="30" FontWeight="Bold" Margin="0,90,0,0" />
+               
+                </StackPanel>
+            </Border>
 
 
         </Grid>
