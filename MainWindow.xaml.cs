@@ -35,7 +35,7 @@ namespace E_Vita
                 if (passowrd == pass && name == user_txt.Text)
                 {
                     MessageBox.Show("Verified user", "Welcome❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Content = new Dashboard();
+                    this.Content = new Nurse_Dashboard();
                 }
                 else
                 {

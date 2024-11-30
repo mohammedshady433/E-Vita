@@ -18,9 +18,9 @@ namespace E_Vita
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class Nurse_Dashboard : Page
     {
-        public Page1()
+        public  Nurse_Dashboard()
         {
             InitializeComponent();
         }
