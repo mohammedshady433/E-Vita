@@ -52,7 +52,7 @@
 
             <!-- logo -->
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="250" VerticalAlignment="Top"  Panel.ZIndex="1"  Grid.RowSpan="3">
-                <Image Source="C:\Users\workstation\Desktop\E-Vita\View\E-Vita bright logo-01-croped.png" HorizontalAlignment="Left" Height="252" Width="184" />
+                <Image Source="E-Vita bright logo-01-croped.png" HorizontalAlignment="Left" Height="252" Width="250" />
             </StackPanel>
 
             <!-- HEAD-->
@@ -128,11 +128,11 @@
 
 
 
-            <Border Background="#0F4C99" CornerRadius="20" Padding="30" Margin="50" Effect="{DynamicResource DropShadowEffect}" Grid.Row="10" Grid.RowSpan="15" Grid.Column="6" Grid.ColumnSpan="14">
+            <Border Background="#0F4C75" CornerRadius="20" Padding="30" Margin="50" Grid.Row="10" Grid.RowSpan="15" Grid.Column="2" Grid.ColumnSpan="10">
 
                 <StackPanel  Grid.Row="10"   Grid.RowSpan="14" Grid.Column="6" Grid.ColumnSpan="14">
 
-                    <TextBlock Text="Book Appointment" Foreground="#FF180C47" FontSize="50" Width="500" HorizontalAlignment="Center" Margin="0,5,0,0"  FontWeight="Bold"/>
+                    <TextBlock Text="Book Appointment" Foreground="#FFBBE1FA" FontSize="50" Width="500" HorizontalAlignment="Center" Margin="0,5,0,0"  FontWeight="Bold"/>
 
                     <TextBlock Text="Patient Name:" Foreground="#FFBBE1FA" FontSize="40" Width="250" HorizontalAlignment="Left" Margin="0,60,0,0"/>
                     <TextBox   Height="40" Width="350" Margin="82,5,5,21" Background="#FFBBE1FA" HorizontalAlignment="Center"/>
