@@ -8,6 +8,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient; // For connecting to MySQL
+using System.Data;           // For using DataTable
 
 namespace E_Vita
 {
@@ -16,6 +18,7 @@ namespace E_Vita
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string connectionString = "Server=localhost;Database=hotel_lab5;User ID=root;Password=Moh@10042004;SslMode=none;";
         public MainWindow()
         {
             InitializeComponent();
@@ -25,6 +28,23 @@ namespace E_Vita
         {
 
         }
+        //to test the connection of the DB
+        private void TestConnection()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open(); // Open the connection to MySQL
+                    MessageBox.Show("Connection successful!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}"); // Display an error message if something goes wrong
+            }
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -35,6 +55,8 @@ namespace E_Vita
                 if (passowrd == pass && name == user_txt.Text)
                 {
                     MessageBox.Show("Verified user", "Welcome❤️", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //this is the call of the test connection
+                    TestConnection();
                     this.Content = new Nurse_Dashboard();
                 }
                 else
