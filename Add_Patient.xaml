@@ -8,7 +8,7 @@
       d:DesignHeight="2500" d:DesignWidth="1532"
       Title="Add_Patient">
     <Grid>
-        
+
         <!-- Main Background -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -65,7 +65,7 @@
         <Border Background="#0F4C75" CornerRadius="20" Width="600" Height="800" Padding="30" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="4">
             <StackPanel>
                 <!-- Welcome Text -->
-                <TextBlock Text="❤️Welcome on board❤️" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <TextBlock Text="❤Welcome on board❤" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>
 
                 <!-- Name -->
                 <TextBlock Text="Name" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
@@ -104,7 +104,7 @@
                     </syncfusion:SfDatePicker>
                     <TextBox Name="RadiologyTextBox" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
                 </StackPanel>
-                
+
                 <!-- Buttons -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                     <Button Content="ADD" Width="120" Height="40" Background="#1B262C" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0"/>
