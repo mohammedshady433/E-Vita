@@ -3,9 +3,11 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+
       xmlns:local="clr-namespace:E_Vita"
       mc:Ignorable="d" 
-      d:DesignHeight="2500" d:DesignWidth="1532"
+      d:DesignHeight="3500" d:DesignWidth="1532"
       Title="Nurse_Dashboard">
     <ScrollViewer>
         <Grid>
@@ -126,11 +128,12 @@
             <Border x:Name="Span_MONDAY" BorderThickness="0" BorderBrush="Transparent" Background="Yellow" Grid.Row="4"  Grid.ColumnSpan="3"  Grid.Column="1"  Margin="17,0,17,65" CornerRadius="12"  />
 
 
+            <syncfusion:CalendarEdit Background="#FF3282B8" Foreground="White" HeaderBackground="#FF5696D6" Height="700" Width="700" FontSize="14" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="8" Grid.RowSpan="3"/>
 
 
-            <Border Background="#0F4C75" CornerRadius="20" Padding="30" Margin="50" Grid.Row="10" Grid.RowSpan="15" Grid.Column="2" Grid.ColumnSpan="10">
+            <Border Background="#0F4C75" CornerRadius="20" Padding="30" Margin="50" Grid.Row="15" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="10">
 
-                <StackPanel  Grid.Row="10"   Grid.RowSpan="14" Grid.Column="6" Grid.ColumnSpan="14">
+                <StackPanel  Grid.Row="10"   Grid.RowSpan="10" Grid.Column="6" Grid.ColumnSpan="14">
 
                     <TextBlock Text="Book Appointment" Foreground="#FFBBE1FA" FontSize="50" Width="500" HorizontalAlignment="Center" Margin="0,5,0,0"  FontWeight="Bold"/>
 
