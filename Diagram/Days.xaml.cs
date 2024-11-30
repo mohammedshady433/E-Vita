@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace E_Vita
+namespace E_Vita.Diagram
 {
     /// <summary>
-    /// Interaction logic for Nurse_Dashboard.xaml
+    /// Interaction logic for Days.xaml
     /// </summary>
-    public partial class Nurse_Dashboard : Page
+    public partial class Days : UserControl
     {
-        public Nurse_Dashboard()
+        public Days()
         {
             InitializeComponent();
         }
