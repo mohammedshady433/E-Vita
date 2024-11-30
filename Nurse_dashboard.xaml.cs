@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace E_Vita
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Dashboard : Page
+    public partial class Nurse_Dashboard : Page
     {
-        public Dashboard()
+        public  Nurse_Dashboard()
         {
             InitializeComponent();
         }
 
         private void add_Patient(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new Patient_Data());
+            NavigationService?.Navigate(new Add_Patient());
         }
     }
 }
