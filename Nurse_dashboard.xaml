@@ -49,18 +49,28 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="7" Orientation="Horizontal" Panel.ZIndex="1" >
-            <Button Content="Appointments" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Patient Data" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Photography" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Lab" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Planning" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Descriptions" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Finance" FontSize="20" FontFamily="Cooper Black" BorderThickness="0" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-        </StackPanel>
-        <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="298" Grid.Row="0" VerticalAlignment="Top" Width="1532" Fill="#FF180C47" Grid.RowSpan="2"  />
-        <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="115" Grid.Row="1" VerticalAlignment="Center" Width="1532" Fill="#FF180C47" />
+            <Button Content="Appointments" BorderThickness="0" FontSize="40" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="370,0,50,0" />
+            <Button Content="Patient Data" BorderThickness="0" FontSize="40" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="116,0,50,0" HorizontalAlignment="Right" />
 
-        
+        </StackPanel>
+
+        <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="298" Grid.Row="0" VerticalAlignment="Top" Width="1532" Fill="#FF180C47" Grid.RowSpan="2"  />
+        <Rectangle Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="220" Grid.Row="1" VerticalAlignment="Top" Width="1532" Fill="#FF180C47" Margin="10,10,0,0" />
+
+
+
+        <StackPanel Grid.Row="2"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="7" Orientation="Horizontal" Panel.ZIndex="1" >
+            <TextBlock Text="Sun" Foreground="White" FontSize="60" Width="255" TextAlignment="Center" FontWeight="Bold" Grid.Column="0"/>
+            <TextBlock Text="Mon" Foreground="White" FontSize="60" Width="255" TextAlignment="Center" FontWeight="Bold" Grid.Column="1"/>
+            <TextBlock Text="Tue" Foreground="White" FontSize="60" Width="255" TextAlignment="Center" FontWeight="Bold" Grid.Column="2"/>
+            <TextBlock Text="Wed" Foreground="White" FontSize="60" Width="255" TextAlignment="Center" FontWeight="Bold" Grid.Column="3"/>
+            <TextBlock Text="Thu" Foreground="White" FontSize="60" Width="255" TextAlignment="Center" FontWeight="Bold" Grid.Column="4"/>
+            <TextBlock Text="Fri" Foreground="White" FontSize="60" Width="255" TextAlignment="Center" FontWeight="Bold" Grid.Column="5"/>
+            <TextBlock Text="Sat" Foreground="White" FontSize="60" Width="255" TextAlignment="Center" FontWeight="Bold" Grid.Column="6"/>
+        </StackPanel>
+
+
+      
 
     </Grid>
 </Page>
