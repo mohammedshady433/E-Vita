@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace E_Vita
 {
     /// <summary>
-    /// Interaction logic for Nurse_Dashboard.xaml
+    /// Interaction logic for Nurse_dash.xaml
     /// </summary>
-    public partial class Nurse_Dashboard : Page
+    public partial class Nurse_dash : Window
     {
-        public  Nurse_Dashboard()
-
+        public Nurse_dash()
         {
             InitializeComponent();
-        }
-
-        private void add_Patient(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new Add_Patient());
         }
     }
 }
