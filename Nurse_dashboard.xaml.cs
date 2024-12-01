@@ -20,9 +20,15 @@ namespace E_Vita
     /// </summary>
     public partial class Nurse_Dashboard : Page
     {
-        public Nurse_Dashboard()
+        public  Nurse_Dashboard()
+
         {
             InitializeComponent();
+        }
+
+        private void add_Patient(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new Add_Patient());
         }
     }
 }
