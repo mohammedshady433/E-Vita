@@ -19,68 +19,68 @@ namespace E_Vita
     public partial class MainWindow : Window
     {
         private string connectionString = "Server=localhost;Database=hotel_lab5;User ID=root;Password=Moh@10042004;SslMode=none;";
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-        //to test the connection of the DB
+        // Test the connection to the database
         private void TestConnection()
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
-                    conn.Open(); // Open the connection to MySQL
-                    MessageBox.Show("Connection successful!");
+                    conn.Open();
+                    MessageBox.Show("Connection successful!", "Database Connection", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}"); // Display an error message if something goes wrong
+                MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int pass = 123;
-            string name = "Mohammed";
-            if (int.TryParse(pass_txt.Password, out int passowrd))
+            int nursePassword = 123;
+            string nurseUsername = "Mohammed";
+            int doctorPassword = 123;
+            string doctorUsername = "doctor";
+
+            // Try parsing the input password to an integer
+            if (int.TryParse(pass_txt.Password, out int password))
             {
-                if (passowrd == pass && name == user_txt.Text)
+                // Validate nurse credentials
+                if (password == nursePassword && user_txt.Text == nurseUsername)
                 {
-                    MessageBox.Show("Verified user", "Welcome❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    //this is the call of the test connection
-                    TestConnection();
+                    MessageBox.Show("Welcome Nurse Mohammed!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Content = new Nurse_Dashboard();
+                }
+                // Validate doctor credentials
+                else if (password == doctorPassword && user_txt.Text == doctorUsername)
+                {
+                    MessageBox.Show("Welcome Doctor!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Content = new Doctor_Dashboard();
                 }
                 else
                 {
-                    MessageBox.Show("Declined user", "Get out!", MessageBoxButton.OK, MessageBoxImage.Error);
-                    pass_txt.Clear();
-                    user_txt.Clear();
-                    user_txt.Focus();
+                    // Handle invalid credentials
+                    MessageBox.Show("Invalid username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            else 
+            else
             {
-                MessageBox.Show("Please enter a valid format", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                // Handle invalid password input
+                MessageBox.Show("Password must be a numeric value", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 pass_txt.Clear();
                 user_txt.Clear();
                 user_txt.Focus();
             }
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+        // Reset password navigation
         private void Reset_Pass(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Reset_Password());

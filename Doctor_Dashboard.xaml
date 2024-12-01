@@ -52,7 +52,7 @@
 
             <!-- Navigation Buttons -->
             <StackPanel Grid.Row="1"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="7" Orientation="Horizontal" Panel.ZIndex="1" >
-                <Button Content="Appointments" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+                <Button Content="Appointments" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" Click="Appointments_Click" />
                 <Button Content="Patient Data" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
                 <Button Content="Photography" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
                 <Button Content="Lab" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />

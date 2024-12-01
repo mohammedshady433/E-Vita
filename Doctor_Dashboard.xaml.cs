@@ -35,5 +35,10 @@ namespace E_Vita
             // Add the new TextBox to the StackPanel
             MedicationStackPanel.Children.Add(medicationTextBox);
         }
+
+        private void Appointments_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Appointments());
+        }
     }
 }
