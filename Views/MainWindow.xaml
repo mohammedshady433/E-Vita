@@ -14,7 +14,8 @@
        >
     <!--        AllowsTransparency="True"   this is used inside the window tag -->
     <Grid>
-        <!-- Main Background -->
+        <Grid>
+            <!-- Main Background -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="#1B262C" Offset="0.0"/>
@@ -47,7 +48,7 @@
                 </StackPanel>
             </StackPanel>
         </Border>
-
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Visible" Grid.Column="0" Grid.RowSpan="2"/>
+    </Grid>
+    <Frame x:Name="MainFrame" NavigationUIVisibility="Visible" Grid.Column="0" Grid.RowSpan="2"/>
     </Grid>
 </Window>

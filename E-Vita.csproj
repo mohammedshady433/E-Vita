@@ -24,10 +24,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="11443159-removebg-preview.png" />
-    <Resource Include="check.png" />
-    <Resource Include="E-Vita logo-01.png" />
-    <Resource Include="E-Vita-01.png" />
+    <Resource Include="Assets\11443159-removebg-preview.png" />
+    <Resource Include="Assets\check.png" />
+    <Resource Include="Assets\E-Vita logo-01.png" />
+    <Resource Include="Assets\E-Vita-01.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

@@ -38,7 +38,13 @@ namespace E_Vita
 
         private void Appointments_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Appointments());
+            this.NavigationService.Navigate(new Appointments());
+        }
+
+        private void Patient_data(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Patient_Data());
+
         }
     }
 }

@@ -24,5 +24,10 @@ namespace E_Vita
         {
             InitializeComponent();
         }
+        private void Appointments_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Appointments());
+        }
+
     }
 }

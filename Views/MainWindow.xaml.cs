@@ -56,13 +56,13 @@ namespace E_Vita
                 if (password == nursePassword && user_txt.Text == nurseUsername)
                 {
                     MessageBox.Show("Welcome Nurse Mohammed!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Content = new Nurse_Dashboard();
+                    MainFrame.Navigate(new Nurse_Dashboard());
                 }
                 // Validate doctor credentials
                 else if (password == doctorPassword && user_txt.Text == doctorUsername)
                 {
                     MessageBox.Show("Welcome Doctor!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Content = new Doctor_Dashboard();
+                    MainFrame.Navigate(new Doctor_Dashboard());
                 }
                 else
                 {
