@@ -8,7 +8,7 @@
         Title="Appointments" 
         Background="#1B262C"
         d:DesignHeight="2500" d:DesignWidth="1532">
-        
+    <ScrollViewer>
     <Grid>
         <!-- Main Background -->
         <Grid.Background>
@@ -50,7 +50,7 @@
 
         <!-- HEAD-->
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Doctor Dashboard" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FFBBE1FA" Background="Transparent" Margin="5" />
+            <Label Content="Appointments" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FFBBE1FA" Background="Transparent" Margin="-13" />
         </StackPanel>
 
         <!-- Navigation Buttons -->
@@ -67,8 +67,8 @@
         <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="115" Grid.Row="1" VerticalAlignment="Center" Width="1532" Fill="#FF180C47" />
 
         <!-- Content Panel -->
-        <Border Background="#0F4C75" CornerRadius="20" Padding="30" Margin="50" Effect="{DynamicResource DropShadowEffect}" Grid.Row="2" Grid.RowSpan="5" Grid.Column="2" Grid.ColumnSpan="2">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Background="#0F4C75" CornerRadius="20" Padding="30" Margin="50" Effect="{DynamicResource DropShadowEffect}" Grid.Row="2" Grid.RowSpan="6" Grid.Column="2" Grid.ColumnSpan="2">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.RowSpan="6" >
                 <!-- Title -->
                 <TextBlock Text="Book an Appointment" FontSize="28" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
@@ -115,4 +115,5 @@
             </StackPanel>
         </Border>
     </Grid>
+    </ScrollViewer>
 </Page>
