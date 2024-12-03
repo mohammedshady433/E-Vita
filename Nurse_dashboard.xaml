@@ -128,7 +128,7 @@
             <Border x:Name="Span_MONDAY" BorderThickness="0" BorderBrush="Transparent" Background="Yellow" Grid.Row="4"  Grid.ColumnSpan="3"  Grid.Column="1"  Margin="17,0,17,65" CornerRadius="12"  />
 
 
-            <syncfusion:CalendarEdit Background="#FF3282B8" Foreground="White" HeaderBackground="#FF5696D6" Height="700" Width="700" FontSize="14" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="8" Grid.RowSpan="3"/>
+            <syncfusion:CalendarEdit Background="#FF3282B8" Foreground="White" HeaderBackground="#FF5696D6" Height="700" Width="700" FontSize="14" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="8" Grid.RowSpan="3" Margin="56,87,52,88"/>
 
 
             <Border Background="#0F4C75" CornerRadius="20" Padding="30" Margin="50" Grid.Row="15" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="10">
