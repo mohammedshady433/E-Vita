@@ -10,15 +10,16 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace E_Vita.Models
 {
-    public class Nurse
+    class Prescription
     {
-        public int Doctor_ID { get; set; }
+        [Key]
+        public int Prescription_ID { get; set; }
+        public DateTime Date { get; set; }
+        public  int Dosage { get; set; }
+        public int Patient_ID { get; set; }
 
-        [ForeignKey("Doctor_ID")]
-        public Doctor doctor_id { get; set; }
-
-
-
+        [ForeignKey("Patient_ID")]
+        public Patient patient_id { get; set; }
 
     }
 }

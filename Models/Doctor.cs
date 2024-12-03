@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +9,17 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace E_Vita.Models
 {
-    public class Nurse
+    public class Doctor
     {
+        [Key]
         public int Doctor_ID { get; set; }
 
-        [ForeignKey("Doctor_ID")]
-        public Doctor doctor_id { get; set; }
+        public int Name { get; set; }
+        public string Speciality { get; set; }
 
+        public string  User_Name { get; set; }
 
-
+        public string Pass { get; set; }
 
     }
 }
