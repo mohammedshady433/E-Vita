@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace E_Vita.Models
 {
-    class Reset_Pass_Log
+    public class Reset_Pass_Log
     {
         public DateTime Date { get; set; }
 

@@ -17,8 +17,10 @@ namespace E_Vita.Models
         [ForeignKey("Doctor_ID")]
         public Doctor doctor_id { get; set; }
 
-
-
+        [Key]
+        public int Nurse_ID { get; set; }
+        public string user_name { get; set; }
+        public string password { get; set; }
 
     }
 }

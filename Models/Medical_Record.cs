@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace E_Vita.Models
         public string Surgery { get; set; }
         public string Family_History { get; set; }
 
-
+        [Key]
         public int Record_ID { get; set; }
 
 

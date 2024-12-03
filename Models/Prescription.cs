@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace E_Vita.Models
 {
-    class Prescription
+    public class Prescription
     {
         [Key]
         public int Prescription_ID { get; set; }

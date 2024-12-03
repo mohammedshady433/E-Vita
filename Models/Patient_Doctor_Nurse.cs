@@ -9,26 +9,22 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace E_Vita.Models
 {
-    class Patient_Doctor_Nurse
+    public class Patient_Doctor_Nurse
     {
+        // Foreign Key Properties
         public int Nurse_ID { get; set; }
-
-        [ForeignKey("Nurse_ID")]
-        public Nurse nurse_id { get; set; }
-
-
-
         public int Patient_ID { get; set; }
-
-        [ForeignKey("Patient_ID")]
-        public Patient patient_id { get; set; }
-
-
-
         public int Doctor_ID { get; set; }
 
+        // Navigation Properties
+        [ForeignKey("Nurse_ID")]
+        public Nurse Nurse { get; set; }
+
+        [ForeignKey("Patient_ID")]
+        public Patient Patient { get; set; }
+
         [ForeignKey("Doctor_ID")]
-        public Doctor doctor_id { get; set; }
+        public Doctor Doctor { get; set; }
 
 
     }

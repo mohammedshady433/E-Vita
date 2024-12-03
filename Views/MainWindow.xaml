@@ -27,7 +27,7 @@
         <Border Background="#0F4C75" CornerRadius="20" Width="400" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel>
                 <!-- Logo -->
-                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\E-Vita bright logo-01-croped.png" Width="200" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo-01-croped.png" Width="200" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
                 <!-- Welcome Text -->
                 <TextBlock Text="Welcome Back!" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>
