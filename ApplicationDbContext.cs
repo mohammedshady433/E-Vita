@@ -14,7 +14,7 @@ namespace E_Vita
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("Server=localhost;Database=E-Vita;User ID=root;Password=Moh@10042004;SslMode=none;");
+            optionsBuilder.UseMySQL("Server=localhost;Database=E-Vita;User ID=root;Password=Moh@10042004;SslMode=Preferred;");
         }
         public DbSet<Models.Patient> patient_Datas { get; set; }
         public DbSet<Models.Doctor> Doctors { get; set; }
