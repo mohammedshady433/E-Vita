@@ -61,7 +61,7 @@
             <Button Content="Lab" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
             <Button Content="Planning" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
             <Button Content="Descriptions" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Finance" FontSize="20" FontFamily="Cooper Black" BorderThickness="0" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Finance" FontSize="20" FontFamily="Cooper Black" BorderThickness="0" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" Click="Button_Click" />
         </StackPanel>
         <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="298" Grid.Row="0" VerticalAlignment="Top" Width="1532" Fill="#FF180C47" Grid.RowSpan="2"  />
         <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="115" Grid.Row="1" VerticalAlignment="Center" Width="1532" Fill="#FF180C47" />

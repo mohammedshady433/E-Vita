@@ -1,0 +1,111 @@
+﻿<Page x:Class="E_Vita.FinancePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        Title="Finance Page">
+    <!--"CenterScreen"
+        WindowStyle="None"
+        ResizeMode="CanResize" -->
+<!--Width="1920" Height="1080"--> 
+    <Grid>
+        <!-- Main Background -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#1B262C" Offset="0.0"/>
+                <GradientStop Color="#0F4C75" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Main Content -->
+        <Grid Margin="40">
+            <!-- Title Section -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="500,-35,0,20">
+                <TextBlock Text="Finance Overview" FontSize="60" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" Foreground="#BBE1FA" />
+                <TextBlock Text=" | E-Vita" FontSize="60" FontFamily="Arial Rounded MT Bold" Foreground="#BBE1FA" Margin="10,-0,0,0" />
+            </StackPanel>
+
+            <!-- Finance Metrics -->
+            <UniformGrid Rows="1" Columns="3" VerticalAlignment="Top" Margin="0,29,0,0" Height="131">
+                <!-- Revenue Card -->
+                <Border Background="#0F4C75" CornerRadius="15" Padding="15" Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Total Revenue" FontSize="30" FontFamily="Montserrat Bold" Foreground="#f5efe5" />
+                        <TextBlock Text="$150,000" FontSize="36" FontFamily="Montserrat" FontWeight="Bold" Foreground="GreenYellow" />
+                    </StackPanel>
+                </Border>
+                <!-- Expenses Card -->
+                <Border Background="#0F4C75" CornerRadius="15" Padding="15" Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Total Expenses" FontSize="30" FontFamily="Montserrat Bold" Foreground="#f5efe5" />
+                        <TextBlock Text="$45,000" FontSize="36" FontFamily="Montserrat" FontWeight="Bold" Foreground="Red" />
+                    </StackPanel>
+                </Border>
+                <!-- Net Profit Card -->
+                <Border Background="#0F4C75" CornerRadius="15" Padding="15" Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Net Profit" FontSize="30" FontFamily="Montserrat Bold" Foreground="#f5efe5" />
+                        <TextBlock Text="$105,000" FontSize="36" FontFamily="Montserrat" FontWeight="Bold" Foreground="PaleGoldenrod" />
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Graphs Section -->
+            <Grid Margin="0,160,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Revenue vs Expenses Chart -->
+                <Border Grid.Row="0" Grid.Column="0" Background="#0F4C75" CornerRadius="15" Padding="20" Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Revenue vs Expenses (Monthly)" FontSize="40" FontFamily="Montserrat Medium" Foreground="#f5efe5" />
+                        <lvc:CartesianChart x:Name="RevenueExpensesChart" Height="434" Margin="0,20,0,0">
+                            <lvc:CartesianChart.Series>
+                                <lvc:LineSeries Title="Revenue" Values="{Binding RevenueValues}" />
+                                <lvc:LineSeries Title="Expenses" Values="{Binding ExpenseValues}" />
+                            </lvc:CartesianChart.Series>
+                            <!-- Add data in code-behind -->
+                        </lvc:CartesianChart>
+                    </StackPanel>
+                </Border>
+
+                <!-- Revenue by Department -->
+                <Border Grid.Row="0" Grid.Column="1" Background="#0F4C75" CornerRadius="15" Padding="20" Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Revenue Chart" FontSize="40" FontFamily="Montserrat Medium" Foreground="#f5efe5" />
+                        <lvc:PieChart x:Name="RevenueByDepartmentChart" Height="418" Margin="0,20,0,0">
+                            <lvc:PieChart.Series>
+                                <lvc:PieSeries Title="HR" Values="{Binding DepartmentRevenue}" />
+                            </lvc:PieChart.Series>
+                        </lvc:PieChart>
+                    </StackPanel>
+                </Border>
+
+                <!-- Recent Transactions -->
+                <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#0F4C75" CornerRadius="15" Padding="20" Margin="10,10,10,-38">
+                    <StackPanel Margin="0,0,0,-20">
+                        <TextBlock Text="Recent Transactions" FontSize="40" FontFamily="Montserrat Medium" Foreground="#f5efe5" />
+                        <DataGrid x:Name="TransactionsDataGrid" AutoGenerateColumns="False" Background="#0F4C75" Foreground="White" RowBackground="#3282B8" AlternatingRowBackground="#2F4A5C" Margin="0,20,0,0" Height="150">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*" />
+                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="2*" />
+                                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="*" />
+                                <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,-20,0,0" Height="121">
+                            <Button Content="Add" Width="120" Height="40" Background="#1B262C" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="18" FontFamily="Verdana" FontWeight="Bold" Margin="5"/>
+                            <Button Content="Edit" Width="120" Height="40" Background="#1B262C" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="18" FontFamily="Verdana" FontWeight="Bold" Margin="5" />
+                            <Button Content="Delete" Width="120" Height="40" Background="#1B262C" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="18" FontFamily="Verdana" FontWeight="Bold" Margin="5" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

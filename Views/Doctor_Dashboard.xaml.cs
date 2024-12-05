@@ -46,5 +46,11 @@ namespace E_Vita
             this.NavigationService.Navigate(new Patient_Data());
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new FinancePage());
+
+        }
     }
 }
