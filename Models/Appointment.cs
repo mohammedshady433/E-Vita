@@ -21,14 +21,14 @@ namespace E_Vita.Models
         public int Patient_ID { get; set; }
 
         [ForeignKey("Patient_ID")]
-        public Patient patient_id { get; set; }
+        public Patient Patient { get; set; } // Navigation property
 
 
 
         public int Doctor_ID { get; set; }
 
         [ForeignKey("Doctor_ID")]
-        public Doctor doctor_id { get; set; }
+        public Doctor Doctor { get; set; } // Navigation property
 
     }
 }

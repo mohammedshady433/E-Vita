@@ -54,7 +54,7 @@
 
             <!-- logo -->
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="250" VerticalAlignment="Top"  Panel.ZIndex="1"  Grid.RowSpan="3">
-                <Image Source="\Assets\E-Vita bright logo-01-croped.png" HorizontalAlignment="Left" Height="252" Width="250" />
+                <Image Source="\Assets\E-Vita bright logo horizontal.png" HorizontalAlignment="Left" Height="252" Width="250" />
             </StackPanel>
 
             <!-- HEAD-->

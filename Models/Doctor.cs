@@ -20,6 +20,8 @@ namespace E_Vita.Models
         public string  User_Name { get; set; }
 
         public string Pass { get; set; }
+        public ICollection<Appointment> Appointments { get; set; }
+
 
     }
 }

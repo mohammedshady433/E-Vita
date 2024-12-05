@@ -23,11 +23,31 @@ namespace E_Vita
         public DbSet<Models.Prescription> Prescriptions { get; set; }
         public DbSet<Models.Reset_Pass_Log> Reset_Pass_Logs { get; set; }
         public DbSet<Models.Nurse> Nurses { get; set; }
+        public DbSet<Models.Appointment> Appointments_DB { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Patient_Doctor_Nurse>()
                 .HasKey(pdn => new { pdn.Nurse_ID, pdn.Patient_ID, pdn.Doctor_ID });
+
+            // Define composite primary key
+            modelBuilder.Entity<Appointment>()
+            .HasKey(a => new { a.Doctor_ID, a.Patient_ID });
+
+            // Define Doctor-Appointments relationship
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.Doctor)
+                .WithMany(d => d.Appointments)
+                .HasForeignKey(a => a.Doctor_ID)
+                .OnDelete(DeleteBehavior.Cascade); // cascade delete
+
+            // Define Patient-Appointments relationship
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.Patient)
+                .WithMany(p => p.Appointments)
+                .HasForeignKey(a => a.Patient_ID)
+                .OnDelete(DeleteBehavior.Cascade); // cascade delete
         }
 
 
