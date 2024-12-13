@@ -52,8 +52,7 @@
         
             <Border Background="#0F4C75" CornerRadius="20" Width="700" Height="800" Padding="30" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="4">
             <StackPanel>
-                <!-- Welcome Text -->
-                <TextBlock Text="❤Welcome on board❤" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
 
                 <!-- Name -->
                     <StackPanel Orientation="Horizontal">
@@ -80,12 +79,12 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Gender" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
                         <CheckBox Content="Male" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBADEF1"/>
-                        <CheckBox Content="Female" Margin="88,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBBE1FA"/>
+                        <CheckBox Content="Female" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBBE1FA"/>
                     </StackPanel>
                     <!-- Date of birth Field -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Date_of_birth" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                        <DatePicker Margin="150,0,0,20" Background="#FF3282B8" Foreground="#FF133E5B" SelectedDateFormat="Long"/>
+                        <DatePicker Margin="100,0,0,20" Background="#FF3282B8" Foreground="#FF133E5B" SelectedDateFormat="Long" Width="296"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical" Width="300" Margin="0,20,0,0">

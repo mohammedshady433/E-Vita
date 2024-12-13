@@ -47,9 +47,9 @@
                     <TextBlock Text="Appointment Time" FontSize="16" Margin="0,10,0,5" Foreground="#0F4C75"/>
                     <ComboBox x:Name="AppointmentTimeComboBox" Height="30" Background="#E6F1F8" 
                               BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,10">
-                        <ComboBoxItem Content="9:00 AM"/>
-                        <ComboBoxItem Content="10:00 AM"/>
-                        <ComboBoxItem Content="11:00 AM"/>
+                        <ComboBoxItem Content="9:00 PM"/>
+                        <ComboBoxItem Content="10:00 PM"/>
+                        <ComboBoxItem Content="11:00 PM"/>
                         <ComboBoxItem Content="12:00 PM"/>
                     </ComboBox>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">

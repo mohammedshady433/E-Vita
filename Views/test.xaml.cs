@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+
+
 
 namespace E_Vita
 {
@@ -36,61 +39,59 @@ namespace E_Vita
             MonthSelector.SelectedIndex = currentDate.Month - 1;
         }
 
-private void GenerateCalendar(DateTime date)
-{
-    CalendarGrid.Children.Clear();
-
-    // Add day names (Sunday-Saturday)
-    string[] dayNames = CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedDayNames;
-    foreach (string dayName in dayNames)
-    {
-        CalendarGrid.Children.Add(new TextBlock
+        private void GenerateCalendar(DateTime date)
         {
-            Text = dayName,
-            FontWeight = FontWeights.Bold,
-            TextAlignment = TextAlignment.Center,
-            Margin = new Thickness(5)
-        });
-    }
+            CalendarGrid.Children.Clear();
 
-    // Get the first day of the month
-    DateTime firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-    int daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
-    int startDayOffset = (int)firstDayOfMonth.DayOfWeek;
+            // Add day names (Sunday-Saturday)
+            string[] dayNames = CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedDayNames;
+            foreach (string dayName in dayNames)
+            {
+                CalendarGrid.Children.Add(new TextBlock
+                {
+                    Text = dayName,
+                    FontWeight = FontWeights.Bold,
+                    TextAlignment = TextAlignment.Center,
+                    Margin = new Thickness(5),
+                    Foreground = new BrushConverter().ConvertFrom("#0F4C75") as Brush
+                });
+            }
 
-    // Add empty cells for days before the first of the month
-    for (int i = 0; i < startDayOffset; i++)
-    {
-        CalendarGrid.Children.Add(new TextBlock());
-    }
+            // Get the first day of the month
+            DateTime firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            int daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
+            int startDayOffset = (int)firstDayOfMonth.DayOfWeek;
 
-    // Add buttons for each day in the month
-    for (int day = 1; day <= daysInMonth; day++)
-    {
-        Button dayButton = new Button
-        {
-            Content = day.ToString(),
-            Margin = new Thickness(5),
-            Background = System.Windows.Media.Brushes.White,
-            BorderBrush = System.Windows.Media.Brushes.Gray,
-            Foreground = System.Windows.Media.Brushes.Black
-        };
+            // Add empty cells for days before the first of the month
+            for (int i = 0; i < startDayOffset; i++)
+            {
+                CalendarGrid.Children.Add(new TextBlock());
+            }
 
-        // Highlight today's date
-        if (date.Year == DateTime.Now.Year && date.Month == DateTime.Now.Month && day == DateTime.Now.Day)
-        {
-            dayButton.Background = System.Windows.Media.Brushes.LightBlue;
-            dayButton.FontWeight = FontWeights.Bold;
-        }
+            // Add buttons for each day in the month
+            for (int day = 1; day <= daysInMonth; day++)
+            {
+                DateTime currentDay = new DateTime(date.Year, date.Month, day);
+                Button dayButton = new Button
+                {
+                    Content = day.ToString(),
+                    Margin = new Thickness(5),
+                    Background = Brushes.White,
+                    BorderBrush = Brushes.Gray,
+                    Foreground = Brushes.Black,
+                    Tag = currentDay
+                };
 
-        dayButton.Click += (s, e) => OnDayButtonClick(date.Year, date.Month, day);
-        CalendarGrid.Children.Add(dayButton);
-    }
-}
+                // Highlight today's date
+                if (currentDay.Date == DateTime.Now.Date)
+                {
+                    dayButton.Background = (Brush)new BrushConverter().ConvertFrom("#BBE1FA") ?? Brushes.Transparent;
+                    dayButton.FontWeight = FontWeights.Bold;
+                }
 
-        private void OnDayButtonClick(int year, int month, int day)
-        {
-            MessageBox.Show($"You selected {new DateTime(year, month, day).ToShortDateString()}.", "Date Selected");
+                dayButton.Click += DayButton_Click;
+                CalendarGrid.Children.Add(dayButton);
+            }
         }
 
         private void PreviousMonth_Click(object sender, RoutedEventArgs e)
@@ -127,19 +128,27 @@ private void GenerateCalendar(DateTime date)
             }
         }
 
+        private void DayButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is DateTime selectedDate)
+            {
+                MessageBox.Show($"Clicked on {selectedDate:MMMM dd, yyyy}");
+            }
+        }
+
         private void AddPatient_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Add Patient button clicked.");
+            this.NavigationService.Navigate(new Add_Patient());
         }
 
         private void BookAppointment_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Book Appointment button clicked.");
+            BookAppointmentWindow bookAppointmentWindow = new BookAppointmentWindow();
+            bookAppointmentWindow.ShowDialog();
         }
 
         private void ScheduleList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Handle selection change in the schedule list
             MessageBox.Show("Schedule item selected.");
         }
     }
