@@ -24,7 +24,21 @@ namespace E_Vita
         {
             InitializeComponent();
         }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack)
+            {
+                MainFrame.GoBack();
+            }
+        }
 
+        private void ForwardButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoForward)
+            {
+                MainFrame.GoForward();
+            }
+        }
         // Test the connection to the database
         private void TestConnection()
         {
@@ -56,7 +70,7 @@ namespace E_Vita
                 if (password == nursePassword && user_txt.Text == nurseUsername)
                 {
                     MessageBox.Show("Welcome Nurse Mohammed!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    MainFrame.Navigate(new Nurse_Dashboard());
+                    MainFrame.Navigate(new test());
                 }
                 // Validate doctor credentials
                 else if (password == doctorPassword && user_txt.Text == doctorUsername)

@@ -26,8 +26,8 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
@@ -42,54 +42,53 @@
         </Grid.RowDefinitions>
         <!-- logo -->
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250"  Panel.ZIndex="1">
-                <Image Source="\Assets\E-Vita bright logo horizontal.png" HorizontalAlignment="Left" Height="250" Margin="2,-50,0,0" Width="250"/>
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" HorizontalAlignment="Left" Height="250" Margin="2,-50,0,0" Width="250"/>
         </StackPanel>
 
         <!-- HEAD-->
-        <StackPanel Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="3" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Add Patient" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FFBBE1FA" Background="Transparent" Margin="5" />
-        </StackPanel>
-
-        <!-- Navigation Buttons -->
-        <StackPanel Grid.Row="1"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="7" Orientation="Horizontal" HorizontalAlignment="Center" Panel.ZIndex="1" >
-            <Button Click="Appointments_Click" Content="Appointments" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Planning" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Descriptions" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
-            <Button Content="Finance" FontSize="20" FontFamily="Cooper Black" BorderThickness="0" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" Click="Button_Click" />
-        </StackPanel>
-        <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="298" Grid.Row="0" VerticalAlignment="Top" Width="1532" Fill="#FF180C47" Grid.RowSpan="2"  />
-        <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="115" Grid.Row="1" VerticalAlignment="Center" Width="1532" Fill="#FF180C47" />
-
-        <Border Background="#0F4C75" CornerRadius="20" Width="600" Height="1000" Padding="30" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="5">
+            <StackPanel Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="3" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="Add Patient" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FFBBE1FA" Background="Transparent" Margin="5,60,0,0" />
+            </StackPanel>
+        
+            <Border Background="#0F4C75" CornerRadius="20" Width="700" Height="800" Padding="30" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="4">
             <StackPanel>
                 <!-- Welcome Text -->
                 <TextBlock Text="❤Welcome on board❤" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>
 
                 <!-- Name -->
-                <TextBlock Text="Name" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <TextBox Name="Name_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,29"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Name" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                        <TextBox Name="Name_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="150,0,0,29"/>
+                    </StackPanel>
+                
                 <!-- ID Field -->
-                <TextBlock Text="ID " FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <TextBox Name="ID_Txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
-
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="ID " FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                        <TextBox Name="ID_Txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="172,0,0,29"/>
+                    </StackPanel>
                 <!-- Nationality Field -->
-                <TextBlock Text="Nationality" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <TextBox Name="Nationality" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
-
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Nationality" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                        <TextBox Name="Nationality" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="114,0,0,20"/>
+                    </StackPanel>
                 <!-- Phone number Field -->
-                <TextBlock Text="Phone number" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <TextBox Name="Phone_Number" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Phone number" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                        <TextBox Name="Phone_Number" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="88,0,0,20"/>
+                    </StackPanel>
+                    <!-- Gender Field -->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Gender" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                        <CheckBox Content="Male" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBADEF1"/>
+                        <CheckBox Content="Female" Margin="88,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBBE1FA"/>
+                    </StackPanel>
+                    <!-- Date of birth Field -->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Date_of_birth" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                        <DatePicker Margin="150,0,0,20" Background="#FF3282B8" Foreground="#FF133E5B" SelectedDateFormat="Long"/>
+                    </StackPanel>
 
-                <!-- Gender Field -->
-                <TextBlock Text="Gender" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <TextBox Name="Gender" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
-          
-                <!-- Date of birth Field -->
-                <TextBlock Text="Date_of_birth" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <TextBox Name="Date_of_birth" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
-
-
-                <StackPanel Orientation="Vertical" Width="300" Margin="0,80,0,0">
+                    <StackPanel Orientation="Vertical" Width="300" Margin="0,20,0,0">
                     <StackPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#1B262C" Offset="1"/>
@@ -114,7 +113,7 @@
                 </StackPanel>
 
                 <!-- Buttons -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0">
                     <Button Content="ADD" Width="120" Height="40" Background="#1B262C" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0"/>
                 </StackPanel>
             </StackPanel>

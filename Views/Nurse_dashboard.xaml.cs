@@ -29,5 +29,11 @@ namespace E_Vita
             this.NavigationService.Navigate(new Add_Patient());
 
         }
+
+        private void OpenPopupButton_Click(object sender, RoutedEventArgs e)
+        {
+            BookAppointmentWindow popup = new BookAppointmentWindow();
+            popup.ShowDialog();
+        }
     }
 }

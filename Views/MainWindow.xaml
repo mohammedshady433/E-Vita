@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d" 
-        Title="Login"
+        Title="E-Vita"
         WindowStartupLocation="CenterScreen"
         Background="#1B262C"
         WindowState="Maximized"
@@ -27,7 +27,7 @@
         <Border Background="#0F4C75" CornerRadius="20" Width="400" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel>
                 <!-- Logo -->
-                    <Image Source="\Assets\E-Vita bright logo horizontal.png" Width="200" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                    <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" Width="200" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
                 <!-- Welcome Text -->
                 <TextBlock Text="Welcome Back!" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>
@@ -49,6 +49,17 @@
             </StackPanel>
         </Border>
     </Grid>
-    <Frame x:Name="MainFrame" NavigationUIVisibility="Visible" Grid.Column="0" Grid.RowSpan="2"/>
+        <!-- Custom Navigation Bar -->
+        <Grid VerticalAlignment="Top" Background="#0F4C75" Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Back" Width="50" Height="20" Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Margin="10,5" Click="BackButton_Click"/>
+            <TextBlock Text="E-Vita" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#BBE1FA" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+            <Button Content="Forward" Width="50" Height="20" Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Margin="10,5" Click="ForwardButton_Click" Grid.Column="2"/>
+        </Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,30,0,0"/>
     </Grid>
 </Window>
