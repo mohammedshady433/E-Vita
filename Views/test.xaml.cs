@@ -1,118 +1,146 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace E_Vita
 {
-    /// <summary>
-    /// Interaction logic for Nurse_Dashboard.xaml
-    /// </summary>
     public partial class test : Page
     {
-        private DateTime _currentDate = DateTime.Now;
+        private DateTime currentDate;
 
         public test()
         {
             InitializeComponent();
-            UpdateCalendar(); // Populate the calendar on startup
+            currentDate = DateTime.Now;
+            PopulateYearAndMonthSelectors();
+            GenerateCalendar(currentDate);
         }
 
-        private void UpdateCalendar()
+        private void PopulateYearAndMonthSelectors()
         {
-            CalendarGrid.Children.Clear();
-            string[] headers = { "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" };
-            foreach (string header in headers)
+            // Populate years (e.g., +/- 10 years from the current year)
+            int currentYear = DateTime.Now.Year;
+            for (int year = currentYear - 10; year <= currentYear + 10; year++)
             {
-                CalendarGrid.Children.Add(new TextBlock
-                {
-                    Text = header,
-                    FontWeight = FontWeights.Bold,
-                    FontSize = 16,
-                    Foreground = new System.Windows.Media.BrushConverter().ConvertFrom("#0F4C75") as System.Windows.Media.Brush,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                });
+                YearSelector.Items.Add(year);
             }
+            YearSelector.SelectedItem = currentDate.Year;
 
-            var firstDayOfMonth = new DateTime(_currentDate.Year, _currentDate.Month, 1);
-            int daysInMonth = DateTime.DaysInMonth(_currentDate.Year, _currentDate.Month);
-            int startDayOffset = (int)firstDayOfMonth.DayOfWeek;
-
-            for (int i = 0; i < startDayOffset; i++)
+            // Populate months
+            for (int month = 1; month <= 12; month++)
             {
-                CalendarGrid.Children.Add(new TextBlock());
+                MonthSelector.Items.Add(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month));
             }
+            MonthSelector.SelectedIndex = currentDate.Month - 1;
+        }
 
-            for (int day = 1; day <= daysInMonth; day++)
-            {
-                DateTime date = new DateTime(_currentDate.Year, _currentDate.Month, day);
-                Button dayButton = new Button
-                {
-                    Content = day.ToString(),
-                    Background = System.Windows.Media.Brushes.White,
-                    Foreground = System.Windows.Media.Brushes.Black,
-                    Margin = new Thickness(2),
-                    Tag = date
-                };
+private void GenerateCalendar(DateTime date)
+{
+    CalendarGrid.Children.Clear();
 
-                if (date.Day == _currentDate.Day)
-                {
-                    dayButton.Background = (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFrom("#BBE1FA") ?? System.Windows.Media.Brushes.Transparent;
-                }
+    // Add day names (Sunday-Saturday)
+    string[] dayNames = CultureInfo.CurrentCulture.DateTimeFormat.AbbreviatedDayNames;
+    foreach (string dayName in dayNames)
+    {
+        CalendarGrid.Children.Add(new TextBlock
+        {
+            Text = dayName,
+            FontWeight = FontWeights.Bold,
+            TextAlignment = TextAlignment.Center,
+            Margin = new Thickness(5)
+        });
+    }
 
-                dayButton.Click += DayButton_Click;
-                CalendarGrid.Children.Add(dayButton);
-            }
+    // Get the first day of the month
+    DateTime firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+    int daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
+    int startDayOffset = (int)firstDayOfMonth.DayOfWeek;
 
-            MonthYearLabel.Text = _currentDate.ToString("MMMM yyyy");
+    // Add empty cells for days before the first of the month
+    for (int i = 0; i < startDayOffset; i++)
+    {
+        CalendarGrid.Children.Add(new TextBlock());
+    }
+
+    // Add buttons for each day in the month
+    for (int day = 1; day <= daysInMonth; day++)
+    {
+        Button dayButton = new Button
+        {
+            Content = day.ToString(),
+            Margin = new Thickness(5),
+            Background = System.Windows.Media.Brushes.White,
+            BorderBrush = System.Windows.Media.Brushes.Gray,
+            Foreground = System.Windows.Media.Brushes.Black
+        };
+
+        // Highlight today's date
+        if (date.Year == DateTime.Now.Year && date.Month == DateTime.Now.Month && day == DateTime.Now.Day)
+        {
+            dayButton.Background = System.Windows.Media.Brushes.LightBlue;
+            dayButton.FontWeight = FontWeights.Bold;
+        }
+
+        dayButton.Click += (s, e) => OnDayButtonClick(date.Year, date.Month, day);
+        CalendarGrid.Children.Add(dayButton);
+    }
+}
+
+        private void OnDayButtonClick(int year, int month, int day)
+        {
+            MessageBox.Show($"You selected {new DateTime(year, month, day).ToShortDateString()}.", "Date Selected");
         }
 
         private void PreviousMonth_Click(object sender, RoutedEventArgs e)
         {
-            _currentDate = _currentDate.AddMonths(-1);
-            UpdateCalendar();
+            currentDate = currentDate.AddMonths(-1);
+            YearSelector.SelectedItem = currentDate.Year;
+            MonthSelector.SelectedIndex = currentDate.Month - 1;
+            GenerateCalendar(currentDate);
         }
 
         private void NextMonth_Click(object sender, RoutedEventArgs e)
         {
-            _currentDate = _currentDate.AddMonths(1);
-            UpdateCalendar();
+            currentDate = currentDate.AddMonths(1);
+            YearSelector.SelectedItem = currentDate.Year;
+            MonthSelector.SelectedIndex = currentDate.Month - 1;
+            GenerateCalendar(currentDate);
         }
 
-        private void DayButton_Click(object sender, RoutedEventArgs e)
+        private void YearSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (sender is Button button && button.Tag is DateTime selectedDate)
+            if (YearSelector.SelectedItem != null && MonthSelector.SelectedIndex >= 0)
             {
-                MessageBox.Show($"Clicked on {selectedDate:MMMM dd, yyyy}");
+                currentDate = new DateTime((int)YearSelector.SelectedItem, MonthSelector.SelectedIndex + 1, 1);
+                GenerateCalendar(currentDate);
             }
         }
 
-        private void ScheduleList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void MonthSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Handle selection change if needed
+            if (YearSelector.SelectedItem != null && MonthSelector.SelectedIndex >= 0)
+            {
+                currentDate = new DateTime((int)YearSelector.SelectedItem, MonthSelector.SelectedIndex + 1, 1);
+                GenerateCalendar(currentDate);
+            }
         }
 
         private void AddPatient_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Add_Patient());
+            MessageBox.Show("Add Patient button clicked.");
         }
 
         private void BookAppointment_Click(object sender, RoutedEventArgs e)
         {
-            // Call the constructor with the correct parameters
-            BookAppointmentWindow bookAppointmentWindow = new BookAppointmentWindow();
-            bookAppointmentWindow.ShowDialog();
+            MessageBox.Show("Book Appointment button clicked.");
+        }
+
+        private void ScheduleList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Handle selection change in the schedule list
+            MessageBox.Show("Schedule item selected.");
         }
     }
 }
