@@ -70,9 +70,9 @@
                 </Border>
 
                 <StackPanel Grid.Column="1" Margin="20">
-                    <ListBox x:Name="ScheduleList" Height="600" SelectionChanged="ScheduleList_SelectionChanged" Background="#FF0F4C75">
-                        <ListBox>
-                            <DataGrid x:Name="ScheduleDataGrid" Grid.Column="1" Margin="0" AutoGenerateColumns="False" Height="550" Width="695" Background="#FFBBE1FA" Foreground="#FF0F4C75">
+                    <ListBox x:Name="ScheduleList" Height="600" SelectionChanged="ScheduleList_SelectionChanged" Background="#FF0F4C75" BorderBrush="#FFBBE1FA">
+                        <ListBox BorderBrush="#FFBBE1FA" Background="#FFBBE1FA">
+                            <DataGrid x:Name="ScheduleDataGrid" Grid.Column="1" Margin="0" AutoGenerateColumns="False" Height="580" Width="695" Background="#FFBBE1FA" Foreground="#FF0F4C75" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Time" Binding="{Binding TaskName}" Width="*"/>
                                     <DataGridCheckBoxColumn Header="Patient Name" Binding="{Binding IsCompleted}" Width="*"/>

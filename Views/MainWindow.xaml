@@ -24,7 +24,7 @@
         </Grid.Background>
 
         <!-- Central Login Panel -->
-        <Border Background="#0F4C75" CornerRadius="20" Width="400" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border Background="#0F4C75" CornerRadius="20" Width="500" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel>
                 <!-- Logo -->
                     <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" Width="373" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>

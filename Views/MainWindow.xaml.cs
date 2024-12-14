@@ -97,7 +97,13 @@ namespace E_Vita
         // Reset password navigation
         private void Reset_Pass(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Reset_Password());
+            Reset_Password Resetpass = new Reset_Password();
+            Resetpass.ShowDialog();
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }
