@@ -70,7 +70,7 @@ namespace E_Vita
                 if (password == nursePassword && user_txt.Text == nurseUsername)
                 {
                     MessageBox.Show("Welcome Nurse Mohammed!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    MainFrame.Navigate(new test());
+                    MainFrame.Navigate(new Nurse_Dashboard());
                 }
                 // Validate doctor credentials
                 else if (password == doctorPassword && user_txt.Text == doctorUsername)
