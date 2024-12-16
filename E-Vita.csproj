@@ -33,6 +33,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
     <PackageReference Include="MySql.Data" Version="9.1.0" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Syncfusion.Blazor.Calendars" Version="27.2.5" />
     <PackageReference Include="Syncfusion.Licensing" Version="27.2.5" />
     <PackageReference Include="Syncfusion.SfInput.WPF" Version="27.2.5" />
@@ -43,10 +44,6 @@
     <Resource Include="Assets\check.png" />
     <Resource Include="Assets\E-Vita logo-01.png" />
     <Resource Include="Assets\E-Vita-01.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

@@ -69,7 +69,7 @@ namespace E_Vita
                 else if (password == doctorPassword && user_txt.Text == doctorUsername)
                 {
                     MessageBox.Show("Welcome Doctor!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
-                    MainFrame.Navigate(new Doctor_Dashboard());
+                    MainFrame.Navigate(new DoctorDashboard());
                 }
                 else
                 {

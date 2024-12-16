@@ -48,7 +48,7 @@ namespace E_Vita
                     MessageBox.Show("Welcome Admin!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     // Navigate to Doctor Dashboard (example)
-                    MainFrame.Navigate(new Doctor_Dashboard()); // Assuming you have a MainFrame for navigation
+                    MainFrame.Navigate(new DoctorDashboard()); // Assuming you have a MainFrame for navigation
                 }
                 else
                 {
