@@ -7,25 +7,33 @@
         mc:Ignorable="d" 
         Title="E-Vita"
         WindowStartupLocation="CenterScreen"
-        Background="#1B262C"
+        Background="Transparent"
         WindowState="Maximized"
         d:DesignHeight="2500" d:DesignWidth="1532"
-        WindowStyle="ThreeDBorderWindow"
-       >
+        WindowStyle="ThreeDBorderWindow">
+    
     <!--        AllowsTransparency="True"   this is used inside the window tag -->
     <Grid>
         <Grid>
             <!-- Main Background -->
         <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="#1B262C" Offset="0.0"/>
-                <GradientStop Color="#0F4C75" Offset="1.0"/>
-            </LinearGradientBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0f4075" Offset="0"/>
+                    <GradientStop Color="#3283b8" Offset="0.75"/>
+                    <GradientStop Color="#Bbe1fe" Offset="1.3"/>
+                </LinearGradientBrush>
         </Grid.Background>
 
         <!-- Central Login Panel -->
-        <Border Background="#0F4C75" CornerRadius="20" Width="500" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel>
+        <Border CornerRadius="20" Width="500" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                        <GradientStop Color="#3283b8" Offset="0"/>
+                        <GradientStop Color="#0f4075" Offset="0.75"/>
+                        <GradientStop Color="#1B1448" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel>
                 <!-- Logo -->
                     <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" Width="373" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
@@ -43,14 +51,18 @@
 
                 <!-- Buttons -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                    <Button Click="Button_Click" Content="Login" Width="120" Height="40" Background="#1B262C" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0"/>
-                    <Button Click="Reset_Pass" Content="Reset" Width="120" Height="40" Background="#3282B8" Foreground="White" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0"/>
+                        <Button Click="Button_Click" Content="Login" Width="120" Height="40"  FontFamily="Montserrat Medium" Foreground="#f5efe5" BorderBrush="#278BEF" FontSize="18" FontWeight="Bold" Margin="10,0" Background="#FF276FA4"/>
+                <!--    <Button Click="Reset_Pass" Content="Reset" Width="120" Height="40" Background="#3282B8" Foreground="White" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0"/> -->
                 </StackPanel>
-            </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0">
+                        <TextBlock Text="Forgot Password?" Foreground="DarkGray" FontSize="14" FontWeight="Medium" FontFamily="Montserrat" Margin="0,5,0,0"/>
+                            <Button x:Name="Reset" Background="Transparent" Margin="10,0,0,0" HorizontalAlignment="Left" BorderThickness="0" Content="Reset" Foreground="DarkGray" FontWeight="Light" FontSize="14" FontFamily="Verdana" Cursor="Hand" Click="Reset_Pass"/>
+                    </StackPanel>
+                </StackPanel>
         </Border>
     </Grid>
         <!-- Custom Navigation Bar -->
-        <Grid VerticalAlignment="Top" Background="#0F4C75" Height="30">
+        <Grid VerticalAlignment="Top" Background="#FF195388" Height="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
