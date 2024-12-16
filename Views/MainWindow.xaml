@@ -18,19 +18,19 @@
             <!-- Main Background -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0f4075" Offset="0"/>
-                    <GradientStop Color="#3283b8" Offset="0.75"/>
-                    <GradientStop Color="#Bbe1fe" Offset="1.3"/>
-                </LinearGradientBrush>
+                <GradientStop Color="White" Offset="-0.4"/>
+                <GradientStop Color="#0f4075" Offset="0.5"/>
+                <GradientStop Color="White" Offset="1.4"/>
+            </LinearGradientBrush>
         </Grid.Background>
 
         <!-- Central Login Panel -->
         <Border CornerRadius="20" Width="500" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                        <GradientStop Color="#3283b8" Offset="0"/>
-                        <GradientStop Color="#0f4075" Offset="0.75"/>
-                        <GradientStop Color="#1B1448" Offset="1"/>
+                        <GradientStop Color="White" Offset="-0.4"/>
+                        <GradientStop Color="#0f4075" Offset="0.5"/>
+                        <GradientStop Color="White" Offset="1.4"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel>

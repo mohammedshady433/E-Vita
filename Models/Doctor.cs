@@ -14,7 +14,7 @@ namespace E_Vita.Models
         [Key]
         public int Doctor_ID { get; set; }
 
-        public int Name { get; set; }
+        public string Name { get; set; }
         public string Speciality { get; set; }
 
         public string  User_Name { get; set; }

@@ -19,6 +19,7 @@ namespace E_Vita
             GenerateCalendar(currentDate);
         }
 
+
         private void PopulateYearAndMonthSelectors()
         {
             // Populate years (e.g., +/- 10 years from the current year)
@@ -74,16 +75,18 @@ namespace E_Vita
                 {
                     Content = day.ToString(),
                     Margin = new Thickness(5),
-                    Background = Brushes.White,
+                    Background = Brushes.Black,
                     BorderBrush = Brushes.Gray,
-                    Foreground = Brushes.Black,
-                    Tag = currentDay
+                    Foreground = Brushes.White,
+                    Tag = currentDay,
+                    Width = 90,
+                    Height = 71
                 };
 
                 // Highlight today's date
                 if (currentDay.Date == DateTime.Now.Date)
                 {
-                    dayButton.Background = (Brush)new BrushConverter().ConvertFromString("#BBE1FA") ?? Brushes.Transparent;
+                    dayButton.Background = (Brush)new BrushConverter().ConvertFromString("#0F4C75") ?? Brushes.Transparent;
                     dayButton.FontWeight = FontWeights.Bold;
                 }
 
@@ -141,8 +144,7 @@ namespace E_Vita
 
         private void ViewPatientsData_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Add_Patient());
-            MessageBox.Show("View Patients Data button clicked.");
+            this.NavigationService.Navigate(new Patient_Data());
         }
 
         private void Prescriptions_Click(object sender, RoutedEventArgs e)
@@ -153,7 +155,7 @@ namespace E_Vita
         private void LabResults_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Lab Tests Information button clicked.");
-             this.NavigationService.Navigate(new LabTestsWindow());
+            this.NavigationService.Navigate(new LabTestsWindow());
         }
 
         private void Images_Click(object sender, RoutedEventArgs e)
