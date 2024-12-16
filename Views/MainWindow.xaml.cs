@@ -9,7 +9,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient; // For connecting to MySQL
-using System.Data;           // For using DataTable
+using System.Data;
+using E_Vita.Interfaces.Repository;
+using E_Vita.Models;
+using System.Runtime.CompilerServices;           // For using DataTable
 
 namespace E_Vita
 {
@@ -19,11 +22,15 @@ namespace E_Vita
     public partial class MainWindow : Window
     {
         private string connectionString = "Server=localhost;Database=hotel_lab5;User ID=root;Password=Moh@10042004;SslMode=none;";
+        //private readonly IRepository<Doctor> doctor_Db;
 
+        //private IRepository<Models.Doctor> doctordb;
         public MainWindow()
         {
             InitializeComponent();
+            //doctor_Db = doctor_db;
         }
+
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             if (MainFrame.CanGoBack)
@@ -40,21 +47,7 @@ namespace E_Vita
             }
         }
         // Test the connection to the database
-        private void TestConnection()
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    MessageBox.Show("Connection successful!", "Database Connection", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -101,9 +94,30 @@ namespace E_Vita
             Resetpass.ShowDialog();
         }
 
-        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
-        {
 
-        }
     }
 }
+
+
+
+//trash code 
+//private void TestConnection()
+//{
+//    try
+//    {
+//        using (MySqlConnection conn = new MySqlConnection(connectionString))
+//        {
+//            conn.Open();
+//            MessageBox.Show("Connection successful!", "Database Connection", MessageBoxButton.OK, MessageBoxImage.Information);
+//        }
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
+//    }
+//}
+
+        //private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        //{
+
+        //}
