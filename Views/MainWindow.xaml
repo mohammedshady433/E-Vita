@@ -49,10 +49,40 @@
                 <TextBlock Text="Password" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
                 <PasswordBox Name="pass_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
 
-                <!-- Buttons -->
+                <!-- Login Button -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                        <Button Click="Button_Click" Content="Login" Width="120" Height="40"  FontFamily="Montserrat Medium" Foreground="#f5efe5" BorderBrush="#278BEF" FontSize="18" FontWeight="Bold" Margin="10,0" Background="#FF276FA4"/>
-                <!--    <Button Click="Reset_Pass" Content="Reset" Width="120" Height="40" Background="#3282B8" Foreground="White" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0"/> -->
+                        <Button x:Name="btnLogin"                          
+                        BorderThickness="0"
+                        Content="LOG IN"
+                        Foreground="White"
+                        FontSize="12"
+                        FontFamily="Verdana"
+                        Cursor="Hand"                           
+                        Margin="0"
+                        Click="Button_Click">
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#0f4075"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#Bbe1fe"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="40"
+                                    CornerRadius="20"
+                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
                 </StackPanel>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0">
                         <TextBlock Text="Forgot Password?" Foreground="DarkGray" FontSize="14" FontWeight="Medium" FontFamily="Montserrat" Margin="0,5,0,0"/>
@@ -75,3 +105,8 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,30,0,0"/>
     </Grid>
 </Window>
+
+
+
+<!--Trash code   
+    <Button Click="Reset_Pass" Content="Reset" Width="120" Height="40" Background="#3282B8" Foreground="White" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0"/>-->
