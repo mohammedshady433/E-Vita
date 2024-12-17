@@ -22,6 +22,8 @@ namespace E_Vita
         // Declare the DrugList property at the class level
         public List<Controllers.Drug> DrugList { get; set; }
 
+        // Add a property to store the selected drug
+        public Drug SelectedDrug { get; private set; }
         public MedicationsWindow()
         {
             InitializeComponent();
@@ -44,8 +46,11 @@ namespace E_Vita
         {
             if (SearchResultsComboBox.SelectedItem is Drug selectedDrug)
             {
+                SelectedDrug = selectedDrug;
+
                 // You can display more details of the selected drug in the UI here
                 MessageBox.Show($"You selected: {selectedDrug.Tradename} \n Price={selectedDrug.new_price}");
+
                 this.Close();
             }
         }
