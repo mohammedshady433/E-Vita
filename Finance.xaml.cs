@@ -3,19 +3,24 @@ using LiveCharts.Wpf;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace E_Vita
 {
-    public partial class FinancePage : Window
+    public partial class Finance : Window
     {
         public ObservableCollection<Transaction> Transactions { get; set; }
-        public ObservableCollection<ChartValues<double>> RevenueValues { get; set; }
-        public ObservableCollection<ChartValues<double>> ExpenseValues { get; set; }
-        public ObservableCollection<PieChartEntry> DepartmentRevenue { get; set; }
+        public ChartValues<double> RevenueValues { get; set; }
+        public ChartValues<double> ExpenseValues { get; set; }
+        public ChartValues<double> ProfitValues { get; set; }
+        public ObservableCollection<string> MonthLabels { get; set; }
+        public Func<double, string> YFormatter { get; set; }
 
-        public FinancePage()
+        public Finance()
         {
             InitializeComponent();
+
+            this.DataContext = this;
 
             // Initialize Transactions collection with sample data
             Transactions = new ObservableCollection<Transaction>
@@ -29,80 +34,55 @@ namespace E_Vita
             // Check if Transactions data is correctly populated
             Debug.WriteLine($"Transaction Count: {Transactions.Count}"); // Debug log
 
-            // Bind the Transactions collection to the DataGrid
-            TransactionsDataGrid.ItemsSource = Transactions;
+        // Bind the Transactions collection to the DataGrid
+        TransactionsDataGrid.ItemsSource = Transactions;
 
-            // Check if the DataGrid ItemsSource is being set correctly
-            Debug.WriteLine($"DataGrid ItemSource Count: {((ObservableCollection<Transaction>)TransactionsDataGrid.ItemsSource).Count}"); // Debug log
+            // Debugging DataGrid binding
+            Debug.WriteLine($"DataGrid ItemsSource is set.");
 
             // Set up data for the charts
-            RevenueValues = new ObservableCollection<ChartValues<double>>()
-            {
-                new ChartValues<double> { 50000, 60000, 70000, 80000, 75000 }
-            };
+            RevenueValues = new ChartValues<double> { 50000, 60000, 70000, 80000, 75000 };
+            ExpenseValues = new ChartValues<double> { 20000, 25000, 30000, 35000, 40000 };
+            ProfitValues = new ChartValues<double> { 30000, 35000, 40000, 45000, 35000 };
 
-            ExpenseValues = new ObservableCollection<ChartValues<double>>()
-            {
-                new ChartValues<double> { 20000, 25000, 30000, 35000, 40000 }
-            };
-
-            var departmentValues = new ChartValues<double> { 30, 40, 30 };
+            // Define month labels and Y-axis formatter
+            MonthLabels = new ObservableCollection<string> { "Jan", "Feb", "Mar", "Apr", "May" };
+            YFormatter = value => $"${value:N0}";
 
             // Bind data to charts
             RevenueExpensesChart.Series = new SeriesCollection
             {
                 new LineSeries
                 {
-                    Title = "Revenue",
-                    Values = RevenueValues[0]
+                     Title = "Revenue",
+                    Values = RevenueValues,
+                    Stroke = System.Windows.Media.Brushes.Orchid,
+                    Fill = System.Windows.Media.Brushes.Transparent
                 },
                 new LineSeries
                 {
-                    Title = "Expenses",
-                    Values = ExpenseValues[0]
+                     Title = "Expenses",
+                    Values = ExpenseValues,
+                    Stroke = System.Windows.Media.Brushes.OrangeRed,
+                    Fill = System.Windows.Media.Brushes.Transparent
+                },
+                new LineSeries
+                {
+                    Title = "Profit",
+                    Values = ProfitValues,
+                    Stroke = System.Windows.Media.Brushes.LawnGreen,
+                    Fill = System.Windows.Media.Brushes.Transparent
                 }
             };
-
-            RevenueByDepartmentChart.Series = new SeriesCollection
-            {
-                new PieSeries
-                {
-                    Title = "HR",
-                    Values = new ChartValues<double> { departmentValues[0] },
-                    DataLabels = true,
-                    LabelPoint = chartPoint => chartPoint.Y + "%"
-                },
-                new PieSeries
-                {
-                    Title = "Sales",
-                    Values = new ChartValues<double> { departmentValues[1] },
-                    DataLabels = true,
-                    LabelPoint = chartPoint => chartPoint.Y + "%"
-                },
-                new PieSeries
-                {
-                    Title = "R&D",
-                    Values = new ChartValues<double> { departmentValues[2] },
-                    DataLabels = true,
-                    LabelPoint = chartPoint => chartPoint.Y + "%"
-                }
-            };
-
-            // Explicitly set the DataContext
-            this.DataContext = this;
         }
-    }
-
-    public class PieChartEntry
-    {
-        public double Value { get; set; }
-        public string Label { get; set; }
-        public string ValueLabel { get; set; }
-        public System.Windows.Media.Color Color { get; set; }
-
-        public PieChartEntry(double value)
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
-            Value = value;
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 

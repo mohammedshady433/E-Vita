@@ -41,8 +41,17 @@ namespace E_Vita
                 MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+            private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             int nursePassword = 123;
             string nurseUsername = "Mohammed";
@@ -50,16 +59,16 @@ namespace E_Vita
             string doctorUsername = "doctor";
 
             // Try parsing the input password to an integer
-            if (int.TryParse(pass_txt.Password, out int password))
+            if (int.TryParse(txtPass.Password, out int password))
             {
                 // Validate nurse credentials
-                if (password == nursePassword && user_txt.Text == nurseUsername)
+                if (password == nursePassword && txtUser.Text == nurseUsername)
                 {
                     MessageBox.Show("Welcome Nurse Mohammed!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
                     MainFrame.Navigate(new Nurse_Dashboard());
                 }
                 // Validate doctor credentials
-                else if (password == doctorPassword && user_txt.Text == doctorUsername)
+                else if (password == doctorPassword && txtUser.Text == doctorUsername)
                 {
                     MessageBox.Show("Welcome Doctor!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
                     MainFrame.Navigate(new Doctor_Dashboard());
@@ -74,14 +83,14 @@ namespace E_Vita
             {
                 // Handle invalid password input
                 MessageBox.Show("Password must be a numeric value", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                pass_txt.Clear();
-                user_txt.Clear();
-                user_txt.Focus();
+                txtPass.Clear();
+                txtUser.Clear();
+                txtUser.Focus();
             }
         }
 
         // Reset password navigation
-        private void Reset_Pass(object sender, RoutedEventArgs e)
+        private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Reset_Password());
         }
