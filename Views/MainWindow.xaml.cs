@@ -1,18 +1,6 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using MySql.Data.MySqlClient; // For connecting to MySQL
-using System.Data;
-using E_Vita.Interfaces.Repository;
+﻿using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
-using System.Runtime.CompilerServices;           // For using DataTable
+using System.Windows;
 
 namespace E_Vita
 {
@@ -20,14 +8,14 @@ namespace E_Vita
     {
         private readonly IRepository<Doctor> _DoctorRepository;
         private readonly IRepository<Nurse> _NurseRepository;
-        public MainWindow(IRepository<Doctor> doctorRepository, IRepository<Nurse> nurseRepository)
+        public MainWindow(IRepository<Doctor> doctorRepository,
+            IRepository<Nurse> nurseRepository
+            )
         {
             InitializeComponent();
-            _DoctorRepository = doctorRepository;
-            _NurseRepository = nurseRepository;
+            _DoctorRepository = doctorRepository ?? throw new ArgumentNullException(nameof(doctorRepository));
+            _NurseRepository = nurseRepository ?? throw new ArgumentNullException(nameof(nurseRepository));
         }
-
-
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -51,7 +39,7 @@ namespace E_Vita
             string nurseUsername = "Mohammed";
             string passdoc = pass_txt.Password;
             string userdoc = user_txt.Text;
-            int iddoc =int.Parse(ID_txt.Text);
+            int iddoc = int.Parse(ID_txt.Text);
 
             Doctor docvar = await _DoctorRepository.GetByIdAsync(iddoc);
 
@@ -65,7 +53,7 @@ namespace E_Vita
                     MainFrame.Navigate(new Nurse_Dashboard());
                 }
                 // Validate doctor credentials
-                else if ( docvar.Pass==passdoc && userdoc==docvar.User_Name)
+                else if (docvar.Pass == passdoc && userdoc == docvar.User_Name)
                 {
                     MessageBox.Show("Welcome Doctor!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
                     MainFrame.Navigate(new DoctorDashboard());
@@ -132,17 +120,17 @@ namespace E_Vita
 
 
 //public static MainWindow CreateInstance(IRepository<Doctor> doctorRepository, IRepository<Nurse> nurseRepository)
-        //{
-        //    return new MainWindow(doctorRepository, nurseRepository);
-        //}
-        //private void LoadData() {
-        //    // Load data from the database
-        //    var patients = _context.patient_Datas.ToList();
-        //    var doctors = _context.Doctors.ToList();
-        //    var medicalRecords = _context.Medical_Records.ToList();
-        //    var patientDoctorNurses = _context.patient_Doctor_Nurses.ToList();
-        //    var prescriptions = _context.Prescriptions.ToList();
-        //    var resetPassLogs = _context.Reset_Pass_Logs.ToList();
-        //    var nurses = _context.Nurses.ToList();
-        //    var appointments = _context.Appointments_DB.ToList();
-        //}
+//{
+//    return new MainWindow(doctorRepository, nurseRepository);
+//}
+//private void LoadData() {
+//    // Load data from the database
+//    var patients = _context.patient_Datas.ToList();
+//    var doctors = _context.Doctors.ToList();
+//    var medicalRecords = _context.Medical_Records.ToList();
+//    var patientDoctorNurses = _context.patient_Doctor_Nurses.ToList();
+//    var prescriptions = _context.Prescriptions.ToList();
+//    var resetPassLogs = _context.Reset_Pass_Logs.ToList();
+//    var nurses = _context.Nurses.ToList();
+//    var appointments = _context.Appointments_DB.ToList();
+//}
