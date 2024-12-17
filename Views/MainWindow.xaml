@@ -35,7 +35,7 @@
                 </Border.Background>
                 <StackPanel>
                 <!-- Logo -->
-                    <Image Source="C:\Users\El_AMIR TECH\Source\Repos\E-Vita\Assets\Vertical dark logo.png" Width="373" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                    <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\Vertical dark logo.png" Width="373" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
                 <!-- Welcome Text -->
                 <TextBlock Text="Welcome Back!" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>
@@ -48,6 +48,10 @@
                 <!-- Password Field -->
                 <TextBlock Text="Password" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
                 <PasswordBox Name="pass_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
+               
+                <!-- ID Field -->
+                <TextBlock Text="ID" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                <TextBox Name="ID_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
 
                 <!-- Login Button -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">

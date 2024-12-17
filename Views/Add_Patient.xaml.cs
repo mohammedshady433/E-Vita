@@ -29,7 +29,7 @@ namespace E_Vita
         private void LoadNationalities()
         {
             // Path to the JSON file
-            string filePath = "C:\\Users\\El_AMIR TECH\\Source\\Repos\\E-Vita\\Assets\\Json_files\\nationalities-common.json";
+            string filePath = "D:\\NU\\fifth semester\\Clinical\\E-Vita\\E-Vita\\Assets\\Json_files\\nationalities-common.json";
 
             // Read the JSON file
             string jsonContent = File.ReadAllText(filePath);

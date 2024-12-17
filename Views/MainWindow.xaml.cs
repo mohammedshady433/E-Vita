@@ -16,20 +16,18 @@ using System.Runtime.CompilerServices;           // For using DataTable
 
 namespace E_Vita
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        private string connectionString = "Server=localhost;Database=hotel_lab5;User ID=root;Password=Moh@10042004;SslMode=none;";
-        //private readonly IRepository<Doctor> doctor_Db;
-
-        //private IRepository<Models.Doctor> doctordb;
-        public MainWindow()
+        private readonly IRepository<Doctor> _DoctorRepository;
+        private readonly IRepository<Nurse> _NurseRepository;
+        public MainWindow(IRepository<Doctor> doctorRepository, IRepository<Nurse> nurseRepository)
         {
             InitializeComponent();
-            //doctor_Db = doctor_db;
+            _DoctorRepository = doctorRepository;
+            _NurseRepository = nurseRepository;
         }
+
+
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -46,15 +44,16 @@ namespace E_Vita
                 MainFrame.GoForward();
             }
         }
-        // Test the connection to the database
 
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             int nursePassword = 123;
             string nurseUsername = "Mohammed";
-            int doctorPassword = 123;
-            string doctorUsername = "doctor";
+            string passdoc = pass_txt.Password;
+            string userdoc = user_txt.Text;
+            int iddoc =int.Parse(ID_txt.Text);
+
+            Doctor docvar = await _DoctorRepository.GetByIdAsync(iddoc);
 
             // Try parsing the input password to an integer
             if (int.TryParse(pass_txt.Password, out int password))
@@ -66,7 +65,7 @@ namespace E_Vita
                     MainFrame.Navigate(new Nurse_Dashboard());
                 }
                 // Validate doctor credentials
-                else if (password == doctorPassword && user_txt.Text == doctorUsername)
+                else if ( docvar.Pass==passdoc && userdoc==docvar.User_Name)
                 {
                     MessageBox.Show("Welcome Doctor!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
                     MainFrame.Navigate(new DoctorDashboard());
@@ -117,7 +116,33 @@ namespace E_Vita
 //    }
 //}
 
-        //private void MainFrame_Navigated(object sender, NavigationEventArgs e)
-        //{
+//private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+//{
 
+//}
+
+
+
+//this was written in the contructor
+//private string connectionString = "Server=localhost;Database=hotel_lab5;User ID=root;Password=Moh@10042004;SslMode=none;";
+//private readonly IRepository<Doctor> doctor_Db;
+
+//private IRepository<Models.Doctor> doctordb;
+
+
+
+//public static MainWindow CreateInstance(IRepository<Doctor> doctorRepository, IRepository<Nurse> nurseRepository)
+        //{
+        //    return new MainWindow(doctorRepository, nurseRepository);
+        //}
+        //private void LoadData() {
+        //    // Load data from the database
+        //    var patients = _context.patient_Datas.ToList();
+        //    var doctors = _context.Doctors.ToList();
+        //    var medicalRecords = _context.Medical_Records.ToList();
+        //    var patientDoctorNurses = _context.patient_Doctor_Nurses.ToList();
+        //    var prescriptions = _context.Prescriptions.ToList();
+        //    var resetPassLogs = _context.Reset_Pass_Logs.ToList();
+        //    var nurses = _context.Nurses.ToList();
+        //    var appointments = _context.Appointments_DB.ToList();
         //}

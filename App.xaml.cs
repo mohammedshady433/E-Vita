@@ -7,51 +7,62 @@ using Syncfusion.Licensing;
 using Microsoft.Extensions.Hosting;
 using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
+using E_Vita.Views;
+using LiveCharts.Wpf;
 namespace E_Vita
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         //public static IServiceProvider ServiceProvider { get; private set; }
-        public static IHost AppHost { get; private set; }
+        public IServiceProvider ServiceProvider { get; private set; }
+
         public App()
         {
+            // Set up Dependency Injection
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection);
+            ServiceProvider = serviceCollection.BuildServiceProvider();
+
             // Register the Syncfusion license key
             SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NDaF1cWWhIfEx1RHxQdld5ZFRHallYTnNWUj0eQnxTdEFiWH1WcnVVQmNYUk1wWw==");
-            AppHost= Host.CreateDefaultBuilder()
-                .ConfigureServices((context, services) =>
-                {
-                    services.AddSingleton<MainWindow>();
-                    services.AddTransient<IRepository<Doctor>, DoctorRepo>();
-                    services.AddTransient<IRepository<Nurse>, NurseRepo>();
-                    services.AddTransient<IRepository<Patient>, PatientRepo>();
-                    services.AddTransient<IRepository<Prescription>, PrescriptionRepo>();
-                    services.AddTransient<IRepository<Appointment>, AppointmentRepo>();
-
-                })
-                .Build();
         }
 
-        protected override async void OnStartup(StartupEventArgs e)
+        // The OnStartup method should only resolve and show the MainWindow
+        protected override void OnStartup(StartupEventArgs e)
         {
-            await AppHost.StartAsync();
-            // Resolve and show the Main Window
-            var startupform = AppHost.Services.GetRequiredService<MainWindow>();
-            startupform.Show();
-
             base.OnStartup(e);
 
-            //    // Initialize the dependency injection container
-            //    ServiceProvider = Startup.ConfigureServices();
-                
+            // Get the MainWindow from DI container and show it
+            // Resolve MainWindow using the DI container
+            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+            // Show the MainWindow
+
+            mainWindow.Show();
+
         }
-        protected override async void OnExit(ExitEventArgs e)
+        private void ConfigureServices(IServiceCollection services)
         {
-           
-            await AppHost!.StopAsync();
-            base.OnExit(e);
+            // Register DbContext, services, and views
+            //services.AddScoped<MainWindow>();
+            //services.AddScoped<DoctorDashboard>();
+            //services.AddScoped<Nurse_Dashboard>();
+            //services.AddScoped<Appointments>();
+            //services.AddScoped<Add_Patient>();
+            //services.AddScoped<BookAppointmentWindow>();
+            //services.AddScoped<Finance>();
+            //services.AddScoped<Patient_Data>();
+            //services.AddScoped<Patient_info>();
+            //services.AddScoped<Reset_Password>();
+            services.AddDbContext<ApplicationDbContext>();
+
+            //repositories injection
+            services.AddScoped<IRepository<Appointment>,AppointmentRepo>();
+            services.AddScoped<IRepository<Doctor>, DoctorRepo>();
+            services.AddScoped<IRepository<Nurse>, NurseRepo>();
+            services.AddScoped<IRepository<Patient>, PatientRepo>();
+            services.AddScoped<IRepository<Prescription>, PrescriptionRepo>();
+
         }
+
     }
 }
