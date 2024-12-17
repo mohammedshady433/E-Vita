@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Vita.Views;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
@@ -185,6 +186,12 @@ namespace E_Vita
         {
             MedicationsWindow medWindow = new MedicationsWindow();
             medWindow.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Patient_info());
+
         }
     }
 }
