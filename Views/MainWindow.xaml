@@ -98,9 +98,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Back" Width="50" Height="20" Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Margin="10,5" Click="BackButton_Click"/>
+            <Button Content="Back" Width="50" Height="20" Background="white" Foreground="#3282B8" BorderBrush="#BBE1FA" Margin="10,5" Click="BackButton_Click"/>
             <TextBlock Text="E-Vita" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#BBE1FA" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
-            <Button Content="Forward" Width="50" Height="20" Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Margin="10,5" Click="ForwardButton_Click" Grid.Column="2"/>
+            <Button Content="Forward" Width="50" Height="20"  Background="white" Foreground="#3282B8" BorderBrush="#BBE1FA" Margin="10,5" Click="ForwardButton_Click" Grid.Column="2"/>
         </Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,30,0,0"/>
     </Grid>

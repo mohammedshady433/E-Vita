@@ -12,9 +12,9 @@
             <!-- Main Background -->
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0f4075" Offset="0"/>
-                    <GradientStop Color="Black" Offset="0.5"/>
-                    <GradientStop Color="#0f4075" Offset="1"/>
+                    <GradientStop Color="#BBE1FA" Offset="0"/>
+                    <GradientStop Color="#BBE1FA" Offset="0.5"/>
+                    <GradientStop Color="#BBE1FA" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
@@ -45,11 +45,11 @@
             </StackPanel>
 
             <!-- HEAD-->
-            <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Patient Info" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FFBBE1FA" Background="Transparent" Margin="5,50,0,0" />
+            <StackPanel Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="Patient Info" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#0F4C75" Background="Transparent" Margin="5,50,33,0" />
             </StackPanel>
             <StackPanel Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="2" Margin="10">
-                <TextBlock Text="Patient Information" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" Foreground="White"/>
+                <TextBlock Text="Patient Information" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" Foreground="#0F4C75"/>
                 <Grid>
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

@@ -15,14 +15,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Background="#0F4C75" Margin="0,0,35,0">
+        <StackPanel Background="#FF195388" Margin="0,0,35,0">
             <StackPanel Margin="10,20,10,20"  HorizontalAlignment="Center">
                 <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" Height="50" Margin="0,0,0,20"/>
             </StackPanel>
             <Button Content="Add Patient" Click="AddPatient_Click" FontFamily="Verdana" Margin="5,5,5,-300" Padding="10"
-                    Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="150" Height="46" />
+                    Background="#BBE1FA" Foreground="#FF195388" BorderBrush="#BBE1FA" Width="150" Height="46" />
             <Button Content="Book Appointment" Click="BookAppointment_Click" FontFamily="Verdana" Padding="10"
-                    Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="150" Height="46" Margin="5,5,5,-500"/>
+                    Background="#BBE1FA" Foreground="#FF195388" BorderBrush="#BBE1FA" Width="150" Height="46" Margin="5,5,5,-500"/>
         </StackPanel>
 
         <Grid Grid.Column="1" Background="#1B262C" Margin="20">
