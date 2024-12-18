@@ -8,9 +8,7 @@ namespace E_Vita
     {
         private readonly IRepository<Doctor> _DoctorRepository;
         private readonly IRepository<Nurse> _NurseRepository;
-        public MainWindow(IRepository<Doctor> doctorRepository,
-            IRepository<Nurse> nurseRepository
-            )
+        public MainWindow(IRepository<Doctor> doctorRepository,IRepository<Nurse> nurseRepository)
         {
             InitializeComponent();
             _DoctorRepository = doctorRepository ?? throw new ArgumentNullException(nameof(doctorRepository));
@@ -35,43 +33,39 @@ namespace E_Vita
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            int nursePassword = 123;
-            string nurseUsername = "Mohammed";
-            string passdoc = pass_txt.Password;
-            string userdoc = user_txt.Text;
+            string pass = pass_txt.Password;
+            string user = user_txt.Text;
             int iddoc = int.Parse(ID_txt.Text);
+            int idnurse = int.Parse(ID_txt.Text);
 
             Doctor docvar = await _DoctorRepository.GetByIdAsync(iddoc);
+            Nurse Nursevar = await _NurseRepository.GetByIdAsync(idnurse);
 
             // Try parsing the input password to an integer
-            if (int.TryParse(pass_txt.Password, out int password))
-            {
+            
                 // Validate nurse credentials
-                if (password == nursePassword && user_txt.Text == nurseUsername)
+                if (Nursevar != null && Nursevar.password == pass && user == Nursevar.user_name)
                 {
-                    MessageBox.Show("Welcome Nurse Mohammed!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"Welcome Nurse {Nursevar.user_name}", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
                     MainFrame.Navigate(new Nurse_Dashboard());
                 }
                 // Validate doctor credentials
-                else if (docvar.Pass == passdoc && userdoc == docvar.User_Name)
+                else if (docvar != null && docvar.Pass == pass && user == docvar.User_Name)
                 {
-                    MessageBox.Show("Welcome Doctor!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"Welcome Doctor! {docvar.Name}", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
                     MainFrame.Navigate(new DoctorDashboard());
                 }
                 else
                 {
                     // Handle invalid credentials
                     MessageBox.Show("Invalid username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    pass_txt.Clear();
+                    user_txt.Clear();
+                    ID_txt.Clear();
+                    user_txt.Focus();
                 }
-            }
-            else
-            {
-                // Handle invalid password input
-                MessageBox.Show("Password must be a numeric value", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                pass_txt.Clear();
-                user_txt.Clear();
-                user_txt.Focus();
-            }
+            
+          
         }
 
         // Reset password navigation
