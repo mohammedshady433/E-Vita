@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Mysqlx.Notice;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -147,7 +149,8 @@ namespace E_Vita
 
         private void AddPatient_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Add_Patient());
+            var AddpatientPage = ((App)Application.Current)._serviceProvider.GetRequiredService<Add_Patient>();
+            MainFrame.Navigate(AddpatientPage);
         }
 
         private void BookAppointment_Click(object sender, RoutedEventArgs e)

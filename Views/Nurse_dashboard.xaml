@@ -87,5 +87,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
+        <Frame x:Name="MainFrame" />
     </Grid>
 </Page>

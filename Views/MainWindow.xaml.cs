@@ -1,5 +1,6 @@
 ﻿using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
 namespace E_Vita
@@ -8,6 +9,7 @@ namespace E_Vita
     {
         private readonly IRepository<Doctor> _DoctorRepository;
         private readonly IRepository<Nurse> _NurseRepository;
+
         public MainWindow(IRepository<Doctor> doctorRepository,IRepository<Nurse> nurseRepository)
         {
             InitializeComponent();
@@ -71,8 +73,10 @@ namespace E_Vita
         // Reset password navigation
         private void Reset_Pass(object sender, RoutedEventArgs e)
         {
-            Reset_Password Resetpass = new Reset_Password();
-            Resetpass.ShowDialog();
+            //Reset_Password Resetpass = new Reset_Password(_DoctorRepository, _NurseRepository);
+            //Resetpass.ShowDialog();
+            var reset = ((App)Application.Current)._serviceProvider.GetRequiredService<Reset_Password>();
+            reset.Show();
         }
 
 

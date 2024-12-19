@@ -20,10 +20,11 @@ namespace E_Vita.Models
         /// <summary>
         ///  composite primary Key 
         /// </summary>
-        public int User_Name { get; set; }
+        public string User_Name { get; set; }
+        public int Doc_ID { get; set; }
 
-        [ForeignKey("User_Name")]
-        public Doctor user_name { get; set; }
+        [ForeignKey("Doc_ID")]
+        public Doctor doc_id { get; set; }
 
         public int ID { get; set; }
 

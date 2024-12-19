@@ -1,4 +1,6 @@
-﻿using System;
+﻿using E_Vita.Interfaces.Repository;
+using E_Vita.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,16 @@ namespace E_Vita
     /// </summary>
     public partial class Reset_Password : Window
     {
-        public Reset_Password()
+        private readonly IRepository<Doctor> _DoctorRepository;
+        private readonly IRepository<Nurse> _NurseRepository;
+        private readonly IRepository<Reset_Pass_Log> _Reset_Pass_Log;
+
+        public Reset_Password(IRepository<Doctor> doctorRepository, IRepository<Nurse> nurseRepository, IRepository<Reset_Pass_Log> reset_Pass_Log)
         {
             InitializeComponent();
+            _DoctorRepository = doctorRepository ?? throw new ArgumentNullException(nameof(doctorRepository));
+            _NurseRepository = nurseRepository ?? throw new ArgumentNullException(nameof(nurseRepository));
+            _Reset_Pass_Log = reset_Pass_Log;
         }
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
@@ -33,38 +42,54 @@ namespace E_Vita
         {
             this.Close();
         }
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            // Admin credentials (assuming admin username = "admin" and password = "000")
-            int adminPassword = 000;  // Admin password (example)
-            string adminUsername = "admin"; // Admin username
+            string pass = pass_txt.Password;
+            string user = user_txt.Text;
+            string adminpass = txtAdmin.Password;
+            int iddoc = int.Parse(ID_txt.Text);
+            int idnurse = int.Parse(ID_txt.Text);
+            int adminid = int.Parse(ID_txt.Text);
 
-            // Validate the input (password should be numeric)
-            if (int.TryParse(txtPass.Password, out int password))
+            Reset_Pass_Log reset_Pass_Logvar = await _Reset_Pass_Log.GetByIdAsync(adminid);
+            Doctor docvar = await _DoctorRepository.GetByIdAsync(iddoc);
+            Nurse Nursevar = await _NurseRepository.GetByIdAsync(idnurse);
+
+            if (reset_Pass_Logvar != null && reset_Pass_Logvar.Admin_Pass == adminpass && reset_Pass_Logvar.ID == adminid)
             {
-                // Check if the entered credentials are correct
-                if (password == adminPassword && txtUser.Text == adminUsername)
+                if (Nursevar != null && user == Nursevar.user_name)
                 {
-                    MessageBox.Show("Welcome Admin!", "Verified User ❤️", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Nursevar.password = pass;
+                    _NurseRepository.UpdateAsync(Nursevar, idnurse);
+                    MessageBox.Show("Updated", "Confirm", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
 
-                    // Navigate to Doctor Dashboard (example)
-                    MainFrame.Navigate(new DoctorDashboard()); // Assuming you have a MainFrame for navigation
+                }
+                else if (docvar != null && user == docvar.User_Name)
+                {
+                    docvar.Pass = pass;
+                    _DoctorRepository.UpdateAsync(docvar, iddoc);
+                    MessageBox.Show("Updated", "Confirm", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
+
                 }
                 else
                 {
-                    // Show an error message if the credentials are incorrect
-                    MessageBox.Show("Invalid username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Invalid User Name", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                // Show a warning if the password is not numeric
-                MessageBox.Show("Password must be a numeric value", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                txtPass.Clear();
-                txtUser.Clear();
-                txtUser.Focus();
+                MessageBox.Show("Invalid Admin Password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                pass_txt.Clear();
+                user_txt.Clear();
+                ID_txt.Clear();
+                txtAdmin.Clear();
+                user_txt.Focus();
+
             }
-        }
+
+            }
 
         // Cancel button click handler
         private void btnCancel_Click(object sender, RoutedEventArgs e)

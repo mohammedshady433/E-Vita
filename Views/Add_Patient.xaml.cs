@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Text.Json;
+using E_Vita.Interfaces.Repository;
+using E_Vita.Models;
 namespace E_Vita
 {
     /// <summary>
@@ -21,10 +23,13 @@ namespace E_Vita
     /// </summary>
     public partial class Add_Patient : Page
     {
-        public Add_Patient()
+        private readonly IRepository<Patient> _Add_patient;
+
+        public Add_Patient(IRepository<Patient> Add_patient)
         {
             InitializeComponent();
             LoadNationalities();
+            _Add_patient = Add_patient;
         }
         private void LoadNationalities()
         {
@@ -45,14 +50,69 @@ namespace E_Vita
         {
             public List<string> Nationalities { get; set; }
         }
-        private void Appointments_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Appointments());
-        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Addbtn(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Finance());
+            if (string.IsNullOrWhiteSpace(Name_txt.Text) ||
+                string.IsNullOrWhiteSpace(ID_Txt.Text) ||
+                string.IsNullOrWhiteSpace(Phone_Number.Text) ||
+                dateofbirth.SelectedDate == null ||
+                string.IsNullOrWhiteSpace(NationalitiesComboBox.Text) ||
+                (Malecheck.IsChecked == false && Femalecheck.IsChecked == false))
+            {
+                MessageBox.Show("Please fill all the fields");
+                return;
+            }
+            else
+            {
+                LoadingProgressBar.Visibility = Visibility.Visible;
+                LoadingTextBlock.Visibility = Visibility.Visible;
+                Patient varpatient = new Patient();
+                varpatient.name = Name_txt.Text;
+                varpatient.Patient_ID = int.Parse(ID_Txt.Text);
+                varpatient.contact = Phone_Number.Text;
+                varpatient.Birth_Date = dateofbirth.SelectedDate.Value;
+                varpatient.Nationality = NationalitiesComboBox.Text;
+                if (Malecheck.IsChecked == true)
+                {
+                    varpatient.Gender = GenderType.Male;
+                }
+                else
+                {
+                    varpatient.Gender = GenderType.Female;
+                }
+                if(Obesity.IsChecked == true)
+                {
+                    varpatient.diseases = ChronicDiseases.Obesity;
+                }
+                else if (Hypertension.IsChecked == true)
+                {
+                    varpatient.diseases = ChronicDiseases.Hypertension;
+                }
+                else if (Hypotension.IsChecked == true)
+                {
+                    varpatient.diseases = ChronicDiseases.Hypotension;
+                }
+                else if (Diabetes.IsChecked == true)
+                {
+                    varpatient.diseases = ChronicDiseases.Diabetes;
+                }
+                else if (Smoker.IsChecked == true)
+                {
+                    varpatient.diseases = ChronicDiseases.Smoker;
+                }
+                else if (Other.IsChecked == true)
+                {
+                    varpatient.diseases = ChronicDiseases.Other;
+                }
+                await _Add_patient.AddAsync(varpatient);
+
+                // Hide loading message
+                LoadingProgressBar.Visibility = Visibility.Collapsed;
+                LoadingTextBlock.Visibility = Visibility.Collapsed;
+                //to show the message of verfication
+                MessageBox.Show("Patient Added Successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

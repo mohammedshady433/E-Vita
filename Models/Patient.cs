@@ -11,15 +11,31 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace E_Vita.Models
 {
+    public enum GenderType
+    {
+        Male,
+        Female
+    }
+    public enum ChronicDiseases
+    {
+        Obesity,
+        Hypertension,
+        Hypotension,
+        Diabetes,
+        Smoker,
+        Other
+    }
     public class Patient
     {
         public string contact { get; set; }
+        
+        public ChronicDiseases diseases { get; set; }
 
         public string name { get; set; }
 
         public string Nationality { get; set; }
 
-        public bool Gender { get; set; }
+        public GenderType Gender { get; set; }
 
         public DateTime Birth_Date { get; set; }
 

@@ -3,6 +3,7 @@ using System;
 using E_Vita;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Vita.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241218101718_reset_pass_modified")]
+    partial class reset_pass_modified
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,19 +142,14 @@ namespace E_Vita.Migrations
                     b.Property<DateTime>("Birth_Date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<bool>("Gender")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("contact")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("diseases")
                         .IsRequired()
                         .HasColumnType("longtext");
 
