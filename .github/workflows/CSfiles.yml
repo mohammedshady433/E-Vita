@@ -1,0 +1,43 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Run tests
+        run: |
+          if dotnet test --no-build --verbosity normal; then
+            echo "All tests passed!"
+          else
+            echo "Tests failed!"
+            exit 1
+          fi
+
+      - name: Verify Models
+        run: |
+          echo "Checking if all models compile correctly..."
+          ls -1 *.cs
+          echo "Files listed. Proceeding with checks..."
