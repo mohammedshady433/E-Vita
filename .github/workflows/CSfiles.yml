@@ -28,13 +28,15 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Run tests
+         shell: pwsh
         run: |
-          if dotnet test --no-build --verbosity normal; then
-            echo "All tests passed!"
-          else
-            echo "Tests failed!"
+          $result = dotnet test --no-build --verbosity normal
+          if ($result -eq 0) {
+            Write-Host "All tests passed!"
+          } else {
+            Write-Host "Tests failed!"
             exit 1
-          fi
+          }
 
       - name: Verify Models
         run: |
