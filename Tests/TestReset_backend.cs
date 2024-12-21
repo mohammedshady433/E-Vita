@@ -21,7 +21,7 @@ public class ResetPassLogTests
             Date = date,
             New_Pass = newPass,
             Admin_Pass = adminPass,
-            User_Name = userName,
+            User_Name = userName.ToString(),
             user_name = doctor,
             ID = id
         };
