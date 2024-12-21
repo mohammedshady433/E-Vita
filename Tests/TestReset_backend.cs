@@ -9,10 +9,18 @@ public class ResetPassLogTests
     {
         // Arrange
         var date = DateTime.Now;
-        var newPass = "DPass123";
-        var adminPass = "APass000";
-        var userName = "doctor";
-        var doctor = new Doctor { Doctor_ID = 1, Name = "Dr. sameh", User_Name = "doctor", Pass = "123" };
+        var newPass = "newPassword123";
+        var adminPass = "adminPassword123";
+        var userName = "doctorUserName"; // Ensure this is a string
+        var doctor = new Doctor
+        {
+            Doctor_ID = 1,
+            Name = "Dr. Sameh",
+            Speciality = "beauty",
+            User_Name = "doctor",
+            Pass = "password"
+        };
+        var docId = doctor.Doctor_ID; // Use the doctor ID as an int
         var id = 100;
 
         // Act
@@ -21,8 +29,9 @@ public class ResetPassLogTests
             Date = date,
             New_Pass = newPass,
             Admin_Pass = adminPass,
-            User_Name = userName,
-            user_name = doctor,
+            User_Name = userName, // Assign the correct string value
+            Doc_ID = docId, // Assign the correct int value
+            doc_id = doctor, // Reference the Doctor object
             ID = id
         };
 
@@ -31,7 +40,8 @@ public class ResetPassLogTests
         Assert.Equal(newPass, resetPassLog.New_Pass);
         Assert.Equal(adminPass, resetPassLog.Admin_Pass);
         Assert.Equal(userName, resetPassLog.User_Name);
-        Assert.Equal(doctor, resetPassLog.user_name);
+        Assert.Equal(docId, resetPassLog.Doc_ID);
+        Assert.Equal(doctor, resetPassLog.doc_id);
         Assert.Equal(id, resetPassLog.ID);
     }
 }
