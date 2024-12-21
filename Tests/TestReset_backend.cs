@@ -9,10 +9,10 @@ public class ResetPassLogTests
     {
         // Arrange
         var date = DateTime.Now;
-        var newPass = "newPassword123";
-        var adminPass = "adminPassword123";
-        var userName = 1;
-        var doctor = new Doctor { Doctor_ID = 1, Name = "Dr. Smith", Speciality = "Cardiology", User_Name = "drsmith", Pass = "password" };
+        var newPass = "DPass123";
+        var adminPass = "APass000";
+        var userName = "doctor";
+        var doctor = new Doctor { Doctor_ID = 1, Name = "Dr. sameh", User_Name = "doctor", Pass = "123" };
         var id = 100;
 
         // Act
@@ -21,7 +21,7 @@ public class ResetPassLogTests
             Date = date,
             New_Pass = newPass,
             Admin_Pass = adminPass,
-            User_Name = userName.ToString(),
+            User_Name = userName,
             user_name = doctor,
             ID = id
         };
