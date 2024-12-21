@@ -19,13 +19,25 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 6.0
+          dotnet-version: 8.0
 
+      - name: Clear NuGet cache
+        run: dotnet nuget locals all --clear
+        
       - name: Install dependencies
         run: dotnet restore
+        
+      - name: Check .NET SDK version
+        run: dotnet --version
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore --verbosity detailed
 
       - name: Run tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test --no-build --verbosity detailed
+
+     
+
+      
+      
+
