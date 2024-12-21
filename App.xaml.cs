@@ -19,6 +19,7 @@ namespace E_Vita
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
             _serviceProvider = serviceCollection.BuildServiceProvider();
+            ServiceProvider = _serviceProvider; 
 
             // Register the Syncfusion license key
             SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NDaF1cWWhIfEx1RHxQdld5ZFRHallYTnNWUj0eQnxTdEFiWH1WcnVVQmNYUk1wWw==");
