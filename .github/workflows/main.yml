@@ -27,5 +27,3 @@ jobs:
 
       - name: Run Tests
         run: main test E-Vita.csproj --configuration Release --no-build --verbosity normal
-
-      
