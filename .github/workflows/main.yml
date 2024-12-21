@@ -17,13 +17,15 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '8.0'
 
-      - name: Install Dependencies
-        run: dotnet restore Auradent.sln  # Specify the path to your .sln file
+      - name: Restore dependencies
+        run: main restore E-Vita.sln
 
       - name: Build Project
-        run: dotnet build E-Vita.sln --configuration Release
+        run: main build E-Vita.sln --configuration Release --no-restore
 
       - name: Run Tests
-        run: dotnet test E-Vita.csproj --configuration Release --no-build --verbosity normal
+        run: main test E-Vita.csproj --configuration Release --no-build --verbosity normal
+
+      
