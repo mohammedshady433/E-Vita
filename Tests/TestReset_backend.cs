@@ -31,7 +31,7 @@ public class ResetPassLogTests
             Admin_Pass = adminPass,
             User_Name = userName, // Assign the correct string value
             Doc_ID = docId, // Assign the correct int value
-            doc_id doctor, // Reference the Doctor object
+            doc_id = doctor, // Reference the Doctor object
             ID = id
         };
 
