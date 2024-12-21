@@ -8,10 +8,10 @@ public class ResetPassLogTests
     public void CanCreateResetPassLog()
     {
         // Arrange
-        var Date = DateTime.Now;
-        var New_Pass = "newPassword123";
-        var Admin_Pass = "adminPassword123";
-        var User_Name = "doctor"; // Ensure this is a string
+        var date = DateTime.Now;
+        var newPass = "newPassword123";
+        var adminPass = "adminPassword123";
+        var userName = "doctor"; // Ensure this is a string
         var doctor = new Doctor
         {
             Doctor_ID = 1,
@@ -20,7 +20,7 @@ public class ResetPassLogTests
             User_Name = "doctor",
             Pass = "password"
         };
-        var Doc_ID = doctor.Doctor_ID; // Use the doctor ID as an int
+        var doc_ID = doctor.Doctor_ID; // Use the doctor ID as an int
         var ID = 100;
 
         // Act
@@ -31,7 +31,7 @@ public class ResetPassLogTests
             Admin_Pass = adminPass,
             User_Name = userName, // Assign the correct string value
             Doc_ID = docId, // Assign the correct int value
-            doc_id = Doctor, // Reference the Doctor object
+            doc_id doctor, // Reference the Doctor object
             ID = id
         };
 
