@@ -11,7 +11,7 @@ public class ResetPassLogTests
         var date = DateTime.Now;
         var newPass = "newPassword123";
         var adminPass = "adminPassword123";
-        var userName = "doctor"; // Ensure this is a string
+        var userName = "doctor"; 
         var doctor = new Doctor
         {
             Doctor_ID = 1,
@@ -30,9 +30,9 @@ public class ResetPassLogTests
             New_Pass = newPass,
             Admin_Pass = adminPass,
             User_Name = userName, // Assign the correct string value
-            Doc_ID = docId, // Assign the correct int value
+            Doc_ID = doc_Id, // Assign the correct int value
             doc_id = doctor, // Reference the Doctor object
-            ID = id
+            ID = ID
         };
 
         // Assert
@@ -40,8 +40,8 @@ public class ResetPassLogTests
         Assert.Equal(newPass, resetPassLog.New_Pass);
         Assert.Equal(adminPass, resetPassLog.Admin_Pass);
         Assert.Equal(userName, resetPassLog.User_Name);
-        Assert.Equal(docId, resetPassLog.Doc_ID);
-        Assert.Equal(doctor, resetPassLog.doc_id);
-        Assert.Equal(id, resetPassLog.ID);
+        Assert.Equal(doc_ID, resetPassLog.Doc_ID);
+        Assert.Equal(doctor, resetPassLog.doc_id)
+        Assert.Equal(ID, resetPassLog.ID);
     }
 }
