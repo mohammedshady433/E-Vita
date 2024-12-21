@@ -9,8 +9,8 @@ public class ResetPassLogTests
     {
         // Arrange
         var date = DateTime.Now;
-        var newPass = "newPassword123";
-        var adminPass = "adminPassword123";
+        var newPass = "Password123";
+        var adminPass = "adPassword123";
         var userName = "doctor"; 
         var doctor = new Doctor
         {
