@@ -17,10 +17,8 @@ public class NurseDashboardTests
     {
         // Arrange
         var addPatientButton = _nurseDashboard.FindName("AddPatientbtn") as Button;
-
         // Act
         addPatientButton.RaiseEvent(new System.Windows.RoutedEventArgs(Button.ClickEvent));
-
         // Assert
         // Verify that the AddPatient_Click method was called
         // This can be done by checking the state change or using a mock framework if the method interacts with other services
@@ -31,10 +29,8 @@ public class NurseDashboardTests
     {
         // Arrange
         var bookAppointmentButton = _nurseDashboard.FindName("BookAppointmentbtn") as Button;
-
         // Act
         bookAppointmentButton.RaiseEvent(new System.Windows.RoutedEventArgs(Button.ClickEvent));
-
         // Assert
         // Verify that the BookAppointment_Click method was called
         // This can be done by checking the state change or using a mock framework if the method interacts with other services
@@ -45,10 +41,8 @@ public class NurseDashboardTests
     {
         // Arrange
         var previousMonthButton = _nurseDashboard.FindName("PreviousMonth_Click") as Button;
-
         // Act
         previousMonthButton.RaiseEvent(new System.Windows.RoutedEventArgs(Button.ClickEvent));
-
         // Assert
         // Verify that the PreviousMonth_Click method was called
         // This can be done by checking the state change or using a mock framework if the method interacts with other services
@@ -59,10 +53,8 @@ public class NurseDashboardTests
     {
         // Arrange
         var nextMonthButton = _nurseDashboard.FindName("NextMonth_Click") as Button;
-
         // Act
         nextMonthButton.RaiseEvent(new System.Windows.RoutedEventArgs(Button.ClickEvent));
-
         // Assert
         // Verify that the NextMonth_Click method was called
         // This can be done by checking the state change or using a mock framework if the method interacts with other services
