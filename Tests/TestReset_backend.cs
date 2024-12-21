@@ -41,7 +41,7 @@ public class ResetPassLogTests
         Assert.Equal(adminPass, resetPassLog.Admin_Pass);
         Assert.Equal(userName, resetPassLog.User_Name);
         Assert.Equal(doc_ID, resetPassLog.Doc_ID);
-        Assert.Equal(doctor, resetPassLog.doc_id)
+        Assert.Equal(doctor, resetPassLog.doc_id);
         Assert.Equal(ID, resetPassLog.ID);
     }
 }
