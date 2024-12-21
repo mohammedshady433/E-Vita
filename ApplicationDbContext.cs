@@ -35,16 +35,6 @@ namespace E_Vita
             modelBuilder.Entity<Appointment>()
             .HasKey(a => new { a.Doctor_ID, a.Patient_ID });
 
-            // Map Gender enum as string
-            modelBuilder.Entity<Patient>()
-                .Property(p => p.Gender)
-                .HasConversion<string>();
-
-            // Map ChronicDiseases enum as string
-            modelBuilder.Entity<Patient>()
-                .Property(p => p.diseases)
-                .HasConversion<string>();
-
             // Define Doctor-Appointments relationship
             modelBuilder.Entity<Appointment>()
                 .HasOne(a => a.Doctor)
