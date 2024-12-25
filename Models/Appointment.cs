@@ -16,8 +16,7 @@ namespace E_Vita.Models
     {
         public DateTime Date { get; set; } 
         public bool Status { get; set; }
-
-
+        public string Time { get; set; } // Add this property
         public int Patient_ID { get; set; }
 
         [ForeignKey("Patient_ID")]
