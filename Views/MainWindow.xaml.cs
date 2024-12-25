@@ -1,5 +1,6 @@
 ﻿using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
 namespace E_Vita
@@ -8,11 +9,12 @@ namespace E_Vita
     {
         private readonly IRepository<Doctor> _DoctorRepository;
         private readonly IRepository<Nurse> _NurseRepository;
-        public MainWindow(IRepository<Doctor> doctorRepository,IRepository<Nurse> nurseRepository)
+        public MainWindow()
         {
             InitializeComponent();
-            _DoctorRepository = doctorRepository ?? throw new ArgumentNullException(nameof(doctorRepository));
-            _NurseRepository = nurseRepository ?? throw new ArgumentNullException(nameof(nurseRepository));
+            var services = ((App)Application.Current)._serviceProvider;
+            _DoctorRepository = services.GetService<IRepository<Doctor>>() ?? throw new InvalidOperationException("Data helper service is not available");
+            _NurseRepository = services.GetService<IRepository<Nurse>>() ?? throw new InvalidOperationException("Data helper service is not available");
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

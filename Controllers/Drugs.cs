@@ -38,7 +38,7 @@ namespace E_Vita.Controllers
         // Function to load drugs from the JSON file
         public void LoadDrugs()
         {
-            string path = "D:\\NU\\fifth semester\\Clinical\\E-Vita\\E-Vita\\Assets\\Json_files\\medications_New_prices_up_to_03-08-2024.json";
+            string path = "D:\\NU\\fifth semester\\Clinical\\E-Vita\\Assets\\Json_files\\medications_New_prices_up_to_03-08-2024.json";
 
             if (!File.Exists(path))
             {
