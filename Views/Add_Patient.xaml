@@ -81,20 +81,20 @@
                     <!-- Gender Field -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Gender" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                        <CheckBox Content="Male" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBADEF1"/>
-                        <CheckBox Content="Female" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBBE1FA"/>
+                        <CheckBox x:Name="Malecheck" Content="Male" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBADEF1"/>
+                        <CheckBox x:Name="Femalecheck" Content="Female" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBBE1FA"/>
                     </StackPanel>
                     <!-- Date of birth Field -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Date_of_birth" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                        <DatePicker Margin="100,0,0,20" Background="#FF3282B8" Foreground="#FF133E5B" SelectedDateFormat="Long" Width="296"/>
+                        <DatePicker x:Name="dateofbirth" Margin="100,0,0,20" Background="#FF3282B8" Foreground="#FF133E5B" SelectedDateFormat="Long" Width="296"/>
                     </StackPanel>
                     <!-- Nationality Field -->
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Nationality" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
                         <ComboBox x:Name="NationalitiesComboBox" Width="300" Height="40" Foreground="Black" FontSize="16" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="114,0,0,20" Background="#FF3282B8" mah:ControlsHelper.FocusBorderBrush="#FF3282B8"/>
                     </StackPanel>
-                    
+
                     <StackPanel Orientation="Vertical" Width="300" Margin="0,20,0,0">
                         <StackPanel.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -103,25 +103,21 @@
                             </LinearGradientBrush>
                         </StackPanel.Background>
                         <TextBlock Text="Cronic Diseases And Habits" Foreground="#FFBBE1FA" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
-                        <CheckBox Content="Obesity" Foreground="#FFBBE1FA" Margin="3"/>
-                        <CheckBox Content="Hypertension" Foreground="#FFBBE1FA" Margin="3"/>
-                        <CheckBox Content="Hypotension" Foreground="#FFBBE1FA" Margin="3"/>
-                        <CheckBox Content="Diabetes Mellitus" Foreground="#FFBBE1FA" Margin="3"/>
-                        <CheckBox Content="Smoker" Foreground="#FFBBE1FA" Margin="3"/>
-                        <syncfusion:SfDatePicker Background="#FF3282B8" Foreground="#FFBBE1FA" BorderBrush="#FF13405F" >
-                            <syncfusion:SfDatePicker.AccentBrush>
-                                <LinearGradientBrush EndPoint="0,1">
-                                    <GradientStop Color="#FF3E6DB5"/>
-                                    <GradientStop Color="#FF1B262C" Offset="1"/>
-                                </LinearGradientBrush>
-                            </syncfusion:SfDatePicker.AccentBrush>
-                        </syncfusion:SfDatePicker>
-                        <TextBox x:Name="RadiologyTextBox" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
+                        <CheckBox x:Name="Obesity" Content="Obesity" Foreground="#FFBBE1FA" Margin="3"/>
+                        <CheckBox x:Name="Hypertension" Content="Hypertension" Foreground="#FFBBE1FA" Margin="3"/>
+                        <CheckBox x:Name="Hypotension" Content="Hypotension" Foreground="#FFBBE1FA" Margin="3"/>
+                        <CheckBox x:Name="Diabetes" Content="Diabetes Mellitus" Foreground="#FFBBE1FA" Margin="3"/>
+                        <CheckBox x:Name="Smoker" Content="Smoker" Foreground="#FFBBE1FA" Margin="3"/>
+
+                        <CheckBox x:Name="Other" Content="Other" Foreground="#FFBBE1FA" Margin="3"/>
+                        <TextBox x:Name="Othertxt" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
                     </StackPanel>
 
                     <!-- Buttons -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0">
-                        <Button Content="ADD" Width="120" Height="40" Background="#0f4075" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0"/>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,50,0,0">
+                        <Button Content="ADD" Width="120" Height="40" Background="#0f4075" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0" Click="Addbtn"/>
+                        <ProgressBar x:Name="LoadingProgressBar" Visibility="Collapsed" Width="120" Height="10" Margin="0,10,0,0" />
+                        <TextBlock x:Name="LoadingTextBlock" Text="Loading, please wait..." Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
                     </StackPanel>
                 </StackPanel>
             </Border>
