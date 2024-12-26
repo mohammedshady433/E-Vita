@@ -1,6 +1,10 @@
-﻿using E_Vita.Views;
+﻿using E_Vita.Interfaces.Repository;
+using E_Vita.Models;
+using E_Vita.Views;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +15,8 @@ namespace E_Vita
     public partial class DoctorDashboard : Page
     {
         private DateTime currentDate;
+        private readonly IRepository<Appointment> _Appointment;
+        public ObservableCollection<Appointment> AppointmentsForToday { get; set; }
 
         public DoctorDashboard()
         {
@@ -18,8 +24,64 @@ namespace E_Vita
             currentDate = DateTime.Now;
             PopulateYearAndMonthSelectors();
             GenerateCalendar(currentDate);
+            var services = ((App)Application.Current)._serviceProvider;
+            _Appointment = services.GetService<IRepository<Appointment>>() ?? throw new InvalidOperationException("Data helper service is not available");
+
+            AppointmentsForToday = new ObservableCollection<Appointment>();
+            LoadAppointmentsForToday();
         }
 
+        public async void LoadAppointmentsForToday()
+        {
+            try
+            {
+                var today = DateTime.Today; // Get today's date without time
+                var todayAppointments = await _Appointment.GetAllAsync();
+
+                // Filter appointments where the Date matches today's date
+                var filteredAppointments = todayAppointments
+                    .Where(a => a.Date.Date == today)
+                    .ToList();
+
+                //// Update the ObservableCollection
+                AppointmentsForToday.Clear();
+                foreach (var appointment in filteredAppointments)
+                {
+                    AppointmentsForToday.Add(appointment);
+                }
+                listviewdoc.ItemsSource = AppointmentsForToday;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading appointments: {ex.Message}");
+            }
+        }
+
+        public async void LoadAppointmentsForDate(DateTime specificDate)
+        {
+            try
+            {
+                var specificDateAppointments = await _Appointment.GetAllAsync();
+
+                // Filter appointments where the Date matches the specific date
+                var filteredAppointments = specificDateAppointments
+                    .Where(a => a.Date.Date == specificDate.Date)
+                    .ToList();
+
+                //// Update the ObservableCollection
+                AppointmentsForToday.Clear();
+                foreach (var appointment in filteredAppointments)
+                {
+                    AppointmentsForToday.Add(appointment);
+                }
+                listviewdoc.ItemsSource = AppointmentsForToday;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading appointments: {ex.Message}");
+            }
+        }
 
         private void PopulateYearAndMonthSelectors()
         {
@@ -134,7 +196,8 @@ namespace E_Vita
         {
             if (sender is Button button && button.Tag is DateTime selectedDate)
             {
-                MessageBox.Show($"Clicked on {selectedDate:MMMM dd, yyyy}");
+                LoadAppointmentsForDate(selectedDate);
+                //MessageBox.Show($"Clicked on {selectedDate:MMMM dd, yyyy}");
             }
         }
 
@@ -192,6 +255,11 @@ namespace E_Vita
         {
             this.NavigationService.Navigate(new Patient_info());
 
+        }
+
+        private void patient_treat_assess_click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Patient_info());
         }
     }
 }

@@ -42,7 +42,7 @@ namespace E_Vita
 
             Doctor docvar = await _DoctorRepository.GetByIdAsync(iddoc);
             Nurse Nursevar = await _NurseRepository.GetByIdAsync(idnurse);
-
+            
             // Try parsing the input password to an integer
             
                 // Validate nurse credentials

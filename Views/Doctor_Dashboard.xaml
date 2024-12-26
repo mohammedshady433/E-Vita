@@ -80,22 +80,26 @@
         <!--upcoming Appointments-->
         <StackPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="5">
             <TextBlock Text="Recent and Upcoming Appointments" FontSize="22" FontWeight="Bold" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" Background="#1B262C" Width="958" Height="39"/>
-            <ListView Width="650" Height="560" >
+            <ListView x:Name="listviewdoc" Width="670" Height="560" d:ItemsSource="{d:SampleData ItemCount=3}">
                 <ListView.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#1B262C" Offset="1"/>
                         <GradientStop Color="#0F4C75" Offset="0"/>
                     </LinearGradientBrush>
                 </ListView.Background>
-                <Border Background="#FFBBE1FA" CornerRadius="10" Margin="10,10,10,10" Padding="10" Height="150"  Width="610">
-                    <StackPanel>
-                        <TextBlock Text="Dec 18, 2024" FontWeight="Bold" HorizontalAlignment="Center"/>
-                        <TextBlock Text="10:00 pm" FontWeight="Bold" Foreground="DarkBlue" />
-                        <TextBlock Text="Patient: John Doe" Margin="0,5,0,0" Width="666"/>
-                        <TextBlock Text="Doctor: Dr. Mohammed" FontStyle="Italic"/>
-                        <Button Content="Patient treatment and assessment" Width="500" Background="#1B262C"  Foreground="#FFBBE1FA" Height="47" Margin="0,10,0,50" Click="Button_Click_1"/>
-                    </StackPanel>
-                </Border>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="#FFBBE1FA" CornerRadius="10" Margin="10" Padding="10" Height="150" Width="610">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Patient_appointment.name}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Time}" FontWeight="Bold" Foreground="DarkBlue"/>
+                                <TextBlock Text="{Binding Patient_appointment.contact}" Margin="0,5,0,0" Width="666"/>
+                                <TextBlock Text="{Binding Patient_appointment.Patient_ID}" FontStyle="Italic"/>
+                                <Button x:Name="Patient_treatment_and_assessment" Content="Patient treatment and assessment" Width="500" Background="#1B262C" Foreground="#FFBBE1FA" Height="47" Margin="0,10,0,50" Click="patient_treat_assess_click" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
     </Grid>
