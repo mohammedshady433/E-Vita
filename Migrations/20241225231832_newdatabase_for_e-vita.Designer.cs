@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Vita.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241218101718_reset_pass_modified")]
-    partial class reset_pass_modified
+    [Migration("20241225231832_newdatabase_for_e-vita")]
+    partial class newdatabase_for_evita
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,19 +24,29 @@ namespace E_Vita.Migrations
 
             modelBuilder.Entity("E_Vita.Models.Appointment", b =>
                 {
+                    b.Property<int>("Appointment_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("Doctor_ID")
                         .HasColumnType("int");
 
                     b.Property<int>("Patient_ID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
 
-                    b.HasKey("Doctor_ID", "Patient_ID");
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Appointment_ID");
+
+                    b.HasIndex("Doctor_ID");
 
                     b.HasIndex("Patient_ID");
 
@@ -142,8 +152,8 @@ namespace E_Vita.Migrations
                     b.Property<DateTime>("Birth_Date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("Gender")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
@@ -152,6 +162,9 @@ namespace E_Vita.Migrations
                     b.Property<string>("contact")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("diseases")
+                        .HasColumnType("int");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -237,21 +250,21 @@ namespace E_Vita.Migrations
 
             modelBuilder.Entity("E_Vita.Models.Appointment", b =>
                 {
-                    b.HasOne("E_Vita.Models.Doctor", "Doctor")
+                    b.HasOne("E_Vita.Models.Doctor", "Doctor_appointment")
                         .WithMany("Appointments")
                         .HasForeignKey("Doctor_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_Vita.Models.Patient", "Patient")
+                    b.HasOne("E_Vita.Models.Patient", "Patient_appointment")
                         .WithMany("Appointments")
                         .HasForeignKey("Patient_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Doctor");
+                    b.Navigation("Doctor_appointment");
 
-                    b.Navigation("Patient");
+                    b.Navigation("Patient_appointment");
                 });
 
             modelBuilder.Entity("E_Vita.Models.Medical_Record", b =>

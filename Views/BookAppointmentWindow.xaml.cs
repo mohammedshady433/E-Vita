@@ -40,16 +40,16 @@ namespace E_Vita
         private async void ConfirmAppointment_Click(object sender, RoutedEventArgs e)
         {
             Appointment newappointment = new Appointment();
-            Patient patient_data = new Patient();
+            //Patient patient_data = new Patient();
 
             int patientID = int.Parse(PatientNameTextBox.Text);
-            patient_data = await _Add_patient.GetByIdAsync(patientID);
+            var patient_data = await _Add_patient.GetByIdAsync(patientID);
             string patientName = "";
             if (patient_data != null)
             {
                 patientName = patient_data.name;
-            } 
-            else 
+            }
+            else
             {
                 MessageBox.Show("Patient not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -61,11 +61,12 @@ namespace E_Vita
                 MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (appointmentDate < DateTime.Now)
+            if (appointmentDate <= DateTime.Now)
             {
                 MessageBox.Show("Please select a valid date.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             // Check if the selected date and time are already reserved
             if (await IsAppointmentReserved(appointmentDate.Value, appointmentTime))
             {
@@ -73,13 +74,12 @@ namespace E_Vita
                 return;
             }
 
-            newappointment.Patient_ID = patientID;
+            newappointment.Patient_appointment = patient_data;
             newappointment.Date = appointmentDate.Value.Date;
             newappointment.Doctor_ID = int.Parse(Doctor_ID.Text);
             newappointment.Time = appointmentTime;
 
             await _Appointment.AddAsync(newappointment);
-            MessageBox.Show($"Appointment for {patientName} on {appointmentDate.Value.ToShortDateString()} at {appointmentTime} confirmed!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }
         private async Task<bool> IsAppointmentReserved(DateTime date, string time)

@@ -76,10 +76,10 @@
                         <ListBox BorderBrush="#FFBBE1FA" Background="#FFBBE1FA">
                             <DataGrid x:Name="ScheduleDataGrid" Grid.Column="1" Margin="0" AutoGenerateColumns="False" Height="580" Width="695" Background="#FFBBE1FA" Foreground="#FF0F4C75" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Time" Binding="{Binding TaskName}" Width="*"/>
-                                    <DataGridCheckBoxColumn Header="Patient Name" Binding="{Binding IsCompleted}" Width="*"/>
-                                    <DataGridCheckBoxColumn Header="Patient Phone" Binding="{Binding IsCompleted}" Width="*"/>
-                                    <DataGridCheckBoxColumn Header="Patient ID" Binding="{Binding IsCompleted}" Width="*"/>
+                                    <DataGridTextColumn Header="Time" Binding="{Binding Time }" Width="*"/>
+                                    <DataGridTextColumn Header="Patient Name" Binding="{Binding Patient_appointment.name}" Width="*"/>
+                                    <DataGridTextColumn Header="Patient Phone" Binding="{Binding Patient_appointment.contact}" Width="*"/>
+                                    <DataGridTextColumn Header="Patient ID" Binding="{Binding Patient_appointment.Patient_ID}" Width="*"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </ListBox>

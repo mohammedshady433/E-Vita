@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace E_Vita.Migrations
 {
     /// <inheritdoc />
-    public partial class EVita_first_DB : Migration
+    public partial class newdatabase_for_evita : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,7 @@ namespace E_Vita.Migrations
                 {
                     Doctor_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "longtext", nullable: false),
                     Speciality = table.Column<string>(type: "longtext", nullable: false),
                     User_Name = table.Column<string>(type: "longtext", nullable: false),
                     Pass = table.Column<string>(type: "longtext", nullable: false)
@@ -39,9 +39,10 @@ namespace E_Vita.Migrations
                     Patient_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     contact = table.Column<string>(type: "longtext", nullable: false),
+                    diseases = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "longtext", nullable: false),
                     Nationality = table.Column<string>(type: "longtext", nullable: false),
-                    Gender = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Gender = table.Column<int>(type: "int", nullable: false),
                     Birth_Date = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
@@ -81,16 +82,47 @@ namespace E_Vita.Migrations
                     Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     New_Pass = table.Column<string>(type: "longtext", nullable: false),
                     Admin_Pass = table.Column<string>(type: "longtext", nullable: false),
-                    User_Name = table.Column<int>(type: "int", nullable: false)
+                    User_Name = table.Column<string>(type: "longtext", nullable: false),
+                    Doc_ID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reset_Pass_Logs", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Reset_Pass_Logs_Doctors_User_Name",
-                        column: x => x.User_Name,
+                        name: "FK_Reset_Pass_Logs_Doctors_Doc_ID",
+                        column: x => x.Doc_ID,
                         principalTable: "Doctors",
                         principalColumn: "Doctor_ID",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Appointments_DB",
+                columns: table => new
+                {
+                    Appointment_ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Status = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    Time = table.Column<string>(type: "longtext", nullable: false),
+                    Patient_ID = table.Column<int>(type: "int", nullable: false),
+                    Doctor_ID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Appointments_DB", x => x.Appointment_ID);
+                    table.ForeignKey(
+                        name: "FK_Appointments_DB_Doctors_Doctor_ID",
+                        column: x => x.Doctor_ID,
+                        principalTable: "Doctors",
+                        principalColumn: "Doctor_ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Appointments_DB_patient_Datas_Patient_ID",
+                        column: x => x.Patient_ID,
+                        principalTable: "patient_Datas",
+                        principalColumn: "Patient_ID",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
@@ -176,6 +208,16 @@ namespace E_Vita.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Appointments_DB_Doctor_ID",
+                table: "Appointments_DB",
+                column: "Doctor_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Appointments_DB_Patient_ID",
+                table: "Appointments_DB",
+                column: "Patient_ID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Medical_Records_Patient_ID",
                 table: "Medical_Records",
                 column: "Patient_ID");
@@ -201,14 +243,17 @@ namespace E_Vita.Migrations
                 column: "Patient_ID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reset_Pass_Logs_User_Name",
+                name: "IX_Reset_Pass_Logs_Doc_ID",
                 table: "Reset_Pass_Logs",
-                column: "User_Name");
+                column: "Doc_ID");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Appointments_DB");
+
             migrationBuilder.DropTable(
                 name: "Medical_Records");
 

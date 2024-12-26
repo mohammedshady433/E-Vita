@@ -33,18 +33,18 @@ namespace E_Vita
 
             // Define composite primary key
             modelBuilder.Entity<Appointment>()
-            .HasKey(a => new { a.Doctor_ID, a.Patient_ID });
+            .HasKey(a => a.Appointment_ID);
 
             // Define Doctor-Appointments relationship
             modelBuilder.Entity<Appointment>()
-                .HasOne(a => a.Doctor)
+                .HasOne(a => a.Doctor_appointment)
                 .WithMany(d => d.Appointments)
                 .HasForeignKey(a => a.Doctor_ID)
                 .OnDelete(DeleteBehavior.Cascade); // cascade delete
 
             // Define Patient-Appointments relationship
             modelBuilder.Entity<Appointment>()
-                .HasOne(a => a.Patient)
+                .HasOne(a => a.Patient_appointment)
                 .WithMany(p => p.Appointments)
                 .HasForeignKey(a => a.Patient_ID)
                 .OnDelete(DeleteBehavior.Cascade); // cascade delete

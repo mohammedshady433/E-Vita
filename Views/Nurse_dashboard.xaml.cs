@@ -1,4 +1,7 @@
-﻿using System;
+﻿using E_Vita.Interfaces.Repository;
+using E_Vita.Models;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -22,6 +25,7 @@ namespace E_Vita
     public partial class Nurse_Dashboard : Page
     {
         private DateTime currentDate;
+        private readonly IRepository<Appointment> _Appointment;
 
         public Nurse_Dashboard()
         {
@@ -29,7 +33,34 @@ namespace E_Vita
             currentDate = DateTime.Now;
             PopulateYearAndMonthSelectors();
             GenerateCalendar(currentDate);
+            var services = ((App)Application.Current)._serviceProvider;
+            _Appointment = services.GetService<IRepository<Appointment>>() ?? throw new InvalidOperationException("Data helper service is not available");
+            LoadAppointmentsFortoday();
         }
+        public async void LoadAppointmentsFortoday()
+        {
+            var today = DateTime.Today; // Get today's date without time
+            var todayAppointments = await _Appointment.GetAllAsync();
+
+            //Filter appointments where the Date matches today's date
+            var filteredAppointments = todayAppointments
+                .Where(a => a.Date.Date == today)
+                .ToList();
+
+            ScheduleDataGrid.ItemsSource = todayAppointments;
+        }
+        public async void LoadAppointmentsForDate(DateTime specificDate)
+        {
+            var specificDateAppointments = await _Appointment.GetAllAsync();
+
+            // Filter appointments where the Date matches the specific date
+            var filteredAppointments = specificDateAppointments
+                .Where(a => a.Date.Date == specificDate.Date)
+                .ToList();
+
+            ScheduleDataGrid.ItemsSource = filteredAppointments;
+        }
+
         private void PopulateYearAndMonthSelectors()
         {
             // Populate years (e.g., +/- 10 years from the current year)
@@ -142,6 +173,8 @@ namespace E_Vita
             if (sender is Button button && button.Tag is DateTime selectedDate)
             {
                 MessageBox.Show($"Clicked on {selectedDate:MMMM dd, yyyy}");
+                LoadAppointmentsForDate(selectedDate);
+
             }
         }
 

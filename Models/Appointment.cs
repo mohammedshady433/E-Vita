@@ -14,20 +14,17 @@ namespace E_Vita.Models
 {
     public class Appointment
     {
+        public int Appointment_ID { get; set; }
         public DateTime Date { get; set; } 
         public bool Status { get; set; }
-        public string Time { get; set; } // Add this property
+        public string Time { get; set; }
+
+        //foreign keys
         public int Patient_ID { get; set; }
-
-        [ForeignKey("Patient_ID")]
-        public Patient Patient { get; set; } // Navigation property
-
-
-
         public int Doctor_ID { get; set; }
 
-        [ForeignKey("Doctor_ID")]
-        public Doctor Doctor { get; set; } // Navigation property
+        public Patient Patient_appointment { get; set; } // Navigation property
+        public Doctor Doctor_appointment { get; set; } // Navigation property
 
     }
 }

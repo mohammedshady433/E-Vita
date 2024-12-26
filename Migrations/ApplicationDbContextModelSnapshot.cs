@@ -21,14 +21,18 @@ namespace E_Vita.Migrations
 
             modelBuilder.Entity("E_Vita.Models.Appointment", b =>
                 {
+                    b.Property<int>("Appointment_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("Doctor_ID")
                         .HasColumnType("int");
 
                     b.Property<int>("Patient_ID")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
@@ -37,7 +41,9 @@ namespace E_Vita.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("Doctor_ID", "Patient_ID");
+                    b.HasKey("Appointment_ID");
+
+                    b.HasIndex("Doctor_ID");
 
                     b.HasIndex("Patient_ID");
 
@@ -241,21 +247,21 @@ namespace E_Vita.Migrations
 
             modelBuilder.Entity("E_Vita.Models.Appointment", b =>
                 {
-                    b.HasOne("E_Vita.Models.Doctor", "Doctor")
+                    b.HasOne("E_Vita.Models.Doctor", "Doctor_appointment")
                         .WithMany("Appointments")
                         .HasForeignKey("Doctor_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_Vita.Models.Patient", "Patient")
+                    b.HasOne("E_Vita.Models.Patient", "Patient_appointment")
                         .WithMany("Appointments")
                         .HasForeignKey("Patient_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Doctor");
+                    b.Navigation("Doctor_appointment");
 
-                    b.Navigation("Patient");
+                    b.Navigation("Patient_appointment");
                 });
 
             modelBuilder.Entity("E_Vita.Models.Medical_Record", b =>

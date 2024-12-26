@@ -155,8 +155,8 @@ namespace E_Vita
 
         private void LabResults_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Lab Tests Information button clicked.");
-            this.NavigationService.Navigate(new LabTestsWindow());
+            //MessageBox.Show("Lab Tests Information button clicked.");
+            //this.NavigationService.Navigate(new LabTestsWindow());
         }
 
         private void Images_Click(object sender, RoutedEventArgs e)
