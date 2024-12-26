@@ -1,0 +1,72 @@
+﻿<Window x:Class="E_Vita.LabTestsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lab Test Information" Height="313" Width="804">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="141*"/>
+            <ColumnDefinition Width="412*"/>
+            <ColumnDefinition Width="247*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#3282B8" Offset="0"/>
+                <GradientStop Color="#0f4c75" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel Margin="10,0,0,0" Grid.ColumnSpan="3">
+            <TextBlock Text="Lab Test Information" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" Foreground="White"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <!-- Radiology Section -->
+                <StackPanel Orientation="Vertical" Width="300">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#3282B8" Offset="0"/>
+                            <GradientStop Color="#0f4c75" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <TextBlock Text="Radiology Tests" Foreground="#FFBBE1FA" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
+                    <CheckBox Content="X-Ray" Foreground="#FFBBE1FA" Margin="3"/>
+                    <CheckBox Content="U/S" Foreground="#FFBBE1FA" Margin="3"/>
+                    <CheckBox Content="CI" Foreground="#FFBBE1FA" Margin="3"/>
+                    <CheckBox Content="MRI" Foreground="#FFBBE1FA" Margin="3"/>
+                    <CheckBox Content="Others" Foreground="#FFBBE1FA" Margin="3"/>
+                    <TextBox Name="RadiologyTextBox" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
+                </StackPanel>
+
+                <!-- Blood Test Section -->
+                <StackPanel Width="300">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#3282B8" Offset="0"/>
+                            <GradientStop Color="#0f4c75" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <TextBlock Text="Blood Tests" Foreground="#FFBBE1FA" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- First Column of Blood Tests -->
+                        <StackPanel Width="140" Margin="5">
+                            <CheckBox Content="CBC" Foreground="#FFBBE1FA" Margin="3"/>
+                            <CheckBox Content="Proth-Time and Content" Foreground="#FFBBE1FA" Margin="3"/>
+                            <CheckBox Content="Blood Urea and Creatine" Foreground="#FFBBE1FA" Margin="3"/>
+                            <CheckBox Content="SGPT and SGOT" Foreground="#FFBBE1FA" Margin="3"/>
+                        </StackPanel>
+                        <!-- Second Column of Blood Tests -->
+                        <StackPanel Width="140" Margin="5">
+                            <CheckBox Content="Hepatitis B, C" Foreground="#FFBBE1FA" Margin="3"/>
+                            <CheckBox Content="Fasting and PP Blood Sugar" Foreground="#FFBBE1FA" Margin="3"/>
+                            <CheckBox Content="Glycodytit Hb" Foreground="#FFBBE1FA" Margin="3"/>
+                            <CheckBox Content="Others" Foreground="#FFBBE1FA" Margin="3"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <TextBox Name="BloodTestTextBox" Width="250" Height="50" Margin="12" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

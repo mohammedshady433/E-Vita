@@ -1,0 +1,131 @@
+﻿<Page x:Class="E_Vita.Appointments"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" 
+        Title="Appointments" 
+        Background="#1B262C"
+        d:DesignHeight="2500" d:DesignWidth="1532">
+    <ScrollViewer>
+    <Grid>
+        <!-- Main Background -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#3282B8" Offset="0"/>
+                    <GradientStop Color="#0f4c75" Offset="1"/>
+                </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <!-- logo -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250"  Panel.ZIndex="1">
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" HorizontalAlignment="Left" Height="250" Margin="0" Width="250"/>
+        </StackPanel>
+
+        <!-- HEAD-->
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Appointments" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#FFBBE1FA" Background="Transparent" Margin="-13" />
+        </StackPanel>
+
+        <!-- Navigation Buttons -->
+        <StackPanel Grid.Row="1"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="7" Orientation="Horizontal" Panel.ZIndex="1" >
+            <Button Content="Appointments" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Patient Data" BorderThickness="0" FontSize="20" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Photography" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Lab" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Planning" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Descriptions" FontSize="20" BorderThickness="0" FontFamily="Cooper Black" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" />
+            <Button Content="Finance" FontSize="20" FontFamily="Cooper Black" BorderThickness="0" Background="Transparent" Foreground="White" Height="40" Margin="50,0,50,0" Click="Button_Click" />
+        </StackPanel>
+            <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="298" Grid.Row="0" VerticalAlignment="Top" Width="1532" Fill="#3283b8" Grid.RowSpan="2"  />
+            <Rectangle Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="115" Grid.Row="1" VerticalAlignment="Center" Width="1532" Fill="#3283b8" />
+
+        <!-- Content Panel -->
+        <Border BorderThickness="2" CornerRadius="20" Padding="30" Margin="50" Effect="{DynamicResource DropShadowEffect}" Grid.Row="2" Grid.RowSpan="6" Grid.Column="2" Grid.ColumnSpan="2">
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#3282B8" Offset="1"/>
+                        <GradientStop Color="#0f4c75" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>   
+            <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#3282B8" Offset="0"/>
+                        <GradientStop Color="#0f4c75" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.RowSpan="6" >
+                <!-- Title -->
+                <TextBlock Text="Book an Appointment" FontSize="28" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <!-- Syncfusion Calendar -->
+                <TextBlock Text="Select Date" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                <syncfusion:CalendarEdit Background="#FF3282B8" Foreground="White" HeaderBackground="#FF5696D6" Height="300" Width="300" FontSize="14"/>
+                <!-- Patient ID Field -->
+                <TextBlock Text="Patient ID" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                <TextBox x:Name="PatientID" 
+                         Width="350" Height="40" 
+                         Background="#3282B8" Foreground="White" 
+                         FontSize="14" Padding="5" 
+                         BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
+
+                <!-- Reason for Visit Field -->
+                <TextBlock Text="Reason for Visit" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                <TextBox x:Name="VisitReason" 
+                         Width="350" Height="80" 
+                         AcceptsReturn="True" 
+                         Background="#3282B8" Foreground="White" 
+                         FontSize="14" Padding="5" 
+                         BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
+
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <Button Content="Submit" 
+                            Width="120" Height="40" 
+                            Background="#0F4C75" 
+                            Foreground="#BBE1FA" 
+                            BorderBrush="#BBE1FA" 
+                            FontSize="16" FontWeight="Bold" 
+                            Margin="10,0" 
+                           />
+
+                    <Button Content="Clear" 
+                            Width="120" Height="40" 
+                            Background="#3282B8" 
+                            Foreground="White" 
+                            BorderBrush="#BBE1FA" 
+                            FontSize="16" FontWeight="Bold" 
+                            Margin="10,0" 
+                            />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+    </ScrollViewer>
+</Page>
