@@ -35,7 +35,9 @@ namespace E_Vita.Interfaces.Repository
 
         public async Task<IEnumerable<Medical_Record>> GetAllAsync()
         {
-            return await _context.Medical_Records.ToListAsync();
+            return await _context.Medical_Records
+                .Include(a => a.patient_id)
+                .ToListAsync();
         }
 
         public async Task<Medical_Record> GetByIdAsync(int id)

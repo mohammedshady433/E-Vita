@@ -53,19 +53,11 @@ namespace E_Vita
         {
             try
             {
-                var medicalRecords = await _search_for_patient.GetByIdPatientAsync(patientId);
+                var medicalRecords = await _search_for_patient.GetAllAsync();
+                medicalRecords = medicalRecords.Where(record => record.Patient_ID == patientId).ToList();
 
                 if (medicalRecords.Any())
                 {
-                    PatientHistoryDataGrid.ItemsSource = medicalRecords.Select(record => new
-                    {
-                        Plan = record.Future_Plan,
-                        Surgery = record.Surgery,
-                        Reason_of_visit = record.reason_for_visit,
-                        Medication = record.Medication,
-                        MedicalDiseases = record.Disease,
-                        Family_History = record.Family_History
-                    });
                     PatientHistoryDataGrid.ItemsSource = medicalRecords;
                 }
                 else
@@ -82,9 +74,9 @@ namespace E_Vita
         }
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(SearchForPatientTextBox.Text, out int patientId))
+            if (int.TryParse(SearchForPatientTextBox.Text, out int patid))
             {
-                await LoadPatientHistoryAsync(patientId);
+                await LoadPatientHistoryAsync(patid);
             }
             else
             {
