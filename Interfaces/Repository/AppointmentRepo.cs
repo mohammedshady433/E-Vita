@@ -66,7 +66,9 @@ namespace E_Vita.Interfaces.Repository
             await _context.SaveChangesAsync();
         }
 
-
-
+        Task<IEnumerable<Medical_Record>> IRepository<Appointment>.GetByIdPatientAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

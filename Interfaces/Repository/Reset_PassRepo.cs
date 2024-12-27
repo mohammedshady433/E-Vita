@@ -63,5 +63,10 @@ namespace E_Vita.Interfaces.Repository
             resett.Date = DateTime.Now;
             await _context.SaveChangesAsync();
         }
+
+        Task<IEnumerable<Medical_Record>> IRepository<Reset_Pass_Log>.GetByIdPatientAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

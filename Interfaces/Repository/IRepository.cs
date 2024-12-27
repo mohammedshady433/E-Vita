@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Vita.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,6 @@ namespace E_Vita.Interfaces.Repository
         Task AddAsync(T entity);
         Task UpdateAsync(T entity, int id);
         Task DeleteAsync(int id);
+        Task<IEnumerable<Medical_Record>> GetByIdPatientAsync(int id);
     }
 }

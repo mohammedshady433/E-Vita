@@ -63,5 +63,10 @@ namespace E_Vita.Interfaces.Repository
             Nur.user_name= updatedNurse.user_name;
             await _context.SaveChangesAsync();
         }
+
+        Task<IEnumerable<Medical_Record>> IRepository<Nurse>.GetByIdPatientAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
