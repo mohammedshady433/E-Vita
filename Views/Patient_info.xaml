@@ -124,12 +124,12 @@
                     <TextBlock Text="Past History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="4" Grid.Column="0" Margin="5"/>
                     <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="200" Width="1280" VerticalScrollBarVisibility="Auto" Margin="5" Background="#FFBBE1FA" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Last Plans" Binding="{Binding Plan}" Width="*"/>
+                            <DataGridTextColumn Header="Reason of visit" Binding="{Binding reason_for_visit}" Width="*"/>
+                            <DataGridTextColumn Header="Last Plans" Binding="{Binding Future_Plan}" Width="*"/>
                             <DataGridTextColumn Header="Surgery" Binding="{Binding Surgery}" Width="*"/>
                             <DataGridTextColumn Header="Medication" Binding="{Binding Medication}" Width="*"/>
-                            <DataGridTextColumn Header="Medical Diseases" Binding="{Binding MedicalDiseases}" Width="*"/>
+                            <DataGridTextColumn Header="Medical Diseases" Binding="{Binding Disease}" Width="*"/>
                             <DataGridTextColumn Header="Family History" Binding="{Binding Family_History}" Width="*"/>
-
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
