@@ -31,6 +31,7 @@ namespace E_Vita
             LoadAppointmentsForToday();
         }
 
+
         public async void LoadAppointmentsForToday()
         {
             try
