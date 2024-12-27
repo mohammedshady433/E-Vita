@@ -45,6 +45,7 @@ namespace E_Vita.Views
             _MedicalRepository = services.GetService<IRepository<Medical_Record>>() ?? throw new InvalidOperationException("Data helper service is not available");
             _PatientRepository = services.GetService<IRepository<Patient>>() ?? throw new InvalidOperationException("Data helper service is not available");
             DisplayPatientInfo();
+            LoadPatientHistoryAsync(_patient.Patient_ID);
         }
 
         private void DisplayPatientInfo()
@@ -186,6 +187,30 @@ namespace E_Vita.Views
             {
                 MessageBox.Show("No medication was selected.");
             }
+        }
+
+        private async Task LoadPatientHistoryAsync(int patientId)
+        {
+            try
+            {
+                var medicalRecords = await _MedicalRepository.GetAllAsync();
+                medicalRecords = medicalRecords.Where(record => record.Patient_ID == patientId).ToList();
+
+                if (medicalRecords.Any())
+                {
+                    PatientHistoryDataGrid.ItemsSource = medicalRecords;
+                }
+                else
+                {
+                    MessageBox.Show("No medical history found for this patient.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
         }
     }
 
