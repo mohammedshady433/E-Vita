@@ -60,19 +60,85 @@ namespace E_Vita.Views
         // Save the medical record to the database
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            List<string> radiologies = new List<string>();
+            List<string> labtests = new List<string>();
+
+            // Get the medications from the TextBoxes
             string medications = string.Join(", ", _medicationTextBoxes.Select(tb => tb.Text));
             // Create a new Medical_Record object
-            Medical_Record medicalRecord = new Medical_Record
+            Medical_Record medicalRecord = new Medical_Record();
+
+            medicalRecord.Date = DateTime.Now;
+            medicalRecord.Future_Plan = Future_planText.Text;
+            medicalRecord.Disease = Local_examinationText.Text;
+            medicalRecord.Medication = medications;
+            medicalRecord.Surgery = SurgeriesText.Text;
+            medicalRecord.Family_History = Family_HistoryText.Text;
+            medicalRecord.reason_for_visit = ReasonForVisitTextBox.Text;
+            medicalRecord.Patient_ID = _patient.Patient_ID;
+            if (X_Ray_checkBox.IsChecked == true)
             {
-                Date = DateTime.Now,
-                Future_Plan = Future_planText.Text,
-                Disease = Local_examinationText.Text,
-                Medication = medications,
-                Surgery = SurgeriesText.Text,
-                Family_History = Family_HistoryText.Text,
-                reason_for_visit = ReasonForVisitTextBox.Text,
-                Patient_ID = _patient.Patient_ID
-            };
+                radiologies.Add("X-Ray");
+            }
+            if (MRI_checkBox.IsChecked == true)
+            {
+                radiologies.Add("MRI");
+            }
+            if (CT_checkBox.IsChecked == true)
+            {
+                radiologies.Add("CT");
+            }
+            if (US_checkBox.IsChecked == true)
+            {
+                radiologies.Add("Ultrasound");
+            }
+            if (other_checkBox.IsChecked == true)
+            {
+                radiologies.Add(RadiologyTextBox.Text);
+            }
+
+            // Get the lab tests from the CheckBoxes
+            if (Hep_checkBox.IsChecked == true)
+            {
+                labtests.Add("Hepatitis B/C");
+            }
+            if (CBC_checkBox.IsChecked == true)
+            {
+                labtests.Add("CBC");
+            }
+            if (Proth_checkBox.IsChecked == true)
+            {
+                labtests.Add("Proth Time and Content");
+            }
+            if (Urea_checkBox.IsChecked == true)
+            {
+                labtests.Add("Blood Urea and Creatine");
+            }
+            if (SGOT_checkBox.IsChecked == true)
+            {
+                labtests.Add("SGPT and SGOT");
+            }
+            if (Fasting_checkBox.IsChecked == true)
+            {
+                labtests.Add("Fasting pp blood");
+            }
+            if (Glyco_checkBox.IsChecked == true)
+            {
+                labtests.Add("Glycodytit Hb");
+            }
+            if (Other_Bloodtests_checkBox.IsChecked == true)
+            {
+                labtests.Add(BloodTestTextBox.Text);
+            }
+
+
+            // Get the radiologies from the CheckBoxes
+            string radiologiesstr = string.Join(", ", radiologies);
+            //Get the lab tests from the CheckBoxes
+            string labtestsstr = string.Join(", ", labtests);
+
+            medicalRecord.Radiology = radiologiesstr;
+            medicalRecord.Lab = labtestsstr;
 
             // Add the medical record to the database
             await _MedicalRepository.AddAsync(medicalRecord);
