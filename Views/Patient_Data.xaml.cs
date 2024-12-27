@@ -4,7 +4,6 @@ using E_Vita.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,15 +25,15 @@ namespace E_Vita
     public partial class Patient_Data : Page
     {
         private readonly IRepository<Medical_Record> _search_for_patient;
-        private readonly IRepository<Patient> _patient_name;
+        private readonly IRepository<Patient> _PatientRepository;
 
         public Patient_Data()
         {
             InitializeComponent();
             var services = ((App)Application.Current)._serviceProvider;
             _search_for_patient = services.GetService<IRepository<Medical_Record>>() ?? throw new InvalidOperationException("Data helper service is not available");
-            _patient_name = services.GetService<IRepository<Patient>>() ?? throw new InvalidOperationException("Data helper service is not available");
-
+            _PatientRepository = services.GetService<IRepository<Patient>>() ?? throw new InvalidOperationException("Data helper service is not available");
+         
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -51,6 +50,7 @@ namespace E_Vita
                 search_by_id.GoForward();
             }
         }
+   
 
         private async Task LoadPatientHistoryAsync(int patientId)
         {
@@ -72,59 +72,23 @@ namespace E_Vita
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+           
 
-
-        }
-        private async Task<string?> GetPatientNameAsync(int patientId)
-        {
-            try
-            {
-                var patients = await _patient_name.GetAllAsync();
-                var patient = patients.FirstOrDefault(p => p.Patient_ID == patientId);
-
-                if (patient != null)
-                {
-                    PatientHistoryDataGrid.ItemsSource = patients;
-                }
-                else
-                {
-                    MessageBox.Show("Patient not found.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            return null;
         }
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(SearchForPatientTextBox.Text, out int patid))
             {
-                var patientName = await GetPatientNameAsync(patid);
-
-                if (!string.IsNullOrEmpty(patientName))
-                {
-                    await GetPatientNameAsync(patid);
-
-                    await LoadPatientHistoryAsync(patid);
-                }
-                else
-                {
-                    MessageBox.Show("Please enter a valid Patient ID.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+                await LoadPatientHistoryAsync(patid);
+             
             }
             else
             {
                 MessageBox.Show("Please enter a valid Patient ID.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
     }
-}
-
-
-
-
-
+    }
+    
 
