@@ -43,10 +43,10 @@
 
             <Button Content="View Patients Data" Click="ViewPatientsData_Click" FontFamily="Verdana" Padding="10"
                     Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="166" Height="46" Margin="5,200,5,10"/>
-            <Button Content="Prescriptions" Click="Prescriptions_Click" FontFamily="Verdana" Padding="10"
-                    Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="166" Height="46" Margin="5,5,5,10"/>
-            <Button Content="Lab Tests Info." Click="LabResults_Click" FontFamily="Verdana" Padding="10"
-                    Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="166" Height="46" Margin="5,5,5,10"/>
+            <!--<Button Content="Prescriptions" Click="Prescriptions_Click" FontFamily="Verdana" Padding="10"
+                    Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="166" Height="46" Margin="5,5,5,10"/>-->
+            <!--<Button Content="Lab Tests Info." Click="LabResults_Click" FontFamily="Verdana" Padding="10"
+                    Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="166" Height="46" Margin="5,5,5,10"/>-->
             <Button Content="Images" Click="Images_Click" FontFamily="Verdana" Padding="10"
                     Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="166" Height="46" Margin="5,5,5,10"/>
             <Button Content="Finance" Click="Finance_Click" FontFamily="Verdana" Padding="10"
