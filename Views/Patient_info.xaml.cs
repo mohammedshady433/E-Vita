@@ -1,6 +1,7 @@
 ﻿using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
 using LiveCharts.Wpf;
+using MaterialDesignExtensions.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using System.IO;
+using System.Linq;
 
 namespace E_Vita.Views
 {
@@ -26,12 +30,14 @@ namespace E_Vita.Views
     {
         private readonly IRepository<Medical_Record> _MedicalRepository;
         private readonly IRepository<Patient> _PatientRepository;
+        private readonly IRepository<LabTest> _LabTestRepo;
         public Patient_info()
         {
             InitializeComponent();
             var services = ((App)Application.Current)._serviceProvider;
             _MedicalRepository = services.GetService<IRepository<Medical_Record>>() ?? throw new InvalidOperationException("Data helper service is not available");
             _PatientRepository = services.GetService<IRepository<Patient>>() ?? throw new InvalidOperationException("Data helper service is not available");
+            _LabTestRepo = services.GetService<IRepository<LabTest>>() ?? throw new InvalidOperationException("Data helper service is not available");
         }
 
 
@@ -44,6 +50,7 @@ namespace E_Vita.Views
             var services = ((App)Application.Current)._serviceProvider;
             _MedicalRepository = services.GetService<IRepository<Medical_Record>>() ?? throw new InvalidOperationException("Data helper service is not available");
             _PatientRepository = services.GetService<IRepository<Patient>>() ?? throw new InvalidOperationException("Data helper service is not available");
+            _LabTestRepo = services.GetService<IRepository<LabTest>>() ?? throw new InvalidOperationException("Data helper service is not available");
             DisplayPatientInfo();
             LoadPatientHistoryAsync(_patient.Patient_ID);
         }
@@ -211,6 +218,64 @@ namespace E_Vita.Views
             }
 
 
+        }
+
+        private void UploadImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var openFileDialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Title = "Select Image",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                var filePath = openFileDialog.FileName;
+                var fileName = System.IO.Path.GetFileName(filePath);
+                var fileData = File.ReadAllBytes(filePath);
+                var contentType = GetContentType(filePath);
+
+                SaveImageToDatabase(fileName, fileData, contentType);
+            }
+        }
+        private string GetContentType(string filePath)
+        {
+            var extension = System.IO.Path.GetExtension(filePath).ToLowerInvariant();
+            switch (extension)
+            {
+                case ".jpg":
+                case ".jpeg":
+                    return "image/jpeg";
+                case ".png":
+                    return "image/png";
+                case ".bmp":
+                    return "image/bmp";
+                case ".tif":
+                    return "image/tif";
+                default:
+                    throw new NotSupportedException($"File extension {extension} is not supported");
+            }
+        }
+        private async void SaveImageToDatabase(string fileName, byte[] fileData, string contentType)
+        {
+            try
+            {
+                var newLabTest = new LabTest
+                {
+                    FileName = fileName,
+                    ImageData = fileData,
+                    ContentType = contentType,
+                    UploadedAt = DateTime.Now,
+                    PatientId = _patient.Patient_ID
+                };
+
+                await _LabTestRepo.AddAsync(newLabTest);
+                MessageBox.Show("Image saved successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while saving the image: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 

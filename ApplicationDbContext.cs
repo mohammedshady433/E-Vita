@@ -24,6 +24,7 @@ namespace E_Vita
         public DbSet<Models.Reset_Pass_Log> Reset_Pass_Logs { get; set; }
         public DbSet<Models.Nurse> Nurses { get; set; }
         public DbSet<Models.Appointment> Appointments_DB { get; set; }
+        public DbSet<Models.LabTest> LabTests { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -48,6 +49,10 @@ namespace E_Vita
                 .WithMany(p => p.Appointments)
                 .HasForeignKey(a => a.Patient_ID)
                 .OnDelete(DeleteBehavior.Cascade); // cascade delete
+
+            modelBuilder.Entity<LabTest>()
+                .HasKey(l => l.Id);
+                
         }
 
 
