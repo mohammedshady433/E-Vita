@@ -58,6 +58,10 @@
                 <Button Click="SearchButton_Click" Content="Search" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="#0f4075" Background="Transparent" BorderThickness="0"/>
 
             </StackPanel>
+            <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Top"  >
+                <TextBlock Text="Patient Name:" Foreground="#0f4075" FontSize="24" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                <TextBox x:Name="NameTextBlock" Grid.Row="2" Grid.Column="1" Width="250" Height="30" Margin="5" Background="white" IsReadOnly="True"/>
+            </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="540" Width="1500" VerticalScrollBarVisibility="Auto" Margin="5"   RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
@@ -69,13 +73,6 @@
                         </LinearGradientBrush>
                     </DataGrid.Background>
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Patient name"  Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Future_Plan}" TextWrapping="Wrap" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
 
                         <DataGridTemplateColumn Header="Last Plans" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
