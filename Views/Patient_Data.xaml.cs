@@ -58,10 +58,12 @@ namespace E_Vita
             {
                 var medicalRecords = await _search_for_patient.GetAllAsync();
                 medicalRecords = medicalRecords.Where(record => record.Patient_ID == patientId).ToList();
-
+                var patient_name= await _PatientRepository.GetByIdAsync(patientId);
                 if (medicalRecords.Any())
                 {
                     PatientHistoryDataGrid.ItemsSource = medicalRecords;
+                    NameTextBlock.Text = patient_name.name;
+
                 }
                 else
                 {
