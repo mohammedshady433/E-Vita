@@ -39,6 +39,7 @@ namespace E_Vita
             services.AddScoped<IRepository<Patient>, PatientRepo>();
             services.AddScoped<IRepository<Prescription>, PrescriptionRepo>();
             services.AddScoped<IRepository<Reset_Pass_Log>, Reset_PassRepo>();
+            services.AddScoped<IRepository<Medical_Record>, MedicalRecordRepo>();
             // Register DbContext, services, and views
             services.AddSingleton<MainWindow>();
             services.AddScoped<DoctorDashboard>();

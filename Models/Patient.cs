@@ -42,6 +42,8 @@ namespace E_Vita.Models
         [Key] public int Patient_ID { get; set; }
 
         public ICollection<Appointment> Appointments { get; set; }
+
         public ICollection<Medical_Record> Medical_Records { get; set; }
+
     }
 }

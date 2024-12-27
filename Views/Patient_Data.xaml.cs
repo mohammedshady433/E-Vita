@@ -1,7 +1,6 @@
 ﻿using Azure;
 using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -50,37 +49,42 @@ namespace E_Vita
             }
         }
 
-        private async Task LoadMedicalRecordsAsync(int patientId)
+        private async Task LoadPatientHistoryAsync(int patientId)
         {
-            // Retrieve medical records for the given patient ID
-            var medicalRecords = await _search_for_patient.MedicalRecords
-                .Where(m => m.Patient_ID == patientId)  // Filter by Patient_ID
-                .ToListAsync();
+            try
+            {
+                var medicalRecords = await _search_for_patient.GetByIdPatientAsync(patientId);
 
-            // If records are found, bind to the DataGrid
-            if (medicalRecords.Any())
-            {
-                PatientHistoryDataGrid.ItemsSource = medicalRecords.Select(record => new
+                if (medicalRecords.Any())
                 {
-                    record.Date,
-                    record.Future_Plan,
-                    record.Disease,
-                    record.Medication,
-                    record.Surgery,
-                    record.Family_History,
-                    record.reason_for_visit
-                });
+                    PatientHistoryDataGrid.ItemsSource = medicalRecords.Select(record => new
+                    {
+                        Plan = record.Future_Plan,
+                        Surgery = record.Surgery,
+                        Reason_of_visit = record.reason_for_visit,
+                        Medication = record.Medication,
+                        MedicalDiseases = record.Disease,
+                        Family_History = record.Family_History
+                    });
+                    PatientHistoryDataGrid.ItemsSource = medicalRecords;
+                }
+                else
+                {
+                    MessageBox.Show("No medical history found for this patient.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No medical records found for this patient.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+           
+
         }
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(SearchForPatientTextBox.Text, out int patientId))
             {
-                await LoadMedicalRecordsAsync(patientId);
+                await LoadPatientHistoryAsync(patientId);
             }
             else
             {
@@ -88,8 +92,7 @@ namespace E_Vita
             }
         }
 
-
     }
-}
+    }
     
 
