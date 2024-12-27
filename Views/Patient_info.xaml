@@ -102,11 +102,6 @@
 
                         <!-- Assessment Section -->
                         <TextBlock Text="Local examination (A):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
-                        <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
-
-                        <!-- Plan Section -->
-                        <TextBlock Text="Plan (P):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
-                        <TextBox Width="Auto" Height="100" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
                     </StackPanel>
 
                     <TextBlock Text="Family History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="5" Grid.Column="0" Margin="5"/>
