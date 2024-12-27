@@ -54,8 +54,9 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox Width="300" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox x:Name="SearchForPatientTextBox" Width="300" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"/>
                 <Button Content="Search" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="#0f4075" Background="Transparent" BorderThickness="0"/>
+
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" >
@@ -70,6 +71,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Last Plans" Binding="{Binding Plan}" Width="*"/>
                         <DataGridTextColumn Header="Surgery" Binding="{Binding Surgery}" Width="*"/>
+                        <DataGridTextColumn Header="Reason__of__visit" Binding="{Binding Reason_of_visit}" Width="*"/>
                         <DataGridTextColumn Header="Medication" Binding="{Binding Medication}" Width="*"/>
                         <DataGridTextColumn Header="Medical Diseases" Binding="{Binding MedicalDiseases}" Width="*"/>
                         <DataGridTextColumn Header="Family History" Binding="{Binding Family_History}" Width="*"/>
@@ -77,6 +79,9 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
+          
+            <Frame x:Name="search_by_id" NavigationUIVisibility="Hidden" Margin="0,30,0,0" Grid.Row="0" Grid.RowSpan="14" Grid.Column="0" Grid.ColumnSpan="6"/>
+
         </Grid>
     </ScrollViewer>
 </Page>                
