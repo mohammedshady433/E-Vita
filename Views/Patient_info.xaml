@@ -174,6 +174,10 @@
                         <CheckBox x:Name="MRI_checkBox" Content="MRI" Foreground="#FFBBE1FA" Margin="3"/>
                         <CheckBox x:Name="other_checkBox" Content="Others" Foreground="#FFBBE1FA" Margin="3"/>
                         <TextBox Name="RadiologyTextBox" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
+                        <Button Content="Upload Image" 
+                        Grid.Row="1" Grid.Column="1" 
+                        Margin="10" Width="150" Height="40" 
+                        Click="UploadImageButton_Click" Background="#FFBBE1FA" />
                     </StackPanel>
 
                     <!-- Blood Test Section -->
@@ -202,6 +206,10 @@
                             </StackPanel>
                         </StackPanel>
                         <TextBox Name="BloodTestTextBox" Width="250" Height="50" Margin="12" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
+                        <Button Content="Upload Image" 
+                        Grid.Row="1" Grid.Column="1" 
+                        Margin="10" Width="150" Height="40" 
+                        Click="UploadImageButton_Click" Background="#FFBBE1FA" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
