@@ -76,16 +76,22 @@
 
                     <!-- Patient Details -->
                     <TextBlock Text="Patient Name:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="0" Grid.Column="0" Margin="5"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Width="400" Margin="5" Background="#FFBBE1FA"/>
+                    <TextBox x:Name="NameTextBlock" Grid.Row="0" Grid.Column="1" Width="400" Margin="5" Background="#FFBBE1FA" IsReadOnly="True"/>
                     <TextBlock Text="Patient ID:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="0" Grid.Column="2" Margin="5"/>
-                    <TextBox Grid.Row="0" Grid.Column="3" Width="400" Margin="5" Background="#FFBBE1FA"/>
+                    <TextBox x:Name="IdTextBlock" Grid.Row="0" Grid.Column="3" Width="400" Margin="5" Background="#FFBBE1FA" IsReadOnly="True"/>
 
                     <TextBlock Text="Nationality:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="1" Grid.Column="0" Margin="5"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Width="400" Margin="5" Background="#FFBBE1FA"/>
+                    <TextBox x:Name="NationalityTextBlock" Grid.Row="1" Grid.Column="1" Width="400" Margin="5" Background="#FFBBE1FA" IsReadOnly="True"/>
                     <TextBlock Text="Reason for Visit:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="1" Grid.Column="2" Margin="5"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" Width="400" Margin="5" Background="#FFBBE1FA"/>
+                    <TextBox x:Name="ReasonForVisitTextBox" Grid.Row="1" Grid.Column="3" Width="400" Margin="5" Background="#FFBBE1FA"/>
+                    
+                    <TextBlock Text="Age:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="2" Grid.Column="2" Margin="5"/>
+                    <TextBlock Text="Gendre:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="2" Grid.Column="0" Margin="5"/>
+                    <TextBox TextAlignment="Center" x:Name="DOBTextBlock" Grid.Row="2" Grid.Column="3" Width="200"  Margin="5" Background="#FFBBE1FA" IsReadOnly="True" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Age:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="2" Grid.Column="2" Margin="5"/>
+                    <TextBox TextAlignment="Center" x:Name="Gender_Box" Grid.Row="2" Grid.Column="1" Width="200"  Margin="5" Background="#FFBBE1FA" IsReadOnly="True" HorizontalAlignment="Center"/>
 
-                    <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Orientation="Vertical" Margin="10">
+                    <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" Orientation="Vertical" Margin="10">
                         <!-- Subjective Section -->
                         <TextBlock Text="C/O (S):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
                         <TextBox Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
@@ -103,8 +109,8 @@
                         <TextBox Width="Auto" Height="100" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
                     </StackPanel>
 
-                    <TextBlock Text="Family History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="3" Grid.Column="0" Margin="5"/>
-                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Width="900" Height="80" AcceptsReturn="True" Margin="5" Background="#FFBBE1FA"/>
+                    <TextBlock Text="Family History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="5" Grid.Column="0" Margin="5"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Width="900" Height="80" AcceptsReturn="True" Margin="5" Background="#FFBBE1FA"/>
 
                     <TextBlock Text="Past History:" Foreground="#FFBBE1FA" FontSize="18" Grid.Row="4" Grid.Column="0" Margin="5"/>
                     <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="200" Width="1280" VerticalScrollBarVisibility="Auto" Margin="5" Background="#FFBBE1FA" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">

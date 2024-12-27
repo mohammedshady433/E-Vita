@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Vita.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,26 @@ namespace E_Vita.Views
         {
             InitializeComponent();
         }
+        private Patient _patient;
+        public Patient_info(Patient patient)
+        {
+            InitializeComponent();
+
+            _patient = patient;
+            DisplayPatientInfo();
+        }
+
+        private void DisplayPatientInfo()
+        {
+            NameTextBlock.Text = _patient.name;
+            var age = DateTime.Now.Year - _patient.Birth_Date.Year;
+            DOBTextBlock.Text = age.ToString();
+            Gender_Box.Text = _patient.Gender.ToString();
+            NationalityTextBlock.Text = _patient.Nationality;
+            IdTextBlock.Text = _patient.Patient_ID.ToString();
+        }
+
+        // Set the TextBlock text to
         private void AddMedicationButton_Click(object sender, RoutedEventArgs e)
         {
             // Create a new TextBox for entering medication

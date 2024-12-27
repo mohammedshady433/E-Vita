@@ -259,7 +259,15 @@ namespace E_Vita
 
         private void patient_treat_assess_click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Patient_info());
+            if (listviewdoc.SelectedItem is Appointment selectedAppointment)
+            {
+                var patient = selectedAppointment.Patient_appointment;
+                this.NavigationService.Navigate(new Patient_info(patient));
+            }
+            else
+            {
+                return;     
+            }
         }
     }
 }

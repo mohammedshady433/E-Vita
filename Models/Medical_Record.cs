@@ -18,7 +18,7 @@ namespace E_Vita.Models
         public string Medication { get; set; }
         public string Surgery { get; set; }
         public string Family_History { get; set; }
-
+        public string reason_for_visit { get; set; }
         [Key]
         public int Record_ID { get; set; }
 
