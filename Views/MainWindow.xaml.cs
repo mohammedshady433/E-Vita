@@ -7,8 +7,8 @@ namespace E_Vita
 {
     public partial class MainWindow : Window
     {
-        private readonly IRepository<Doctor> _DoctorRepository;
-        private readonly IRepository<Nurse> _NurseRepository;
+        public IRepository<Doctor> _DoctorRepository { get;  set; }
+        public IRepository<Nurse> _NurseRepository { get;  set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace E_Vita
             }
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        public async Task Button_Click(object sender, RoutedEventArgs e)
         {
             string pass = pass_txt.Password;
             string user = user_txt.Text;

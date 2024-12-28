@@ -84,7 +84,7 @@ namespace E_Vita
             }
         }
 
-        private void PopulateYearAndMonthSelectors()
+        public void PopulateYearAndMonthSelectors()
         {
             // Populate years (e.g., +/- 10 years from the current year)
             int currentYear = DateTime.Now.Year;
@@ -102,7 +102,7 @@ namespace E_Vita
             MonthSelector.SelectedIndex = currentDate.Month - 1;
         }
 
-        private void GenerateCalendar(DateTime date)
+        public void GenerateCalendar(DateTime date)
         {
             CalendarGrid.Children.Clear();
 
