@@ -33,7 +33,7 @@ namespace E_Vita
             }
         }
 
-        public async Task Button_Click(object sender, RoutedEventArgs e)
+        public async void Button_Click(object sender, RoutedEventArgs e)
         {
             string pass = pass_txt.Password;
             string user = user_txt.Text;
