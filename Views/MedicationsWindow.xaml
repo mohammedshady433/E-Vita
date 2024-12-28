@@ -26,7 +26,7 @@
         </Grid.Background>
         
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Medications" FontSize="22" FontWeight="Bold" Margin="5" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="Medications" FontSize="30" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" Margin="5" HorizontalAlignment="Center" Foreground="White"/>
             <TextBox Name="SearchTextBox" Width="200" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="Black"
                     TextChanged="SearchTextBox_TextChanged" materialDesign:HintAssist.Hint="Search medications..." BorderBrush="#FF173446" />
                     <ComboBox Name="SearchResultsComboBox" Width="200" Height="10" Margin="0,1,0,0" 

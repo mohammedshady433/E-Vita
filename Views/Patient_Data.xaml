@@ -50,12 +50,12 @@
 
             <!-- HEAD-->
             <StackPanel Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="3" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Patient Data" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#0f4075" Background="Transparent"  />
+                <Label Content="Patient Data" Height="140" Width="700" FontSize="80" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Foreground="#0f4075" Background="Transparent"  />
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBox Width="300" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <Button Content="Search" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="#0f4075" Background="Transparent" BorderThickness="0"/>
+                <Button Content="Search" FontSize="30" FontFamily="verdana" FontWeight="Bold" Margin="0,0,10,0" Foreground="#0f4075" Background="Transparent" BorderThickness="0"/>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" >

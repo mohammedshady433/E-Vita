@@ -19,7 +19,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel Margin="10,0,0,0" Grid.ColumnSpan="3">
-            <TextBlock Text="Lab Test Information" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="Lab Test Information" FontSize="30" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" Foreground="White" FontFamily="Arial Rounded MT Bold"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <!-- Radiology Section -->
