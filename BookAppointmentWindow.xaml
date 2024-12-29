@@ -37,27 +37,27 @@
                     <!-- Patient Name Section -->
                     <!-- Form Title -->
                     <TextBlock Text="Book Appointment" FontFamily="Arial Rounded MT Bold" 
-                               FontSize="30" FontWeight="Bold" Foreground="#0f4055" 
+                               FontSize="40" FontWeight="Bold" Foreground="#BBE1FA" 
                                TextAlignment="Center" Width="400"/>
 
                     <!-- Patient Name Section -->
                     <TextBlock Text="Patient ID" FontSize="16" Margin="0,10,0,5" Foreground="#BBE1FA"/>
                     <TextBox x:Name="PatientNameTextBox" Height="30" Background="#E6F1F8" 
-                             BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,5"/>
+                             BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,5" Width="250"/>
                      <!-- Doctor ID Section -->
                     <TextBlock Text="Doctor ID" FontSize="16" Margin="0,10,0,5" Foreground="#BBE1FA"/>
                     <TextBox x:Name="Doctor_ID" Height="30" Background="#E6F1F8" 
-                             BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,5"/>
+                             BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,5" Width="250"/>
 
                     <!-- Appointment Date Section -->
                     <TextBlock Text="Appointment Date" FontSize="16" Margin="0,10,0,5" Foreground="#BBE1FA"/>
                     <DatePicker x:Name="AppointmentDatePicker" Height="30" Background="#E6F1F8" 
-                                BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,10"/>
+                                BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,10" Width="250"/>
 
                     <!-- Appointment Time Section -->
                     <TextBlock Text="Appointment Time" FontSize="16" Margin="0,10,0,5" Foreground="#BBE1FA"/>
                     <ComboBox x:Name="AppointmentTimeComboBox" Height="30" Background="#E6F1F8" 
-                              BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,10">
+                              BorderBrush="#3282B8" BorderThickness="2" Margin="0,0,0,10" Width="250">
                         <ComboBoxItem Content="9:00 PM"/>
                         <ComboBoxItem Content="9:15 PM"/>
                         <ComboBoxItem Content="9:30 PM"/>

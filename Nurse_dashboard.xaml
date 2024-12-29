@@ -32,9 +32,9 @@
             <StackPanel Margin="10,20,10,20"  HorizontalAlignment="Center">
                 <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" Height="50" Margin="0,0,0,20"/>
             </StackPanel>
-            <Button Content="Add Patient" Click="AddPatient_Click" FontFamily="Verdana" Margin="5,5,5,-300" Padding="10"
+            <Button Content="Add Patient" Click="AddPatient_Click" FontFamily="Verdana" FontSize="14" Margin="5,5,5,-300" Padding="10"
                     Background="#0f4c75" Foreground="#f5efe5" BorderBrush="#BBE1FA" Width="150" Height="46" />
-            <Button Content="Book Appointment" Click="BookAppointment_Click" FontFamily="Verdana" Padding="10"
+            <Button Content="Book Appointment" Click="BookAppointment_Click" FontFamily="Verdana" FontSize="14" Padding="10"
                     Background="#0f4c75" Foreground="#f5efe5" BorderBrush="#BBE1FA" Width="150" Height="46" Margin="5,5,5,-500"/>
         </StackPanel>
 
@@ -46,7 +46,7 @@
 
             <Grid Margin="-55,0,0,0" Background="Transparent">
                 
-                <TextBlock Text="Nurse Dashboard" FontFamily="Arial Rounded MT Bold" FontSize="32" Foreground="#BBE1FA"
+                <TextBlock Text="Nurse Dashboard" FontFamily="Arial Rounded MT Bold" FontSize="50" Foreground="#BBE1FA"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0"/>
             </Grid>
 
