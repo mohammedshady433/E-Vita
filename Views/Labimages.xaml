@@ -8,7 +8,7 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="Labimages">
 
-    <Grid Background="#1B262C">
+    <Grid Background="#891739">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="1*"/>
@@ -26,27 +26,22 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-
-        <!--logo-->
-        <StackPanel Grid.Row="0" Grid.Column="0">
-            <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\E-Vita bright logo horizontal.png" Height="50" Margin="0,15,0,20"/>
-        </StackPanel>
-
         <!--lab header-->
-        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="7">
             <StackPanel.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#1B262C" Offset="0.0"/>
-                    <GradientStop Color="#0F4C75" Offset="1.0"/>
+                    <GradientStop Color="#34111e" Offset="-0.5"/>
+                    <GradientStop Color="#891739" Offset="0.5"/>
+                    <GradientStop Color="#991130" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <TextBlock Text="laboratory" FontFamily="Arial Rounded MT Bold" FontSize="42" Foreground="#BBE1FA"
-                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,30,0,0" />
+            <TextBlock Text="Lab Images" Foreground="#e1b184" FontSize="52" FontWeight="Bold" FontFamily="Montserrat"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" Margin="60,20,0,0" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="Search" Click="Images" FontFamily="Verdana" Padding="10" FontSize="20"
-                    Background="#3282B8" Foreground="#BBE1FA" BorderBrush="#BBE1FA" Width="166" Height="50" Margin="5,5,5,10"/>
-            <TextBox x:Name="searchtxt" Background="#FFBBE1FA" Width="500" Height="50" Margin="10" FontSize="20"/>
+            <Button Content="Search" Click="Images" FontFamily="Verdana Bold" Padding="10" FontSize="24"
+                    Background="#e1b184" Foreground="#891739"  Width="166" Height="50" Margin="5,5,5,10"/>
+            <TextBox x:Name="searchtxt" Background="#f8f0e5" Width="500" Height="50" Margin="10" FontSize="20"/>
         </StackPanel>
 
         <!-- ItemsControl for displaying images -->

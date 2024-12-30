@@ -6,22 +6,14 @@
         Background="Transparent">
 
 
-    <Border CornerRadius="12" BorderThickness="4">
+    <Border CornerRadius="12" BorderThickness="4" Background="#891739">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#0f4075" Offset="0"/>
-                <GradientStop Color="#3283b8" Offset="0.75"/>
-                <GradientStop Color="#Bbe1fe" Offset="1"/>
+                <GradientStop Color="#891739" Offset="0.0" />
+                <GradientStop Color="#ecece4" Offset="0.5" />
+                <GradientStop Color="#e1b184" Offset="1.0" />
             </LinearGradientBrush>
         </Border.BorderBrush>
-
-        <Border.Background>
-            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                <GradientStop Color="#3283b8" Offset="0"/>
-                <GradientStop Color="#0f4075" Offset="0.75"/>
-                <GradientStop Color="#1B1448" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.Background>
 
         <Grid>
             <Grid.RowDefinitions>
@@ -31,7 +23,7 @@
 
             <Grid Grid.Row="0">
                 <TextBlock Text="Finance"
-                          Foreground="#f5efe5" FontSize="28" FontFamily="Montserrat Medium" Grid.Column="0"
+                           Foreground="#e1b184"  FontSize="24" FontWeight="Bold" FontFamily="Montserrat" Grid.Column="0"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           Margin="60,5,0,0"/>
@@ -46,9 +38,9 @@
                 <Border CornerRadius="24" BorderThickness="4" Margin="25,0,0,0">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#3283b8" Offset="0"/>
-                            <GradientStop Color="#0f4075" Offset="1"/>
-
+                            <GradientStop Color="#34111e" Offset="-0.5"/>
+                            <GradientStop Color="#891739" Offset="0.5"/>
+                            <GradientStop Color="#991130" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
 
@@ -57,8 +49,8 @@
                            Height="100"
                           Margin="-4"
                            Orientation="Vertical"            >
-                        <TextBlock Text="Revenue" FontSize="30" Margin="20,20,0,-10" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="#f5efe5"></TextBlock>
-                        <TextBlock Text="$15000" FontSize="24" Margin="20,10,0,0" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="Orchid"></TextBlock>
+                        <TextBlock Text="Revenue" FontSize="30" Margin="20,20,0,-10" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="#ecece4"></TextBlock>
+                        <TextBlock Text="$15000" FontSize="24" Margin="20,10,0,0" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="Indigo"></TextBlock>
 
                     </StackPanel>
                 </Border>
@@ -67,9 +59,9 @@
 
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#3283b8" Offset="0"/>
-                            <GradientStop Color="#0f4075" Offset="1"/>
-
+                            <GradientStop Color="#34111e" Offset="-0.5"/>
+                            <GradientStop Color="#891739" Offset="0.5"/>
+                            <GradientStop Color="#991130" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
 
@@ -88,9 +80,9 @@
 
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#3283b8" Offset="0"/>
-                            <GradientStop Color="#0f4075" Offset="1"/>
-
+                            <GradientStop Color="#34111e" Offset="-0.5"/>
+                            <GradientStop Color="#891739" Offset="0.5"/>
+                            <GradientStop Color="#991130" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
 
@@ -107,28 +99,28 @@
             </WrapPanel>
 
             <WrapPanel
-           Height="400"
+           Height="478"
            Grid.Row="1"
            Orientation="horizontal"
-           Margin="21,200,21,0"
+           Margin="21,150,21,0"
            VerticalAlignment="Top">
-                <Border CornerRadius="24" BorderThickness="4" Width="790" Height="451">
+                <Border CornerRadius="24" BorderThickness="4" Width="790" Height="528">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#3283b8" Offset="0"/>
-                            <GradientStop Color="#0f4075" Offset="1"/>
+                            <GradientStop Color="#34111e" Offset="-0.5"/>
+                            <GradientStop Color="#891739" Offset="0.5"/>
+                            <GradientStop Color="#991130" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
                     <StackPanel 
                    Width="750"
-                   Height="400"
-                   Margin="-4"
+                   Margin="16,6,16,60"
                    Orientation="Vertical"            >
                         <!-- Chart for Revenue, Expenses, and Profit -->
-                        <lvc:CartesianChart x:Name="RevenueExpensesChart"  Height="371" Width="734">
+                        <lvc:CartesianChart x:Name="RevenueExpensesChart"  Height="457" Width="734">
                             <lvc:CartesianChart.Series>
                                 <!-- Revenue Line -->
-                                <lvc:LineSeries Title="Revenue" Values="{Binding RevenueValues}" Stroke="Orchid" Fill="Transparent" />
+                                <lvc:LineSeries Title="Revenue" Values="{Binding RevenueValues}" Stroke="Indigo" Fill="Transparent" />
                                 <!-- Expenses Line -->
                                 <lvc:LineSeries Title="Expenses" Values="{Binding ExpensesValues}" Stroke="OrangeRed" Fill="Transparent" />
                                 <!-- Profit Line -->
@@ -158,9 +150,9 @@ VerticalAlignment="Top">
 
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#3283b8" Offset="0"/>
-                            <GradientStop Color="#0f4075" Offset="1"/>
-
+                            <GradientStop Color="#34111e" Offset="1.4"/>
+                            <GradientStop Color="#891739" Offset="0.5"/>
+                            <GradientStop Color="#991130" Offset="0"/>
                         </LinearGradientBrush>
                     </Border.Background>
 
@@ -173,7 +165,7 @@ VerticalAlignment="Top">
                         <DataGrid x:Name="TransactionsDataGrid" AutoGenerateColumns="True" HeadersVisibility="Column" GridLinesVisibility="Horizontal" 
                 Background="Transparent" RowBackground="DimGray" AlternatingRowBackground="SlateGray"  Foreground="#1b262c"
                 BorderBrush="Transparent" FontFamily="Arial Rounded MT Bold" FontSize="28" 
-               ItemsSource="{Binding Transactions}" Height="766">
+               ItemsSource="{Binding Transactions}" Height="742" Width="738">
                             <!-- Define Columns -->
                             <DataGrid.Columns>
                                 <!-- Date Column -->

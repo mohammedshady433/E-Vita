@@ -9,104 +9,99 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         WindowState="Maximized"
-        d:DesignHeight="2500" d:DesignWidth="1532"
+        d:DesignHeight="1080" d:DesignWidth="1532"
         WindowStyle="ThreeDBorderWindow">
-    
+
     <!--        AllowsTransparency="True"   this is used inside the window tag -->
-    <Grid>
-        <Grid>
-            <!-- Main Background -->
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0f4075" Offset="0"/>
-                    <GradientStop Color="#BBE1FA" Offset="0.5"/>
-                    <GradientStop Color="#0f4075" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Background="#891730">
 
         <!-- Central Login Panel -->
-        <Border CornerRadius="20" Width="500" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                        <GradientStop Color="#BBE1FA" Offset="1"/>
-                        <GradientStop Color="#0f4075" Offset="0.1"/>
-                        <GradientStop Color="#0f4075" Offset="0.2"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-                <StackPanel>
+        <Border CornerRadius="20" Width="500" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#e1b184" BorderThickness="6">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#891739" Offset="0.0" />
+                    <GradientStop Color="#ecece4" Offset="0.5" />
+                    <GradientStop Color="#e1b184" Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <StackPanel>
                 <!-- Logo -->
-                    <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\Horizontal dark logo.png" Width="373" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                <Image Source="/Assets/E-Vita logo-01.png" Margin="0,0,0,10" HorizontalAlignment="Center" Height="168" Width="220"/>
 
                 <!-- Welcome Text -->
-                <TextBlock Text="Welcome Back!" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>
-                <TextBlock Text="Please login to continue" FontSize="14" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                <TextBlock Text="Welcome Back!" FontSize="24" FontFamily="Qatar2022 Arabic" FontWeight="Heavy" Foreground="#991130" HorizontalAlignment="Center" />
+                <TextBlock Text="Please login to continue" FontSize="18" FontFamily="Qatar2022 Arabic" FontWeight="Bold" Foreground="#991130" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
                 <!-- Username Field -->
-                <TextBlock Text="Username" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <TextBox Name="user_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
+                <TextBlock Text="Username" FontSize="18" FontFamily="Qatar2022 Arabic" FontWeight="Bold" Foreground="#991130" Margin="0,0,0,5"/>
+                <TextBox Name="user_txt" Width="300" Height="40" FontFamily="Qatar2022 Arabic" FontWeight="Medium" Background="#f8f0e5" Foreground="#991130" FontSize="18" Padding="5" BorderBrush="#f9dcc0" BorderThickness="1" Margin="0,0,0,20"/>
 
                 <!-- Password Field -->
-                <TextBlock Text="Password" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <PasswordBox Name="pass_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
-               
+                <TextBlock Text="Password"  FontSize="18" FontFamily="Qatar2022 Arabic" FontWeight="Bold" Foreground="#991130" Margin="0,0,0,5"/>
+                <PasswordBox Name="pass_txt" Width="300" Height="40" FontFamily="Qatar2022 Arabic" FontWeight="Medium"  Background="#f8f0e5" Foreground="#991130" FontSize="18" Padding="5" BorderBrush="#f9dcc0" BorderThickness="1" Margin="0,0,0,20"/>
+
                 <!-- ID Field -->
-                <TextBlock Text="ID" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                <TextBox Name="ID_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="0,0,0,20"/>
+                <TextBlock Text="ID" FontSize="18" FontFamily="Qatar2022 Arabic" FontWeight="Bold" Foreground="#991130" Margin="0,0,0,5"/>
+                <TextBox Name="ID_txt" Width="300" Height="40" FontFamily="Qatar2022 Arabic" FontWeight="Medium"  Background="#f8f0e5" Foreground="#991130" FontSize="18" Padding="5" BorderBrush="#f9dcc0" BorderThickness="1" Margin="0,0,0,20"/>
 
                 <!-- Login Button -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                        <Button x:Name="btnLogin"                          
+                    <Button x:Name="btnLogin"                          
                         BorderThickness="0"
                         Content="LOG IN"
-                        Foreground="White"
-                        FontSize="12"
-                        FontFamily="Verdana"
+                        Foreground="#f8f0e5"
+                        FontSize="18"
+                        FontFamily="Qatar2022 Arabic"
                         Cursor="Hand"                           
                         Margin="0"
                         Click="Button_Click">
 
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="#0f4075"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#Bbe1fe"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#891739"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#991130"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
 
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="150" Height="40"
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="150" Height="40"
                                     CornerRadius="20"
                                     Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                    <ContentPresenter VerticalAlignment="Center"
                                                   HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </StackPanel>
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0">
-                        <TextBlock Text="Forgot Password?" Foreground="White" FontSize="14" FontWeight="Medium" FontFamily="Montserrat" Margin="0,5,0,0"/>
-                        <Button x:Name="Reset" Background="Transparent" Margin="10,0,0,0" HorizontalAlignment="Left" BorderThickness="0" Content="Reset" Foreground="White" FontWeight="Light" FontSize="14" FontFamily="Verdana" Cursor="Hand" Click="Reset_Pass"/>
-                    </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBlock Text="Forgot Password?" Foreground="#991130" FontSize="18" FontFamily="Qatar2022 Arabic" FontWeight="Heavy"  Margin="0,0,0,0"/>
+                    <Button x:Name="Reset" Background="Transparent" Margin="10,0,0,0" HorizontalAlignment="Left" BorderThickness="0" Content="Reset" Foreground="#991130" FontFamily="Qatar2022 Arabic" FontWeight="Medium"  FontSize="14" Cursor="Hand" Click="Reset_Pass"/>
                 </StackPanel>
+            </StackPanel>
         </Border>
-    </Grid>
+
         <!-- Custom Navigation Bar -->
-        <Grid VerticalAlignment="Top" Background="#FF195388" Height="30">
+        <Grid VerticalAlignment="Top" Background="#34111e" Height="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Back" Width="50" Height="20" Background="white" Foreground="#3282B8" BorderBrush="#BBE1FA" Margin="10,5" Click="BackButton_Click"/>
-            <TextBlock Text="E-Vita" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#BBE1FA" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
-            <Button Content="Forward" Width="50" Height="20"  Background="white" Foreground="#3282B8" BorderBrush="#BBE1FA" Margin="10,5" Click="ForwardButton_Click" Grid.Column="2"/>
+            <Button Width="50" Height="20" Background="#e1b184" Foreground="#991130" Margin="10,5" FontSize="10" FontFamily="Qatar2022 Arabic" FontWeight="Bold" Click="BackButton_Click">
+                <Path Data="M10,0 L0,10 L10,20" Fill="#991130" Width="16" Height="16" Stretch="Uniform"/>
+            </Button>
+            <TextBlock Text="E-Vita" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#e1b184" FontSize="18" FontWeight="Bold" FontFamily="Qatar2022 Arabic" Grid.Column="1"/>
+            <Button Width="50" Height="20" Background="#e1b184" Foreground="#991130" Margin="10,5" FontSize="10" FontFamily="Qatar2022 Arabic" FontWeight="Bold" Click="ForwardButton_Click" Grid.Column="2">
+                <Path Data="M0,0 L10,10 L0,20" Fill="#991130" Width="16" Height="16" Stretch="Uniform"/>
+            </Button>
         </Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,30,0,0"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,30,0,0" Navigated="MainFrame_Navigated"/>
     </Grid>
 </Window>
 
