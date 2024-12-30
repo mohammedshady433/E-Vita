@@ -2,90 +2,124 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-
-      xmlns:local="clr-namespace:E_Vita"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1532"
       Title="Nurse Dashboard">
-    <Grid>
+    <Grid Background="#ecece4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel Background="#FF195388" Margin="0,0,35,0">
-            <StackPanel Margin="10,20,10,20"  HorizontalAlignment="Center">
-                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" Height="50" Margin="0,0,0,20"/>
-            </StackPanel>
-            <Button Content="Add Patient" Click="AddPatient_Click" FontFamily="Verdana" Margin="5,5,5,-300" Padding="10"
-                    Background="#BBE1FA" Foreground="#FF195388" BorderBrush="#BBE1FA" Width="150" Height="46" />
-            <Button Content="Book Appointment" Click="BookAppointment_Click" FontFamily="Verdana" Padding="10"
-                    Background="#BBE1FA" Foreground="#FF195388" BorderBrush="#BBE1FA" Width="150" Height="46" Margin="5,5,5,-500"/>
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#34111e" Offset="-0.5"/>
+                    <GradientStop Color="#891739" Offset="0.5"/>
+                    <GradientStop Color="#991130" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <TextBlock Text="Nurse Dashboard" Foreground="#e1b184" FontSize="56" FontFamily="Qatar2022 Arabic" FontWeight="Heavy" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,50,0,0"/>
         </StackPanel>
 
-        <Grid Grid.Column="1" Background="#1B262C" Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <!-- Side Panel -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Height="800" VerticalAlignment="Bottom">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#34111e" Offset="-0.5"/>
+                    <GradientStop Color="#891739" Offset="0.5"/>
+                    <GradientStop Color="#991130" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <!--logo-->
+            <Image Source="C:\Users\Ziad mahmoud\Source\Repos\E-Vita\Assets\E-Vita logo-01.png" Height="143" Margin="0,15,0,20" Width="265"/>
+            <Button Content="View Patients Data" Click="ViewPatientsData_Click" FontFamily="Qatar2022 Arabic" FontSize="14" Padding="10"
+                    Background="#e1b184" Foreground="#891739" Width="166" Height="46" Margin="5,200,5,10">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="166" Height="46" CornerRadius="20" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Add Patient" Click="AddPatient_Click" FontFamily="Qatar2022 Arabic" FontSize="14" Padding="10"
+                    Background="#e1b184" Foreground="#891739" Width="166" Height="46" Margin="5,10,5,10">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="166" Height="46" CornerRadius="20" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
 
-            <Grid Margin="-55,0,0,0">
-                <Grid.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#1B262C" Offset="0.0"/>
-                        <GradientStop Color="#0F4C75" Offset="1.0"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <TextBlock Text="Nurse Dashboard" FontFamily="Arial Rounded MT Bold" FontSize="32" Foreground="#BBE1FA"
-                           VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0"/>
-            </Grid>
+        <!-- Calendar -->
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Background="#f9dcc0">
+            <Border Background="#891739" CornerRadius="10" BorderBrush="#e1b184" BorderThickness="2" Margin="10">
+                <Grid>
+                    <UniformGrid x:Name="CalendarGrid" Rows="7" Columns="7" Margin="10">
+                        <!-- Days and buttons populated dynamically in code-behind -->
+                    </UniformGrid>
+                    <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Button Content="◀" Width="30" Height="30" Background="#e1b184" Foreground="#891739"
+                                FontSize="16" FontWeight="Bold" BorderThickness="0"
+                                Click="PreviousMonth_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="30" Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <ComboBox x:Name="YearSelector" Width="200" Height="30" SelectionChanged="YearSelector_SelectionChanged" Margin="10,0"/>
+                        <ComboBox x:Name="MonthSelector" Width="200" Height="30" SelectionChanged="MonthSelector_SelectionChanged" Margin="10,0"/>
+                        <Button Content="▶" Width="30" Height="30" Background="#e1b184" Foreground="#891739"
+                                FontSize="16" FontWeight="Bold" BorderThickness="0"
+                                Click="NextMonth_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="30" Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
 
-            <Grid Grid.Row="1" Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
-
-                <Border Grid.Column="0" Background="#BBE1FA" CornerRadius="10" BorderBrush="#0F4C75" BorderThickness="2" Margin="10">
-                    <Grid>
-                        <UniformGrid x:Name="CalendarGrid" Rows="7" Columns="7" Margin="10">
-                            <!-- Days and buttons will be populated dynamically in code-behind -->
-                        </UniformGrid>
-
-                        <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                            <Button Content="◀" Width="30" Height="30" Background="#0F4C75" Foreground="#f5efe5"
-                                    FontSize="16" FontWeight="Bold" BorderThickness="0"
-                                    Click="PreviousMonth_Click" />
-                            <ComboBox x:Name="YearSelector" Width="150" Height="30" SelectionChanged="YearSelector_SelectionChanged" Margin="10,0">
-                                <!-- Populate years dynamically in code-behind -->
-                            </ComboBox>
-                            <ComboBox x:Name="MonthSelector" Width="200" Height="30" SelectionChanged="MonthSelector_SelectionChanged" Margin="10,0">
-                                <!-- Populate months dynamically in code-behind -->
-                            </ComboBox>
-                            <Button Content="▶" Width="30" Height="30" Background="#0F4C75" Foreground="#f5efe5"
-                                    FontSize="16" FontWeight="Bold" BorderThickness="0"
-                                    Click="NextMonth_Click" />
-                        </StackPanel>
-                    </Grid>
-                </Border>
-
-                <StackPanel Grid.Column="1" Margin="20">
-                    <ListBox x:Name="ScheduleList" Height="600" SelectionChanged="ScheduleList_SelectionChanged" Background="#FF0F4C75" BorderBrush="#FFBBE1FA">
-                        <ListBox BorderBrush="#FFBBE1FA" Background="#FFBBE1FA">
-                            <DataGrid x:Name="ScheduleDataGrid" Grid.Column="1" Margin="0" AutoGenerateColumns="False" Height="580" Width="695" Background="#FFBBE1FA" Foreground="#FF0F4C75" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Time" Binding="{Binding Time }" Width="*"/>
-                                    <DataGridTextColumn Header="Patient Name" Binding="{Binding Patient_appointment.name}" Width="*"/>
-                                    <DataGridTextColumn Header="Patient Phone" Binding="{Binding Patient_appointment.contact}" Width="*"/>
-                                    <DataGridTextColumn Header="Patient ID" Binding="{Binding Patient_appointment.Patient_ID}" Width="*"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                        </ListBox>
-                    </ListBox>
-                </StackPanel>
-            </Grid>
-        </Grid>
+        <!-- Schedule -->
+        <StackPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Margin="4,20,20,2" Grid.RowSpan="5">
+            <ListBox x:Name="ScheduleList" Height="628" SelectionChanged="ScheduleList_SelectionChanged" Background="#e1b184" BorderBrush="#FFBBE1FA" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <DataGrid x:Name="ScheduleDataGrid" AutoGenerateColumns="False" Height="608" Width="637" Background="#f9dcc0"
+                          Foreground="#991130" RenderTransformOrigin="0.895,0.479">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="200"/>
+                        <DataGridTextColumn Header="Patient Name" Binding="{Binding PatientName}" Width="200"/>
+                        <DataGridTextColumn Header="Reason" Binding="{Binding Reason}" Width="200"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Page>

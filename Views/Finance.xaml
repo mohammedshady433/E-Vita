@@ -31,7 +31,7 @@
 
             <Grid Grid.Row="0">
                 <TextBlock Text="Finance"
-                          Foreground="#f5efe5" FontSize="28" FontFamily="Montserrat Medium" Grid.Column="0"
+                          Foreground="#f5efe5" FontSize="40" FontFamily="Qatar2022 Arabic Bold" Grid.Column="0"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
                           Margin="60,5,0,0"/>
@@ -57,8 +57,8 @@
                            Height="100"
                           Margin="-4"
                            Orientation="Vertical"            >
-                        <TextBlock Text="Revenue" FontSize="30" Margin="20,20,0,-10" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="#f5efe5"></TextBlock>
-                        <TextBlock Text="$15000" FontSize="24" Margin="20,10,0,0" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="Orchid"></TextBlock>
+                        <TextBlock Text="Revenue" FontSize="30" Margin="20,20,0,-10" FontFamily="Qatar2022 Arabic" FontWeight="DemiBold" Foreground="#f5efe5"></TextBlock>
+                        <TextBlock Text="$15000" FontSize="24" Margin="20,10,0,0" FontFamily="Qatar2022 Arabic" FontWeight="DemiBold" Foreground="Orchid"></TextBlock>
 
                     </StackPanel>
                 </Border>
@@ -78,8 +78,8 @@
              Height="100"
              Margin="-4"
              Orientation="Vertical"            >
-                        <TextBlock Text="Expenses" FontSize="30" Margin="20,20,0,-10" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="#f5efe5"></TextBlock>
-                        <TextBlock Text="$15000" FontSize="24" Margin="20,10,0,0" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="OrangeRed"></TextBlock>
+                        <TextBlock Text="Expenses" FontSize="30" Margin="20,20,0,-10" FontFamily="Qatar2022 Arabic" FontWeight="DemiBold" Foreground="#f5efe5"></TextBlock>
+                        <TextBlock Text="$15000" FontSize="24" Margin="20,10,0,0" FontFamily="Qatar2022 Arabic" FontWeight="DemiBold" Foreground="OrangeRed"></TextBlock>
 
                     </StackPanel>
                 </Border>
@@ -99,8 +99,8 @@
              Height="100"
              Margin="-4"
              Orientation="Vertical"            >
-                        <TextBlock Text="Profit" FontSize="30" Margin="20,20,0,-10" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="#f5efe5"></TextBlock>
-                        <TextBlock Text="$15000" FontSize="24" Margin="20,10,0,0" FontFamily="Montserrat" FontWeight="DemiBold" Foreground="LawnGreen"></TextBlock>
+                        <TextBlock Text="Profit" FontSize="30" Margin="20,20,0,-10" FontFamily="Qatar2022 Arabic" FontWeight="DemiBold" Foreground="#f5efe5"></TextBlock>
+                        <TextBlock Text="$15000" FontSize="24" Margin="20,10,0,0" FontFamily="Qatar2022 Arabic" FontWeight="DemiBold" Foreground="LawnGreen"></TextBlock>
 
                     </StackPanel>
                 </Border>
@@ -136,10 +136,10 @@
                             </lvc:CartesianChart.Series>
                             <!-- Axis for X and Y -->
                             <lvc:CartesianChart.AxisX>
-                                <lvc:Axis Title="Month" FontFamily="verdana" FontSize="15" Labels="{Binding MonthLabels}" />
+                                <lvc:Axis Title="Month" FontFamily="Qatar2022 Arabic" FontSize="15" Labels="{Binding MonthLabels}" />
                             </lvc:CartesianChart.AxisX>
                             <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="Amount (in $)"  FontFamily="verdana" FontSize="15" LabelFormatter="{Binding YFormatter}" />
+                                <lvc:Axis Title="Amount (in $)"  FontFamily="Qatar2022 Arabic" FontSize="15" LabelFormatter="{Binding YFormatter}" />
                             </lvc:CartesianChart.AxisY>
                         </lvc:CartesianChart>
                     </StackPanel>
@@ -172,7 +172,7 @@ VerticalAlignment="Top">
         Orientation="Vertical" >
                         <DataGrid x:Name="TransactionsDataGrid" AutoGenerateColumns="True" HeadersVisibility="Column" GridLinesVisibility="Horizontal" 
                 Background="Transparent" RowBackground="DimGray" AlternatingRowBackground="SlateGray"  Foreground="#1b262c"
-                BorderBrush="Transparent" FontFamily="Arial Rounded MT Bold" FontSize="28" 
+                BorderBrush="Transparent" FontFamily="Qatar2022 Arabic" FontSize="28" 
                ItemsSource="{Binding Transactions}" Height="766">
                             <!-- Define Columns -->
                             <DataGrid.Columns>
