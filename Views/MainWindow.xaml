@@ -35,7 +35,7 @@
                 </Border.Background>
                 <StackPanel>
                 <!-- Logo -->
-                    <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\Vertical dark logo.png" Width="373" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                    <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\Horizontal dark logo.png" Width="373" Height="150" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
                 <!-- Welcome Text -->
                 <TextBlock Text="Welcome Back!" FontSize="24" FontWeight="Bold" Foreground="#BBE1FA" HorizontalAlignment="Center" Margin="0,0,0,10"/>

@@ -19,8 +19,8 @@
         <!-- Main Layout -->
         <Grid Margin="20">
             <!-- Logo Section -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
-                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" Width="150" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-20,-10,0,0">
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\E-Vita bright logo horizontal.png" Width="150" />
             </StackPanel>
 
             <!-- Form Section -->

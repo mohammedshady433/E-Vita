@@ -40,7 +40,7 @@
                     <GradientStop Color="#0F4C75" Offset="1.0"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <TextBlock Text="Lab Images" FontFamily="Arial Rounded MT Bold" FontSize="32" Foreground="#BBE1FA"
+            <TextBlock Text="laboratory" FontFamily="Arial Rounded MT Bold" FontSize="42" Foreground="#BBE1FA"
                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,30,0,0" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

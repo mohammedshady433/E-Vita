@@ -1,4 +1,5 @@
-﻿using E_Vita.Interfaces.Repository;
+﻿using E_Vita.Controllers;
+using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -61,7 +62,7 @@ namespace E_Vita
                 MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (appointmentDate <= DateTime.Now)
+            if (appointmentDate < DateTime.Now)
             {
                 MessageBox.Show("Please select a valid date.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -80,6 +81,17 @@ namespace E_Vita
             newappointment.Time = appointmentTime;
 
             await _Appointment.AddAsync(newappointment);
+            //send the whatsapp message
+            var service = new WhatsAppService("https://4e256m.api.infobip.com", "81dec6f8ef99412607ab0417b0f3c374-f868116d-2aa7-42ff-a827-be3675aa1e40");
+
+            await service.SendTemplateMessageWithName(
+                "447860099299",               // Sender's WhatsApp number
+                "201116119651",               // Recipient's WhatsApp number
+                "reservation_confirmation",   // Template name (must match your Infobip template)
+                "en",                         // Language code
+                "Mohammed",                   // Value for {{1}}
+                "12th January 2024, 3:00 PM"  // Value for {{2}}
+            );
             this.Close();
         }
         private async Task<bool> IsAppointmentReserved(DateTime date, string time)

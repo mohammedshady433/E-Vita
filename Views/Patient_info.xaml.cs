@@ -20,6 +20,8 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
 using System.Linq;
+using PdfiumViewer;
+using E_Vita.Controllers;
 
 namespace E_Vita.Views
 {
@@ -277,6 +279,183 @@ namespace E_Vita.Views
                 MessageBox.Show($"An error occurred while saving the image: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-    }
 
-}
+        private void UploadPDFButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "Image and PDF Files (*.bmp;*.jpg;*.jpeg;*.png;*.pdf)|*.bmp;*.jpg;*.jpeg;*.png;*.pdf"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                // Check file extension to determine type
+                string fileExtension = System.IO.Path.GetExtension(filePath).ToLower();
+
+                if (fileExtension == ".pdf")
+                {
+                    // Handle PDF files
+                    using (var document = PdfDocument.Load(filePath))
+                    {
+                        var singlepage = new OCR();
+                        singlepage.ProcessPdfWithOCR(filePath, _patient.Patient_ID);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid file type. Please select a PDF file.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+        }
+
+        private async void SaveandPrintBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+                List<string> radiologies = new List<string>();
+                List<string> labtests = new List<string>();
+
+                // Get the medications from the TextBoxes
+                string medications = string.Join(", ", _medicationTextBoxes.Select(tb => tb.Text));
+                // Create a new Medical_Record object
+                Medical_Record medicalRecord = new Medical_Record();
+
+                medicalRecord.Date = DateTime.Now;
+                medicalRecord.Future_Plan = Future_planText.Text;
+                medicalRecord.Disease = Local_examinationText.Text;
+                medicalRecord.Medication = medications;
+                medicalRecord.Surgery = SurgeriesText.Text;
+                medicalRecord.Family_History = Family_HistoryText.Text;
+                medicalRecord.reason_for_visit = ReasonForVisitTextBox.Text;
+                medicalRecord.Patient_ID = _patient.Patient_ID;
+                if (X_Ray_checkBox.IsChecked == true)
+                {
+                    radiologies.Add("X-Ray");
+                }
+                if (MRI_checkBox.IsChecked == true)
+                {
+                    radiologies.Add("MRI");
+                }
+                if (CT_checkBox.IsChecked == true)
+                {
+                    radiologies.Add("CT");
+                }
+                if (US_checkBox.IsChecked == true)
+                {
+                    radiologies.Add("Ultrasound");
+                }
+                if (other_checkBox.IsChecked == true)
+                {
+                    radiologies.Add(RadiologyTextBox.Text);
+                }
+
+                // Get the lab tests from the CheckBoxes
+                if (Hep_checkBox.IsChecked == true)
+                {
+                    labtests.Add("Hepatitis B/C");
+                }
+                if (CBC_checkBox.IsChecked == true)
+                {
+                    labtests.Add("CBC");
+                }
+                if (Proth_checkBox.IsChecked == true)
+                {
+                    labtests.Add("Proth Time and Content");
+                }
+                if (Urea_checkBox.IsChecked == true)
+                {
+                    labtests.Add("Blood Urea and Creatine");
+                }
+                if (SGOT_checkBox.IsChecked == true)
+                {
+                    labtests.Add("SGPT and SGOT");
+                }
+                if (Fasting_checkBox.IsChecked == true)
+                {
+                    labtests.Add("Fasting pp blood");
+                }
+                if (Glyco_checkBox.IsChecked == true)
+                {
+                    labtests.Add("Glycodytit Hb");
+                }
+                if (Other_Bloodtests_checkBox.IsChecked == true)
+                {
+                    labtests.Add(BloodTestTextBox.Text);
+                }
+
+                // Get the radiologies from the CheckBoxes
+                string radiologiesstr = string.Join(", ", radiologies);
+                //Get the lab tests from the CheckBoxes
+                string labtestsstr = string.Join(", ", labtests);
+
+                medicalRecord.Radiology = radiologiesstr;
+                medicalRecord.Lab = labtestsstr;
+
+                // Add the medical record to the database
+                await _MedicalRepository.AddAsync(medicalRecord);
+                // Display a success message
+                MessageBox.Show("Medical record saved successfully.");
+
+                // Create a PDF document
+                using (var document = new PdfSharp.Pdf.PdfDocument())
+                {
+                    var page = document.AddPage();
+                    var gfx = PdfSharp.Drawing.XGraphics.FromPdfPage(page);
+                    var font = new PdfSharp.Drawing.XFont("Verdana", 14);
+
+                    // Load the logo image
+                    var logoPath = "D:\\NU\\fifth semester\\Clinical\\E-Vita\\Assets\\Horizontal dark logo.png"; // Replace with the actual path to your logo image
+                    var logo = PdfSharp.Drawing.XImage.FromFile(logoPath);
+                    // Draw the logo image on the PDF
+                gfx.DrawImage(logo, 20, 20, 100, 50);
+
+                // Add content to the PDF
+                gfx.DrawString("Prescription", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XRect(0, 80, page.Width, page.Height), PdfSharp.Drawing.XStringFormats.TopCenter);
+                gfx.DrawString("Patient Name:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 120));
+                gfx.DrawString($"{_patient.name}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 120));
+                gfx.DrawString($"Date: {medicalRecord.Date}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 140));
+                gfx.DrawString($"Future Plan:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 160));
+                gfx.DrawString($"{medicalRecord.Future_Plan}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 160));
+                gfx.DrawString($"Disease:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 180));
+                gfx.DrawString($"{medicalRecord.Disease}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 180));
+                gfx.DrawString($"Medication:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 200));
+                gfx.DrawString($"{medicalRecord.Medication}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 200));
+                gfx.DrawString($"Surgery:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 220));
+                gfx.DrawString($"{medicalRecord.Surgery}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 220));
+                gfx.DrawString($"Radiology:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 240));
+                gfx.DrawString($"{medicalRecord.Radiology}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 240));
+                gfx.DrawString($"Lab tests:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 260));
+                gfx.DrawString($"{medicalRecord.Lab}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 260));
+                gfx.DrawString($"Family History:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 280));
+                gfx.DrawString($"{medicalRecord.Family_History}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 280));
+                gfx.DrawString($"Reason for Visit:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 300));
+                gfx.DrawString($"{medicalRecord.reason_for_visit}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 300));
+                gfx.DrawString($"Patient ID:", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(20, 320));
+                gfx.DrawString($"{medicalRecord.Patient_ID}", font, PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(150, 320));
+
+                // Draw border
+                var borderPen = new PdfSharp.Drawing.XPen(PdfSharp.Drawing.XColors.Black, 1);
+                gfx.DrawRectangle(borderPen, 10, 10, page.Width - 20, page.Height - 20);
+
+                // Use SaveFileDialog to let the user choose the location
+                var saveFileDialog = new Microsoft.Win32.SaveFileDialog
+                {
+                    FileName = $"MedicalRecord_{medicalRecord.Patient_ID}_{DateTime.Now:yyyyMMddHHmmss}.pdf",
+                    Filter = "PDF files (*.pdf)|*.pdf"
+                };
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    document.Save(saveFileDialog.FileName);
+                    MessageBox.Show($"PDF saved successfully as {saveFileDialog.FileName}.");
+                }
+                }
+            }
+        }
+    }
+    
+
+

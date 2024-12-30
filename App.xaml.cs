@@ -41,6 +41,7 @@ namespace E_Vita
             services.AddScoped<IRepository<Reset_Pass_Log>, Reset_PassRepo>();
             services.AddScoped<IRepository<Medical_Record>, MedicalRecordRepo>();
             services.AddScoped<IRepository<LabTest>, LabTestRepo>();
+            services.AddScoped<IRepository<OCRPdfRead>, OCRPdfReadRepo>();
 
             // Register DbContext, services, and views
             services.AddSingleton<MainWindow>();

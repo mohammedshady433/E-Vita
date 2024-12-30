@@ -41,7 +41,7 @@
 
             <!-- logo -->
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250" Margin="10,-40,0,0"  Panel.ZIndex="1">
-                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" HorizontalAlignment="Left" Height="250" Margin="0" Width="250"/>
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\Horizontal dark logo.png" HorizontalAlignment="Left" Height="250" Margin="0" Width="250"/>
             </StackPanel>
 
             <!-- HEAD-->
@@ -94,7 +94,7 @@
                     <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" Orientation="Vertical" Margin="10">
                         <!-- Subjective Section -->
                         <TextBlock Text="C/O (S):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
-                        <TextBox x:Name="COSText" Width="Auto" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
+                        <TextBox x:Name="COSText" Width="1500" Height="50" Margin="5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#FFBBE1FA"/>
 
                         <!-- Objective Section -->
                         <TextBlock Text="General examination (O):" FontSize="16" FontWeight="Bold" Margin="5" Foreground="#FFBBE1FA"/>
@@ -178,6 +178,11 @@
                         Grid.Row="1" Grid.Column="1" 
                         Margin="10" Width="150" Height="40" 
                         Click="UploadImageButton_Click" Background="#FFBBE1FA" />
+                        <Button Content="Upload PDF" 
+                        Grid.Row="1" Grid.Column="1" 
+                        Margin="10" Width="150" Height="40" 
+                        Click="UploadPDFButton_Click" Background="#FFBBE1FA" />
+
                     </StackPanel>
 
                     <!-- Blood Test Section -->
@@ -210,12 +215,18 @@
                         Grid.Row="1" Grid.Column="1" 
                         Margin="10" Width="150" Height="40" 
                         Click="UploadImageButton_Click" Background="#FFBBE1FA" />
+                        
+                        <Button Content="Upload PDF" 
+                        Grid.Row="1" Grid.Column="1" 
+                        Margin="10" Width="150" Height="40" 
+                        Click="UploadPDFButton_Click" Background="#FFBBE1FA" />
+                        
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="2" Grid.Row="5" Grid.RowSpan="1"  VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button x:Name="SaveBtn" Click="SaveButton_Click" Width="200" Height="40" Margin="90,20,0,0"  Background="#222831" BorderThickness="1" Foreground="White" Content="Save" FontSize="30" FontWeight="Bold" />
-                <Button x:Name="SaveandPrintBtn" Width="300" Height="40" Margin="90,30,0,0"  Background="#222831" BorderThickness="1" Foreground="White" Content="Save and print" FontSize="30" FontWeight="Bold" />
+                <Button x:Name="SaveandPrintBtn" Width="300" Height="40" Margin="90,30,0,0"  Background="#222831" BorderThickness="1" Foreground="White" Content="Save and print" FontSize="30" FontWeight="Bold" Click="SaveandPrintBtn_Click" />
 
             </StackPanel>
         </Grid>

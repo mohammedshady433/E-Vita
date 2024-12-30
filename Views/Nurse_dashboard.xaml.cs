@@ -1,4 +1,5 @@
-﻿using E_Vita.Interfaces.Repository;
+﻿using E_Vita.Controllers;
+using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -172,7 +173,7 @@ namespace E_Vita
         {
             if (sender is Button button && button.Tag is DateTime selectedDate)
             {
-                MessageBox.Show($"Clicked on {selectedDate:MMMM dd, yyyy}");
+                //MessageBox.Show($"Clicked on {selectedDate:MMMM dd, yyyy}");
                 LoadAppointmentsForDate(selectedDate);
 
             }

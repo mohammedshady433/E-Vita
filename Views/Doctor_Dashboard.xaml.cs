@@ -224,7 +224,7 @@ namespace E_Vita
 
         private void Images_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Images button clicked.");
+            this.NavigationService.Navigate(new Labimages());
         }
 
         private void Finance_Click(object sender, RoutedEventArgs e)

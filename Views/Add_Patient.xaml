@@ -44,7 +44,7 @@
             </Grid.RowDefinitions>
             <!-- logo -->
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250"  Panel.ZIndex="1">
-                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\E-Vita\Assets\E-Vita bright logo horizontal.png" HorizontalAlignment="Left" Height="250" Margin="2,-50,0,0" Width="250"/>
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\E-Vita bright logo horizontal.png" HorizontalAlignment="Left" Height="250" Margin="2,-50,0,0" Width="250"/>
             </StackPanel>
 
             <!-- HEAD-->

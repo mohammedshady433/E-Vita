@@ -186,6 +186,41 @@ namespace E_Vita.Migrations
                     b.ToTable("Nurses");
                 });
 
+            modelBuilder.Entity("E_Vita.Models.OCRPdfRead", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ExtractedText")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<byte[]>("FileData")
+                        .IsRequired()
+                        .HasColumnType("longblob");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UploadedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("OCRPdfReads");
+                });
+
             modelBuilder.Entity("E_Vita.Models.Patient", b =>
                 {
                     b.Property<int>("Patient_ID")
@@ -339,6 +374,15 @@ namespace E_Vita.Migrations
                         .IsRequired();
 
                     b.Navigation("doctor_id");
+                });
+
+            modelBuilder.Entity("E_Vita.Models.OCRPdfRead", b =>
+                {
+                    b.HasOne("E_Vita.Models.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("E_Vita.Models.Patient_Doctor_Nurse", b =>

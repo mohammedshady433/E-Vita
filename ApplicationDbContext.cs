@@ -25,7 +25,7 @@ namespace E_Vita
         public DbSet<Models.Nurse> Nurses { get; set; }
         public DbSet<Models.Appointment> Appointments_DB { get; set; }
         public DbSet<Models.LabTest> LabTests { get; set; }
-
+        public DbSet<Models.OCRPdfRead> OCRPdfReads { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,12 @@ namespace E_Vita
 
             modelBuilder.Entity<LabTest>()
                 .HasKey(l => l.Id);
-                
+
+            modelBuilder.Entity<OCRPdfRead>()
+                .HasOne(o => o.Patient)
+                .WithMany() // No navigation property on Patient
+                .HasForeignKey(o => o.PatientId);
+
         }
 
 
