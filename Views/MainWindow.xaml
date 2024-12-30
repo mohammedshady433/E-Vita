@@ -26,10 +26,10 @@
             </Border.BorderBrush>
             <StackPanel>
                 <!-- Logo -->
-                <Image  Width="219" Height="78" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                <Image Source="/Assets/E-Vita logo-01.png" Margin="0,0,0,10" HorizontalAlignment="Center" Height="168" Width="220"/>
 
                 <!-- Welcome Text -->
-                <TextBlock Text="Welcome Back!" FontSize="24" FontFamily="Qatar2022 Arabic" FontWeight="Heavy" Foreground="#991130" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <TextBlock Text="Welcome Back!" FontSize="24" FontFamily="Qatar2022 Arabic" FontWeight="Heavy" Foreground="#991130" HorizontalAlignment="Center" />
                 <TextBlock Text="Please login to continue" FontSize="18" FontFamily="Qatar2022 Arabic" FontWeight="Bold" Foreground="#991130" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
                 <!-- Username Field -->
@@ -85,7 +85,7 @@
                 </StackPanel>
             </StackPanel>
         </Border>
-        
+
         <!-- Custom Navigation Bar -->
         <Grid VerticalAlignment="Top" Background="#34111e" Height="30">
             <Grid.ColumnDefinitions>
