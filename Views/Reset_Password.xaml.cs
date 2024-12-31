@@ -44,11 +44,31 @@ namespace E_Vita
         {
             this.Close();
         }
+        private bool ValidatePassword(string password)
+        {
+            // Check for at least 4 letters
+            int letterCount = password.Count(char.IsLetter);
+            // Check for at least 4 numbers
+            int numberCount = password.Count(char.IsDigit);
+            // Check for at least 1 symbol
+            int symbolCount = password.Count(ch => !char.IsLetterOrDigit(ch));
+
+            return letterCount >= 4 && numberCount >= 4 && symbolCount >= 1;
+        }
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string pass = pass_txt.Password;
             string user = user_txt.Text;
             string adminpass = txtAdmin.Password;
+
+            if (!ValidatePassword(pass))
+            {
+                MessageBox.Show("Password must contain at least 4 letters, 4 numbers, and 1 symbol.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                pass_txt.Clear();
+                pass_txt.Focus();
+                return;
+            }
+
             int iddoc = int.Parse(ID_txt.Text);
             int idnurse = int.Parse(ID_txt.Text);
             int adminid = int.Parse(ID_txt.Text);
@@ -63,7 +83,7 @@ namespace E_Vita
                 {
                     Nursevar.password = pass;
                     _NurseRepository.UpdateAsync(Nursevar, idnurse);
-                    MessageBox.Show("Updated", "Confirm", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Password updated successfully.", "Confirm", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
 
                 }
