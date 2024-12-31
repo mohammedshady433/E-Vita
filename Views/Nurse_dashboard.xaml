@@ -48,7 +48,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <!--logo-->
-            <Image Source="/Assets/E-Vita logo-01.png" Height="143" Margin="0,15,0,20" Width="265"/>
+            <Image Source="/Assets/E-Vita logo-01.png" Height="143" Margin="0,40,0,20" Width="265"/>
             <Button Content="Book Appointment" Click="BookAppointment_Click" FontFamily="Qatar2022 Arabic" FontSize="14" Padding="10"
                     Background="#e1b184" Foreground="#891739" Width="166" Height="46" Margin="5,150,5,10">
                 <Button.Template>
