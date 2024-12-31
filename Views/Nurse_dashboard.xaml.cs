@@ -1,5 +1,4 @@
-﻿using E_Vita.Controllers;
-using E_Vita.Interfaces.Repository;
+﻿using E_Vita.Interfaces.Repository;
 using E_Vita.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -94,7 +93,7 @@ namespace E_Vita
                     FontWeight = FontWeights.Bold,
                     TextAlignment = TextAlignment.Center,
                     Margin = new Thickness(5),
-                    Foreground = new BrushConverter().ConvertFrom("#0F4C75") as Brush
+                    Foreground = new BrushConverter().ConvertFrom("#891739") as Brush
                 });
             }
 
@@ -126,7 +125,7 @@ namespace E_Vita
                 // Highlight today's date
                 if (currentDay.Date == DateTime.Now.Date)
                 {
-                    dayButton.Background = (Brush)new BrushConverter().ConvertFrom("#BBE1FA") ?? Brushes.Transparent;
+                    dayButton.Background = (Brush)new BrushConverter().ConvertFrom("#891739") ?? Brushes.Transparent;
                     dayButton.FontWeight = FontWeights.Bold;
                 }
 

@@ -182,7 +182,7 @@ namespace E_Vita.Views
                     Width = 300,
                     Height = 30,
                     FontSize = 16,
-                    Background = (Brush)new BrushConverter().ConvertFromString("#FFBBE1FA"),
+                    Background = (Brush)new BrushConverter().ConvertFromString("#e1b184"),
                     Text = medWindow.SelectedDrug.Tradename // Set the TextBox text to the selected drug's tradename
                 };
 

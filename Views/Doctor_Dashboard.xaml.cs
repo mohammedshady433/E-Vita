@@ -229,7 +229,7 @@ namespace E_Vita
 
         private void Finance_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Finance button clicked.");
+            this.NavigationService.Navigate(new Finance());
         }
 
         private void PatientDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

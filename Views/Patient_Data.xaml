@@ -13,9 +13,9 @@
             <!-- Main Background -->
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#BBE1FA" Offset="0"/>
-                    <GradientStop Color="#BBE1FA" Offset="0.5"/>
-                    <GradientStop Color="#0f4075" Offset="1"/>
+                    <GradientStop Color="#991130" Offset="0"/>
+                    <GradientStop Color="#991130" Offset="0.5"/>
+                    <GradientStop Color="#991130" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
@@ -44,32 +44,32 @@
             </Grid.RowDefinitions>
 
             <!-- logo -->
-            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250" Margin="10,-40,0,0"  Panel.ZIndex="1">
-                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\Horizontal dark logo.png" HorizontalAlignment="Left" Height="250" Margin="0" Width="250"/>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250" Margin="10,-10,0,0"  Panel.ZIndex="1">
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\E-Vita logo-01.png" HorizontalAlignment="Left" Height="150" Margin="0" Width="200"/>
             </StackPanel>
 
             <!-- HEAD-->
             <StackPanel Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="3" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Patient Data" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#0f4075" Background="Transparent"  />
+                <Label Content="Patient Data" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Qatar2022 Arabic" Foreground="#e1b184" Background="Transparent"  />
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBox x:Name="SearchForPatientTextBox" Width="300" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <Button Click="SearchButton_Click" Content="Search" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="#0f4075" Background="Transparent" BorderThickness="0"/>
+                <Button Click="SearchButton_Click" Content="Search" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="black" Background="Transparent" BorderThickness="0"/>
 
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Top"  >
-                <TextBlock Text="Patient Name:" Foreground="#0f4075" FontSize="24" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                <TextBlock Text="Patient Name:" Foreground="black" FontSize="24" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Margin="5"/>
                 <TextBox x:Name="NameTextBlock" Grid.Row="2" Grid.Column="1" Width="250" Height="30" Margin="5" Background="white" IsReadOnly="True"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="14,0,0,0" >
                 <DataGrid Name="PatientHistoryDataGrid" Grid.Row="4" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="540" Width="1500" VerticalScrollBarVisibility="Auto" Margin="5"   RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
                     <DataGrid.Background>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                            <GradientStop Color="#0f4075" Offset="1"/>
-                            <GradientStop Color="#0f4075" Offset="0"/>
-                            <GradientStop Color="#0f4075" Offset="0.5"/>
+                            <GradientStop Color="#e1b184" Offset="1"/>
+                            <GradientStop Color="#e1b184" Offset="0"/>
+                            <GradientStop Color="#e1b184" Offset="0.5"/>
                         </LinearGradientBrush>
                     </DataGrid.Background>
                     <DataGrid.Columns>
@@ -114,7 +114,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        
+
                         <DataGridTemplateColumn Header="Family History"  Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -126,13 +126,13 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-          
-            <Frame x:Name="search_by_id" NavigationUIVisibility="Hidden" Margin="0,30,0,0" Grid.Row="0" Grid.RowSpan="14" Grid.Column="0" Grid.ColumnSpan="6"/>
+
+            <Frame x:Name="search_by_id" NavigationUIVisibility="Hidden" Margin="-2,30,2,0" Grid.Row="0" Grid.RowSpan="14" Grid.Column="0" Grid.ColumnSpan="6"/>
 
         </Grid>
     </ScrollViewer>
-</Page>                
-    <!--syncfusion:CalendarEdit Width="600" Height="600" 
+</Page>
+<!--syncfusion:CalendarEdit Width="600" Height="600" 
                                           Background="#BBE1FA" BorderBrush="#0F4C75" 
                                           BorderThickness="2" Padding="10"
                                           FontFamily="Segoe UI" FontSize="16"
