@@ -14,9 +14,9 @@
             <!-- Main Background -->
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0f4075" Offset="0"/>
-                    <GradientStop Color="#BBE1FA" Offset="0.5"/>
-                    <GradientStop Color="#0f4075" Offset="1"/>
+                    <GradientStop Color="#991130" Offset="0"/>
+                    <GradientStop Color="#991130" Offset="0.5"/>
+                    <GradientStop Color="#991130" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
@@ -43,79 +43,79 @@
 
             </Grid.RowDefinitions>
             <!-- logo -->
-            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="250" VerticalAlignment="Top" Width="250"  Panel.ZIndex="1">
-                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\E-Vita bright logo horizontal.png" HorizontalAlignment="Left" Height="250" Margin="2,-50,0,0" Width="250"/>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200"  Panel.ZIndex="1">
+                <Image Source="D:\NU\fifth semester\Clinical\E-Vita\Assets\E-Vita logo-01.png" HorizontalAlignment="Left" Height="150" Margin="2,0,0,0" Width="150"/>
             </StackPanel>
 
             <!-- HEAD-->
             <StackPanel Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="3" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Add Patient" Height="140" Width="700" FontSize="70" FontWeight="Bold" FontFamily="Cooper Black" Foreground="#0f4075" Background="Transparent" Margin="5,52,0,0" />
+                <Label Content="Add Patient" Height="140" Width="700"  FontSize="70" FontWeight="Bold" FontFamily="Qatar2022 Arabic" Foreground="#e1b184" Background="Transparent" Margin="5,52,0,0" />
             </StackPanel>
 
             <Border CornerRadius="20" Width="700" Height="800" Padding="30" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="4">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                        <GradientStop Color="#BBE1FA" Offset="1"/>
-                        <GradientStop Color="#0f4075" Offset="0.1"/>
-                        <GradientStop Color="#0f4075" Offset="0.2"/>
+                        <GradientStop Color="#e1b184" Offset="1"/>
+                        <GradientStop Color="#e1b184" Offset="0.1"/>
+                        <GradientStop Color="#e1b184" Offset="0.2"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel>
                     <!-- Name -->
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Name" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                        <TextBox x:Name="Name_txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="150,0,0,29"/>
+                        <TextBlock Text="Name" FontFamily="Qatar2022 Arabic" FontSize="16" FontWeight="SemiBold" Foreground="#991130" Margin="0,0,0,5"/>
+                        <TextBox x:Name="Name_txt" Width="300" Height="40" Background="#f8f0e5" FontFamily="Qatar2022 Arabic" FontWeight="Heavy" Foreground="#991130" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="150,0,0,29"/>
                     </StackPanel>
 
                     <!-- ID Field -->
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="ID " FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                        <TextBox x:Name="ID_Txt" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="172,0,0,29"/>
+                        <TextBlock Text="ID " FontFamily="Qatar2022 Arabic" FontSize="16" FontWeight="SemiBold" Foreground="#991130" Margin="0,0,0,5"/>
+                        <TextBox x:Name="ID_Txt" Width="300" Height="40" Background="#f8f0e5" Foreground="#991130" FontFamily="Qatar2022 Arabic" FontWeight="Heavy"  FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="172,0,0,29"/>
                     </StackPanel>
 
                     <!-- Phone number Field -->
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Phone number" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                        <TextBox x:Name="Phone_Number" Width="300" Height="40" Background="#3282B8" Foreground="White" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="88,0,0,20"/>
+                        <TextBlock Text="Phone number" FontFamily="Qatar2022 Arabic" FontSize="16" FontWeight="SemiBold" Foreground="#991130" Margin="0,0,0,5"/>
+                        <TextBox x:Name="Phone_Number" Width="300" Height="40" Background="#f8f0e5" FontFamily="Qatar2022 Arabic" FontWeight="Heavy"  Foreground="#991130" FontSize="14" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="88,0,0,20"/>
                     </StackPanel>
                     <!-- Gender Field -->
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Gender" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
-                        <CheckBox x:Name="Malecheck" Content="Male" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBADEF1"/>
-                        <CheckBox x:Name="Femalecheck" Content="Female" Margin="150,0,0,20" FontSize="18" Background="#FF3282B8" Foreground="#FFBBE1FA"/>
+                        <TextBlock Text="Gender" FontFamily="Qatar2022 Arabic" FontSize="16" FontWeight="SemiBold" Foreground="#991130" Margin="0,0,0,5"/>
+                        <CheckBox x:Name="Malecheck" Content="Male" Margin="150,0,0,20" FontFamily="Qatar2022 Arabic" FontSize="18" Background="white" Foreground="black"/>
+                        <CheckBox x:Name="Femalecheck" Content="Female" Margin="150,0,0,20" FontFamily="Qatar2022 Arabic" FontSize="18" Background="white" Foreground="black"/>
                     </StackPanel>
                     <!-- Date of birth Field -->
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Date_of_birth" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                        <TextBlock Text="Date_of_birth" FontFamily="Qatar2022 Arabic" FontSize="16" FontWeight="SemiBold" Foreground="#991130" Margin="0,0,0,5"/>
                         <DatePicker x:Name="dateofbirth" Margin="100,0,0,20" Background="#FF3282B8" Foreground="#FF133E5B" SelectedDateFormat="Long" Width="296"/>
                     </StackPanel>
                     <!-- Nationality Field -->
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Nationality" FontSize="16" FontWeight="SemiBold" Foreground="#BBE1FA" Margin="0,0,0,5"/>
+                        <TextBlock Text="Nationality" FontFamily="Qatar2022 Arabic" FontSize="16" FontWeight="SemiBold" Foreground="#991130" Margin="0,0,0,5"/>
                         <ComboBox x:Name="NationalitiesComboBox" Width="300" Height="40" Foreground="Black" FontSize="16" Padding="5" BorderBrush="#BBE1FA" BorderThickness="1" Margin="114,0,0,20" Background="#FF3282B8" mah:ControlsHelper.FocusBorderBrush="#FF3282B8"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical" Width="300" Margin="0,20,0,0">
                         <StackPanel.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FFBBE1FA" Offset="1"/>
-                                <GradientStop Color="#0F4C75" Offset="0"/>
+                                <GradientStop Color="#f8f0e5" Offset="1"/>
+                                <GradientStop Color="#f8f0e5" Offset="0"/>
                             </LinearGradientBrush>
                         </StackPanel.Background>
-                        <TextBlock Text="Cronic Diseases And Habits" Foreground="#FFBBE1FA" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
-                        <CheckBox x:Name="Obesity" Content="Obesity" Foreground="#FFBBE1FA" Margin="3"/>
-                        <CheckBox x:Name="Hypertension" Content="Hypertension" Foreground="#FFBBE1FA" Margin="3"/>
-                        <CheckBox x:Name="Hypotension" Content="Hypotension" Foreground="#FFBBE1FA" Margin="3"/>
-                        <CheckBox x:Name="Diabetes" Content="Diabetes Mellitus" Foreground="#FFBBE1FA" Margin="3"/>
-                        <CheckBox x:Name="Smoker" Content="Smoker" Foreground="#FFBBE1FA" Margin="3"/>
+                        <TextBlock Text="Cronic Diseases And Habits" Foreground="#991130" FontFamily="Qatar2022 Arabic" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
+                        <CheckBox x:Name="Obesity" Content="Obesity" FontFamily="Qatar2022 Arabic" Foreground="#991130" Margin="3"/>
+                        <CheckBox x:Name="Hypertension" Content="Hypertension" FontFamily="Qatar2022 Arabic" Foreground="#991130" Margin="3"/>
+                        <CheckBox x:Name="Hypotension" Content="Hypotension" FontFamily="Qatar2022 Arabic" Foreground="#991130" Margin="3"/>
+                        <CheckBox x:Name="Diabetes" Content="Diabetes Mellitus" FontFamily="Qatar2022 Arabic" Foreground="#991130" Margin="3"/>
+                        <CheckBox x:Name="Smoker" Content="Smoker" FontFamily="Qatar2022 Arabic" Foreground="#991130" Margin="3"/>
 
-                        <CheckBox x:Name="Other" Content="Other" Foreground="#FFBBE1FA" Margin="3"/>
-                        <TextBox x:Name="Othertxt" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="#FFBBE1FA"/>
+                        <CheckBox x:Name="Other" Content="Other" Foreground="#991130" Margin="3"/>
+                        <TextBox x:Name="Othertxt" Width="250" Height="50" Margin="5" Foreground="#1B262C" BorderBrush="#BBDEFB" Background="white"/>
                     </StackPanel>
 
                     <!-- Buttons -->
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,50,0,0">
-                        <Button Content="ADD" Width="120" Height="40" Background="#0f4075" Foreground="#BBE1FA" BorderBrush="#BBE1FA" FontSize="16" FontWeight="Bold" Margin="10,0" Click="Addbtn"/>
+                        <Button Content="ADD" Width="120" Height="40" Background="#991130" Foreground="#f8f0e5" BorderBrush="#BBE1FA" FontFamily="Qatar2022 Arabic" FontSize="16" FontWeight="Bold" Margin="10,0" Click="Addbtn"/>
                         <ProgressBar x:Name="LoadingProgressBar" Visibility="Collapsed" Width="120" Height="10" Margin="0,10,0,0" />
                         <TextBlock x:Name="LoadingTextBlock" Text="Loading, please wait..." Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
                     </StackPanel>

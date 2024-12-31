@@ -48,7 +48,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <!--logo-->
-            <Image Source="/Assets/E-Vita logo-01.png" Height="143" Margin="0,15,0,20" Width="265"/>
+            <Image Source="/Assets/E-Vita logo-01.png" Height="143" Margin="0,40,0,20" Width="265"/>
             <Button Content="Book Appointment" Click="BookAppointment_Click" FontFamily="Qatar2022 Arabic" FontSize="14" Padding="10"
                     Background="#e1b184" Foreground="#891739" Width="166" Height="46" Margin="5,150,5,10">
                 <Button.Template>
@@ -60,7 +60,7 @@
                 </Button.Template>
             </Button>
             <Button Content="Add Patient" Click="AddPatient_Click" FontFamily="Qatar2022 Arabic" FontSize="14" Padding="10"
-                    Background="#e1b184" Foreground="#891739" Width="166" Height="46" Margin="5,10,5,10">
+                    Background="#e1b184" Foreground="#891739" Width="166" Height="46" Margin="5,50,5,10">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Width="166" Height="46" CornerRadius="20" Background="{TemplateBinding Background}">
@@ -71,48 +71,37 @@
             </Button>
         </StackPanel>
 
-        <!-- Calendar -->
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Background="#f9dcc0">
-            <Border Background="#891739" CornerRadius="10" BorderBrush="#e1b184" BorderThickness="2" Margin="10">
-                <Grid>
-                    <UniformGrid x:Name="CalendarGrid" Rows="7" Columns="7" Margin="10">
-                        <!-- Days and buttons populated dynamically in code-behind -->
-                    </UniformGrid>
-                    <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                        <Button Content="◀" Width="30" Height="30" Background="#e1b184" Foreground="#891739"
-                                FontSize="16" FontWeight="Bold" BorderThickness="0"
-                                Click="PreviousMonth_Click">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="30" Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                        <ComboBox x:Name="YearSelector" Width="200" Height="30" SelectionChanged="YearSelector_SelectionChanged" Margin="10,0"/>
-                        <ComboBox x:Name="MonthSelector" Width="200" Height="30" SelectionChanged="MonthSelector_SelectionChanged" Margin="10,0"/>
-                        <Button Content="▶" Width="30" Height="30" Background="#e1b184" Foreground="#891739"
-                                FontSize="16" FontWeight="Bold" BorderThickness="0"
-                                Click="NextMonth_Click">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="30" Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                    </StackPanel>
-                </Grid>
-            </Border>
-        </StackPanel>
+        <!-- Schedule -->
+        <Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="3" Background="#f9dcc0" CornerRadius="10" Margin="10">
+            <Grid>
+                <UniformGrid x:Name="CalendarGrid" Rows="7" Columns="7" Margin="10">
+                    <!-- Days and buttons will be populated dynamically in code-behind -->
+                </UniformGrid>
+
+                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Button Content="◀" Width="30" Height="30" Background="#e1b184" Foreground="#891739"
+                                    FontSize="16" FontWeight="Bold" BorderThickness="0"
+                                    Click="PreviousMonth_Click" />
+                    <ComboBox x:Name="YearSelector" Width="150" Height="30" SelectionChanged="YearSelector_SelectionChanged" Margin="10,0">
+                        <!-- Populate years dynamically in code-behind -->
+                    </ComboBox>
+                    <ComboBox x:Name="MonthSelector" Width="200" Height="30" SelectionChanged="MonthSelector_SelectionChanged" Margin="10,0">
+                        <!-- Populate months dynamically in code-behind -->
+                    </ComboBox>
+                    <Button Content="▶" Width="30" Height="30" Background="#e1b184" Foreground="#891739"
+                                    FontSize="16" FontWeight="Bold" BorderThickness="0"
+                                    Click="NextMonth_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!-- Schedule -->
+       
         <StackPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Margin="4,20,10,2" Grid.RowSpan="5">
-            <ListBox x:Name="ScheduleList" Height="600" SelectionChanged="ScheduleList_SelectionChanged" Background="#FF0F4C75" BorderBrush="#FFBBE1FA">
+            <ListBox x:Name="ScheduleList" Height="600" SelectionChanged="ScheduleList_SelectionChanged" Background="#f9dcc0" BorderBrush="#f9dcc0">
                 <ListBox BorderBrush="#f9dcc0" Background="#f9dcc0">
-                    <DataGrid x:Name="ScheduleDataGrid" Grid.Column="1" Margin="0" AutoGenerateColumns="False" Height="580" Width="695" Background="#e1b184" BorderBrush="#FFBBE1FA"  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
+                    <DataGrid x:Name="ScheduleDataGrid" Grid.Column="1" Margin="0" AutoGenerateColumns="False" Height="580" Width="624" Background="#e1b184" BorderBrush="#FFBBE1FA"  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}" >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Time" Binding="{Binding Time }" Width="*"/>
+                            <DataGridTextColumn Header="Time" Binding="{Binding Time }" Width="*" />
                             <DataGridTextColumn Header="Patient Name" Binding="{Binding Patient_appointment.name}" Width="*"/>
                             <DataGridTextColumn Header="Patient Phone" Binding="{Binding Patient_appointment.contact}" Width="*"/>
                             <DataGridTextColumn Header="Patient ID" Binding="{Binding Patient_appointment.Patient_ID}" Width="*"/>

@@ -62,7 +62,7 @@ namespace E_Vita
                 MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (appointmentDate < DateTime.Now)
+            if (appointmentDate.Value.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Please select a valid date.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
