@@ -407,7 +407,7 @@ namespace E_Vita.Views
                     var font = new PdfSharp.Drawing.XFont("Verdana", 14);
 
                     // Load the logo image
-                    var logoPath = "D:\\NU\\fifth semester\\Clinical\\E-Vita\\Assets\\Horizontal dark logo.png"; // Replace with the actual path to your logo image
+                    var logoPath = "D:\\NU\\fifth semester\\Clinical\\E-Vita\\Assets\\E-Vita logo-01.png"; // Replace with the actual path to your logo image
                     var logo = PdfSharp.Drawing.XImage.FromFile(logoPath);
                     // Draw the logo image on the PDF
                 gfx.DrawImage(logo, 20, 20, 100, 50);
