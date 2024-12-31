@@ -49,7 +49,7 @@
             </StackPanel.Background>
             <!--logo-->
             <Image Source="/Assets/E-Vita logo-01.png" Height="143" Margin="0,15,0,20" Width="265"/>
-            <Button Content="View Patients Data" Click="ViewPatientsData_Click" FontFamily="Qatar2022 Arabic" FontSize="14" Padding="10"
+            <Button Content="Book Appointment" Click="BookAppointment_Click" FontFamily="Qatar2022 Arabic" FontSize="14" Padding="10"
                     Background="#e1b184" Foreground="#891739" Width="166" Height="46" Margin="5,150,5,10">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
@@ -107,19 +107,20 @@
                 </Grid>
             </Border>
         </StackPanel>
-
-        <!-- Schedule -->
-        <StackPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Margin="4,20,20,2" Grid.RowSpan="5">
-            <ListBox x:Name="ScheduleList" Height="628" SelectionChanged="ScheduleList_SelectionChanged" Background="#e1b184" BorderBrush="#FFBBE1FA" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                <DataGrid x:Name="ScheduleDataGrid" AutoGenerateColumns="False" Height="608" Width="637" Background="#f9dcc0"
-                          Foreground="#991130" RenderTransformOrigin="0.895,0.479">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="200"/>
-                        <DataGridTextColumn Header="Patient Name" Binding="{Binding PatientName}" Width="200"/>
-                        <DataGridTextColumn Header="Reason" Binding="{Binding Reason}" Width="200"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+        <StackPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Margin="4,20,10,2" Grid.RowSpan="5">
+            <ListBox x:Name="ScheduleList" Height="600" SelectionChanged="ScheduleList_SelectionChanged" Background="#FF0F4C75" BorderBrush="#FFBBE1FA">
+                <ListBox BorderBrush="#f9dcc0" Background="#f9dcc0">
+                    <DataGrid x:Name="ScheduleDataGrid" Grid.Column="1" Margin="0" AutoGenerateColumns="False" Height="580" Width="695" Background="#e1b184" BorderBrush="#FFBBE1FA"  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Time" Binding="{Binding Time }" Width="*"/>
+                            <DataGridTextColumn Header="Patient Name" Binding="{Binding Patient_appointment.name}" Width="*"/>
+                            <DataGridTextColumn Header="Patient Phone" Binding="{Binding Patient_appointment.contact}" Width="*"/>
+                            <DataGridTextColumn Header="Patient ID" Binding="{Binding Patient_appointment.Patient_ID}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ListBox>
             </ListBox>
         </StackPanel>
+
     </Grid>
 </Page>
