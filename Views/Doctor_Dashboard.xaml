@@ -144,7 +144,7 @@
         <!--upcoming Appointments-->
         <StackPanel Background="#891739" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="0,0,5,5">
             <TextBlock Text="Recent and Upcoming Appointments" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="24" FontFamily="Qatar2022 Arabic" FontWeight="Heavy" Foreground="#e1b184" Width="958" Height="39"/>
-            <ListView Background="#f8f0e5" Width="650" Height="560" >
+            <ListView  Background="#f8f0e5" Width="650" Height="560" >
                 <Border Background="#f9dcc0" CornerRadius="10" Margin="10,10,10,10" Padding="10" Height="150"  Width="610">
                     <StackPanel>
                         <TextBlock Text="Dec 18, 2024" FontSize="12" FontFamily="Qatar2022 Arabic" FontWeight="Medium" Foreground="#34111e" HorizontalAlignment="Center"/>
