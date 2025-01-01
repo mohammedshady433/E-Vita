@@ -28,4 +28,4 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Run tests
-      run: dotnet test --no-build --filter FullyQualifiedName~E_Vita.Tests.MainWindowTests --filter FullyQualifiedName~DoctorDashboardTests
+      run: dotnet Tests --no-build --filter FullyQualifiedName~E_Vita.Tests.MainWindowTests --filter FullyQualifiedName~DoctorDashboardTests
