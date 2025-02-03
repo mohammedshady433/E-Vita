@@ -178,7 +178,7 @@
                         Grid.Row="1" Grid.Column="1" 
                         Margin="10" Width="150" Height="40" 
                         Click="UploadImageButton_Click" Background="white" />
-                        <Button Content="Upload Image" 
+                        <Button Content="Upload PDF" 
                         Grid.Row="1" Grid.Column="1" 
                         Margin="10" Width="150" Height="40" 
                         Click="UploadPDFButton_Click" Background="white" />

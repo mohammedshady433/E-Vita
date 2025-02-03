@@ -98,6 +98,9 @@ namespace E_Vita.Controllers
                 };
                 //for loop to delete the images after reading them
                 System.IO.File.Delete(imagePath);
+                // Save the extracted text to a file
+                string textFilePath = $"{outputDirectory}/page_{i}.txt";
+                await System.IO.File.WriteAllTextAsync(textFilePath, text);
 
                 await _OCRrEPO.AddAsync(ocrPdfRead);
             }

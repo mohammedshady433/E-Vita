@@ -82,16 +82,20 @@ namespace E_Vita
 
             await _Appointment.AddAsync(newappointment);
             //send the whatsapp message
-            var service = new WhatsAppService("https://4e256m.api.infobip.com", "81dec6f8ef99412607ab0417b0f3c374-f868116d-2aa7-42ff-a827-be3675aa1e40");
+            try
+            {
+                var whatsappService = new WhatsApp();
+                string patientPhoneNumber = patient_data.contact; // Assuming 'phone' is a property in the Patient model
+                string messageBody = $"Hello {patientName}, your appointment with the doctor is confirmed for {appointmentDate.Value.ToShortDateString()} at {appointmentTime}. Thank you!";
+                whatsappService.SendWhatsAppMessage(patientPhoneNumber, messageBody);
 
-            await service.SendTemplateMessageWithName(
-                "447860099299",               // Sender's WhatsApp number
-                "201116119651",               // Recipient's WhatsApp number
-                "reservation_confirmation",   // Template name (must match your Infobip template)
-                "en",                         // Language code
-                "Mohammed",                   // Value for {{1}}
-                "12th January 2024, 3:00 PM"  // Value for {{2}}
-            );
+                MessageBox.Show("Appointment confirmed, and WhatsApp message sent.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending WhatsApp message: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            //--------------------------
             this.Close();
         }
         private async Task<bool> IsAppointmentReserved(DateTime date, string time)
@@ -101,3 +105,13 @@ namespace E_Vita
         }
     }
 }
+//var service = new WhatsAppService("https://4e256m.api.infobip.com", "81dec6f8ef99412607ab0417b0f3c374-f868116d-2aa7-42ff-a827-be3675aa1e40");
+
+            //await service.SendTemplateMessageWithName(
+            //    "447860099299",               // Sender's WhatsApp number
+            //    "201116119651",               // Recipient's WhatsApp number
+            //    "reservation_confirmation",   // Template name (must match your Infobip template)
+            //    "en",                         // Language code
+            //    "Mohammed",                   // Value for {{1}}
+            //    "12th January 2024, 3:00 PM"  // Value for {{2}}
+            //);

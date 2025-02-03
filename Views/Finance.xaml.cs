@@ -35,7 +35,6 @@ namespace E_Vita
             Debug.WriteLine($"Transaction Count: {Transactions.Count}"); // Debug log
 
             // Bind the Transactions collection to the DataGrid
-            TransactionsDataGrid.ItemsSource = Transactions;
 
             // Debugging DataGrid binding
             Debug.WriteLine($"DataGrid ItemsSource is set.");
