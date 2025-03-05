@@ -19,8 +19,34 @@ namespace E_Vita
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            // Check if we're on the login screen (when MainFrame.Content is null)
+            if (MainFrame.Content == null)
+            {
+                // Don't allow going back from login screen
+                return;
+            }
+
+            // Check if we can go back
             if (MainFrame.CanGoBack)
             {
+                // Get the previous page type
+                var entry = MainFrame.RemoveBackEntry();
+                if (entry != null)
+                {
+                    var prevPageType = entry.Source;
+                    // If trying to navigate back to Doctor or Nurse dashboard after logout, clear navigation instead
+                    if (prevPageType.ToString().Contains("DoctorDashboard") || 
+                        prevPageType.ToString().Contains("Nurse_Dashboard"))
+                    {
+                        // Clear navigation history and stay on login
+                        while (MainFrame.CanGoBack)
+                        {
+                            MainFrame.RemoveBackEntry();
+                        }
+                        MainFrame.Content = null;
+                        return;
+                    }
+                }
                 MainFrame.GoBack();
             }
         }

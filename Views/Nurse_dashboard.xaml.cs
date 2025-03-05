@@ -193,5 +193,25 @@ namespace E_Vita
         {
             MessageBox.Show("Schedule item selected.");
         }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate back to login page
+            var mainWindow = (MainWindow)Window.GetWindow(this);
+            if (mainWindow != null)
+            {
+                // Clear any stored credentials or session data
+                mainWindow.pass_txt.Clear();
+                mainWindow.user_txt.Clear();
+                mainWindow.ID_txt.Clear();
+                
+                // Clear the navigation history and return to the main content
+                while (mainWindow.MainFrame.CanGoBack)
+                {
+                    mainWindow.MainFrame.RemoveBackEntry();
+                }
+                mainWindow.MainFrame.Content = null;
+            }
+        }
     }
 }

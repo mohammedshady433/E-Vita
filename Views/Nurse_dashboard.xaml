@@ -69,6 +69,18 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            <Button Content="" Click="LogOut_Click" FontFamily="Qatar2022 Arabic" FontSize="14" Padding="10" Foreground="#891739" Width="166" Height="46" Margin="5,240,5,10">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Views/rb_5844.png" Stretch="Uniform"/>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="166" Height="46" CornerRadius="20" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
 
         <!-- Schedule -->
@@ -95,7 +107,7 @@
             </Grid>
         </Border>
         <!-- Schedule -->
-       
+
         <StackPanel Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="1" Margin="4,20,10,2" Grid.RowSpan="5">
             <ListBox x:Name="ScheduleList" Height="600" SelectionChanged="ScheduleList_SelectionChanged" Background="#f9dcc0" BorderBrush="#f9dcc0">
                 <ListBox BorderBrush="#f9dcc0" Background="#f9dcc0">
